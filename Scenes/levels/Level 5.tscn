@@ -1,15 +1,18 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Menu.theme" type="Theme" id=1]
 [ext_resource path="res://Prefabs/Environment.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Prefabs/Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Prefabs/Coin.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/tileset.tres" type="TileSet" id=5]
+[ext_resource path="res://Prefabs/Hazard.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scripts/World.gd" type="Script" id=10]
 [ext_resource path="res://Audio/Music/One Man Symphony - Royalty Free Soundtrack Collection - 05 D2 (Reprise).mp3" type="AudioStream" id=13]
 [ext_resource path="res://Scripts/Stack.gd" type="Script" id=15]
 [ext_resource path="res://Scripts/StackController.gd" type="Script" id=16]
 [ext_resource path="res://Prefabs/Block_Box.tscn" type="PackedScene" id=18]
+
+[sub_resource type="GDScript" id=31]
 
 [sub_resource type="Animation" id=28]
 resource_name = "Pan_Down"
@@ -58,6 +61,7 @@ tracks/0/keys = {
 
 [node name="Level 5" type="Node2D"]
 position = Vector2( 177, 140 )
+script = SubResource( 31 )
 __meta__ = {
 "_edit_horizontal_guides_": [  ],
 "_edit_vertical_guides_": [ 398.0 ]
@@ -96,7 +100,7 @@ tile_data = PoolIntArray( -1507340, 7, 0, -1507339, 7, 0, -1507338, 7, 0, -15073
 [node name="StackController" type="Node2D" parent="."]
 position = Vector2( -1, -6 )
 script = ExtResource( 16 )
-stacks = [ NodePath("StackContainer/Stack1"), NodePath("StackContainer/Stack2"), NodePath("StackContainer/Stack3"), NodePath("StackContainer/Stack4") ]
+stacks = [ NodePath("StackContainer/Stack1"), NodePath("StackContainer/Stack2"), NodePath("StackContainer/Stack3") ]
 
 [node name="Label" type="Label" parent="StackController"]
 margin_left = 115.0
@@ -121,11 +125,16 @@ anims/RESET = SubResource( 30 )
 [node name="StackContainer" type="Node2D" parent="StackController"]
 
 [node name="Stack1" type="Node2D" parent="StackController/StackContainer"]
-visible = false
 script = ExtResource( 15 )
 
 [node name="Block_Box4" parent="StackController/StackContainer/Stack1" instance=ExtResource( 18 )]
 position = Vector2( -80, -144 )
+
+[node name="Hazard2" parent="StackController/StackContainer/Stack1/Block_Box4" instance=ExtResource( 6 )]
+position = Vector2( 43, -23 )
+
+[node name="Coin" parent="StackController/StackContainer/Stack1/Block_Box4/Hazard2" instance=ExtResource( 4 )]
+position = Vector2( 22, -10 )
 
 [node name="Block_Box5" parent="StackController/StackContainer/Stack1" instance=ExtResource( 18 )]
 position = Vector2( 16, -144 )
@@ -134,6 +143,7 @@ position = Vector2( 16, -144 )
 position = Vector2( 112, -144 )
 
 [node name="Stack2" type="Node2D" parent="StackController/StackContainer"]
+visible = false
 script = ExtResource( 15 )
 
 [node name="Block_Box2" parent="StackController/StackContainer/Stack2" instance=ExtResource( 18 )]
@@ -187,28 +197,6 @@ position = Vector2( 128, -224 )
 
 [node name="Block_Box11" parent="StackController/StackContainer/Stack3" instance=ExtResource( 18 )]
 position = Vector2( 144, -224 )
-
-[node name="Stack4" type="Node2D" parent="StackController/StackContainer"]
-visible = false
-script = ExtResource( 15 )
-
-[node name="Block_Box" parent="StackController/StackContainer/Stack4" instance=ExtResource( 18 )]
-position = Vector2( -32, -192 )
-
-[node name="Block_Box4" parent="StackController/StackContainer/Stack4" instance=ExtResource( 18 )]
-position = Vector2( -128, -240 )
-
-[node name="Block_Box5" parent="StackController/StackContainer/Stack4" instance=ExtResource( 18 )]
-position = Vector2( -48, -240 )
-
-[node name="Block_Box7" parent="StackController/StackContainer/Stack4" instance=ExtResource( 18 )]
-position = Vector2( -16, -240 )
-
-[node name="Block_Box8" parent="StackController/StackContainer/Stack4" instance=ExtResource( 18 )]
-position = Vector2( 80, -240 )
-
-[node name="Block_Box10" parent="StackController/StackContainer/Stack4" instance=ExtResource( 18 )]
-position = Vector2( 64, -192 )
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
 position = Vector2( -171, 89 )
