@@ -1,15 +1,14 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Menu.theme" type="Theme" id=1]
-[ext_resource path="res://Prefabs/Coin.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Prefabs/Environment.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Prefabs/Player.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Prefabs/Environment.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Prefabs/Coin.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scripts/World.gd" type="Script" id=10]
 [ext_resource path="res://Audio/Music/One Man Symphony - Royalty Free Soundtrack Collection - 05 D2 (Reprise).mp3" type="AudioStream" id=13]
 [ext_resource path="res://Scripts/Stack.gd" type="Script" id=15]
 [ext_resource path="res://Scripts/StackController.gd" type="Script" id=16]
 [ext_resource path="res://Prefabs/Block_Box.tscn" type="PackedScene" id=18]
-[ext_resource path="res://Prefabs/Block-Spring.tscn" type="PackedScene" id=19]
 
 [sub_resource type="Animation" id=28]
 resource_name = "Pan_Down"
@@ -64,7 +63,6 @@ __meta__ = {
 }
 
 [node name="World" type="Node2D" parent="."]
-rotation = 6.28319
 script = ExtResource( 10 )
 __meta__ = {
 "_edit_lock_": true
@@ -73,7 +71,7 @@ use_scene_name = true
 level_name = "Level TEST"
 music = ExtResource( 13 )
 
-[node name="Coin" parent="World" instance=ExtResource( 2 )]
+[node name="Coin" parent="World" instance=ExtResource( 4 )]
 z_index = 1
 
 [node name="Label" type="Label" parent="World"]
@@ -84,7 +82,7 @@ margin_bottom = -92.0
 theme = ExtResource( 1 )
 text = "Level 1"
 
-[node name="Environment" parent="." instance=ExtResource( 4 )]
+[node name="Environment" parent="." instance=ExtResource( 2 )]
 
 [node name="StackController" type="Node2D" parent="."]
 position = Vector2( -1, -6 )
@@ -205,14 +203,3 @@ position = Vector2( 64, -192 )
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
 position = Vector2( -171, 89 )
-
-[node name="Block-Spring" parent="." instance=ExtResource( 19 )]
-position = Vector2( -74, 88 )
-
-[node name="Hint" type="Label" parent="."]
-margin_left = -79.0
-margin_top = -79.0
-margin_right = 36.0
-margin_bottom = -62.0
-theme = ExtResource( 1 )
-text = "ADD HINT HERE"
