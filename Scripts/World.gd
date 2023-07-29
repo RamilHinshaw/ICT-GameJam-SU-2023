@@ -2,7 +2,7 @@ extends Node2D
 
 export var use_scene_name:bool = false
 export var level_name:String = "Level NULL"
-export var music:AudioStream
+#export var music:AudioStream
 
 signal coin_collected
 

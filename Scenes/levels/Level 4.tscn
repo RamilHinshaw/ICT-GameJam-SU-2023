@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Menu.theme" type="Theme" id=1]
 [ext_resource path="res://Prefabs/Environment.tscn" type="PackedScene" id=2]
@@ -11,7 +11,6 @@
 [ext_resource path="res://Prefabs/Block_LineH.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Scripts/World.gd" type="Script" id=10]
 [ext_resource path="res://Prefabs/Block_Lever.tscn" type="PackedScene" id=12]
-[ext_resource path="res://Audio/Music/One Man Symphony - Royalty Free Soundtrack Collection - 05 D2 (Reprise).mp3" type="AudioStream" id=13]
 [ext_resource path="res://Prefabs/Vanishing-Blue-Block.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Scripts/Stack.gd" type="Script" id=15]
 [ext_resource path="res://Scripts/StackController.gd" type="Script" id=16]
@@ -80,7 +79,6 @@ __meta__ = {
 }
 use_scene_name = true
 level_name = "Level TEST"
-music = ExtResource( 13 )
 
 [node name="Label" type="Label" parent="World"]
 margin_left = -184.0

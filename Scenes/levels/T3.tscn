@@ -1,14 +1,14 @@
 [gd_scene load_steps=13 format=2]
 
-[ext_resource path="res://Menu.theme" type="Theme" id=1]
-[ext_resource path="res://Prefabs/Coin.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Prefabs/Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scripts/World.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/StackController.gd" type="Script" id=2]
+[ext_resource path="res://Scripts/Stack.gd" type="Script" id=3]
 [ext_resource path="res://Prefabs/Environment.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Scenes/tileset.tres" type="TileSet" id=5]
-[ext_resource path="res://Scripts/World.gd" type="Script" id=10]
-[ext_resource path="res://Scripts/Stack.gd" type="Script" id=15]
-[ext_resource path="res://Scripts/StackController.gd" type="Script" id=16]
-[ext_resource path="res://Prefabs/Block_Box.tscn" type="PackedScene" id=18]
+[ext_resource path="res://Prefabs/Player.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Prefabs/Block_Box.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Prefabs/Coin.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Menu.theme" type="Theme" id=8]
+[ext_resource path="res://Scenes/tileset.tres" type="TileSet" id=9]
 
 [sub_resource type="Animation" id=28]
 resource_name = "Pan_Down"
@@ -64,14 +64,14 @@ __meta__ = {
 
 [node name="World" type="Node2D" parent="."]
 rotation = 6.28319
-script = ExtResource( 10 )
+script = ExtResource( 1 )
 __meta__ = {
 "_edit_lock_": true
 }
 use_scene_name = true
 level_name = "Level TEST"
 
-[node name="Coin" parent="World" instance=ExtResource( 2 )]
+[node name="Coin" parent="World" instance=ExtResource( 7 )]
 z_index = 1
 
 [node name="Label" type="Label" parent="World"]
@@ -79,12 +79,12 @@ margin_left = -184.0
 margin_top = -106.0
 margin_right = -137.0
 margin_bottom = -92.0
-theme = ExtResource( 1 )
+theme = ExtResource( 8 )
 text = "Level 1"
 
 [node name="TileMap" type="TileMap" parent="World" groups=["Floor"]]
 position = Vector2( -25.0002, 33.9999 )
-tile_set = ExtResource( 5 )
+tile_set = ExtResource( 9 )
 cell_size = Vector2( 16, 16 )
 collision_mask = 0
 format = 1
@@ -97,21 +97,20 @@ __meta__ = {
 
 [node name="StackController" type="Node2D" parent="."]
 position = Vector2( -1, -6 )
-script = ExtResource( 16 )
+script = ExtResource( 2 )
 
 [node name="Label" type="Label" parent="StackController"]
 margin_left = 115.0
 margin_top = -326.0
 margin_right = 193.0
 margin_bottom = -312.0
-theme = ExtResource( 1 )
+theme = ExtResource( 8 )
 text = "Stack: 1/	4"
 
 [node name="Camera2D" type="Camera2D" parent="StackController"]
 position = Vector2( -0.999985, 5 )
 scale = Vector2( 0.984699, 1 )
 offset = Vector2( -0.039, 0 )
-current = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="StackController"]
 playback_speed = 4.0
@@ -122,18 +121,28 @@ anims/RESET = SubResource( 30 )
 [node name="StackContainer" type="Node2D" parent="StackController"]
 
 [node name="Stack1" type="Node2D" parent="StackController/StackContainer"]
-script = ExtResource( 15 )
+script = ExtResource( 3 )
 
-[node name="Block_Box4" parent="StackController/StackContainer/Stack1" instance=ExtResource( 18 )]
+[node name="Block_Box4" parent="StackController/StackContainer/Stack1" instance=ExtResource( 6 )]
 position = Vector2( -2, -136 )
 
-[node name="Player" parent="." instance=ExtResource( 3 )]
+[node name="Player" parent="." instance=ExtResource( 5 )]
 position = Vector2( -167, 89 )
 
 [node name="Hint" type="Label" parent="."]
-margin_left = -79.0
-margin_top = -79.0
-margin_right = 36.0
-margin_bottom = -62.0
-theme = ExtResource( 1 )
-text = "Go to Coin to win level"
+margin_left = -114.0
+margin_top = -93.0
+margin_right = 122.0
+margin_bottom = -76.0
+theme = ExtResource( 8 )
+text = "Press 'X' on controller or keyboard
+to go into Stack Mode"
+
+[node name="Hint2" type="Label" parent="."]
+margin_left = -109.0
+margin_top = -299.0
+margin_right = 142.0
+margin_bottom = -274.0
+theme = ExtResource( 8 )
+text = "Press the Jump button to activate the 
+object causing it to fall"

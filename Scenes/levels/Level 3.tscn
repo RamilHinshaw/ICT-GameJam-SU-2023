@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://Menu.theme" type="Theme" id=1]
 [ext_resource path="res://Prefabs/Environment.tscn" type="PackedScene" id=2]
@@ -12,7 +12,6 @@
 [ext_resource path="res://Scripts/World.gd" type="Script" id=10]
 [ext_resource path="res://Sprites/floor.png" type="Texture" id=11]
 [ext_resource path="res://Sprites/new_sprites/dirt_1.png" type="Texture" id=12]
-[ext_resource path="res://Audio/Music/One Man Symphony - Royalty Free Soundtrack Collection - 05 D2 (Reprise).mp3" type="AudioStream" id=13]
 [ext_resource path="res://Sprites/new_sprites/Grass.png" type="Texture" id=14]
 [ext_resource path="res://Scripts/Stack.gd" type="Script" id=15]
 [ext_resource path="res://Scripts/StackController.gd" type="Script" id=16]
@@ -250,7 +249,6 @@ __meta__ = {
 script = ExtResource( 10 )
 use_scene_name = true
 level_name = "Level TEST"
-music = ExtResource( 13 )
 
 [node name="Coin" parent="World" instance=ExtResource( 4 )]
 position = Vector2( 119, -4 )
