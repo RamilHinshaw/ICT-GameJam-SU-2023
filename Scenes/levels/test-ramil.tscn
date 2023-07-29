@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=2]
+[gd_scene load_steps=38 format=2]
 
 [ext_resource path="res://Prefabs/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Prefabs/Block_Lever.tscn" type="PackedScene" id=2]
@@ -21,8 +21,7 @@
 [ext_resource path="res://Scripts/Hazard.gd" type="Script" id=19]
 [ext_resource path="res://Scripts/Stack.gd" type="Script" id=20]
 [ext_resource path="res://Prefabs/Block_Box.tscn" type="PackedScene" id=21]
-[ext_resource path="res://Sprites/placeholder.png" type="Texture" id=22]
-[ext_resource path="res://Scripts/Spring.gd" type="Script" id=23]
+[ext_resource path="res://Prefabs/Block-Spring.tscn" type="PackedScene" id=22]
 
 [sub_resource type="ConvexPolygonShape2D" id=20]
 points = PoolVector2Array( 16, 16, 0, 16, 0, 0, 16, 0 )
@@ -249,12 +248,6 @@ extents = Vector2( 7, 0.999954 )
 [sub_resource type="RectangleShape2D" id=25]
 extents = Vector2( 1, 115.5 )
 
-[sub_resource type="RectangleShape2D" id=34]
-extents = Vector2( 8, 8 )
-
-[sub_resource type="RectangleShape2D" id=35]
-extents = Vector2( 8, 0.5 )
-
 [node name="Node2D" type="Node2D"]
 position = Vector2( 177, 140 )
 __meta__ = {
@@ -267,7 +260,7 @@ rotation = -6.28319
 script = ExtResource( 10 )
 music = ExtResource( 16 )
 
-[node name="TileMap" type="TileMap" parent="World"]
+[node name="TileMap" type="TileMap" parent="World" groups=["Floor"]]
 position = Vector2( -25, 34 )
 tile_set = SubResource( 18 )
 cell_size = Vector2( 16, 16 )
@@ -290,8 +283,6 @@ position = Vector2( 157, 80.9993 )
 
 [node name="Gravity-Shift" parent="World" instance=ExtResource( 12 )]
 position = Vector2( -321, 26.0014 )
-
-[node name="Block_Lever" parent="World" instance=ExtResource( 2 )]
 
 [node name="Vanishing-Blue-Block" parent="World" instance=ExtResource( 14 )]
 position = Vector2( -33, 10.0002 )
@@ -336,71 +327,16 @@ anims/RESET = SubResource( 30 )
 [node name="StackContainer" type="Node2D" parent="StackController"]
 
 [node name="Stack1" type="Node2D" parent="StackController/StackContainer"]
-visible = false
 script = ExtResource( 20 )
 
-[node name="Block_Box" type="KinematicBody2D" parent="StackController/StackContainer/Stack1"]
-position = Vector2( -1, -150 )
-moving_platform_apply_velocity_on_leave = 2
-script = ExtResource( 18 )
+[node name="Block_Box4" parent="StackController/StackContainer/Stack1" instance=ExtResource( 21 )]
+position = Vector2( -80, -144 )
 
-[node name="Sprite" type="Sprite" parent="StackController/StackContainer/Stack1/Block_Box"]
-position = Vector2( 0, -1.52588e-05 )
-texture = ExtResource( 15 )
+[node name="Block_Box5" parent="StackController/StackContainer/Stack1" instance=ExtResource( 21 )]
+position = Vector2( 16, -144 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StackController/StackContainer/Stack1/Block_Box"]
-position = Vector2( 1.52588e-05, -0.500031 )
-shape = SubResource( 32 )
-
-[node name="Hazard" type="Area2D" parent="StackController/StackContainer/Stack1/Block_Box"]
-position = Vector2( 4.57764e-05, 8.99999 )
-script = ExtResource( 19 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StackController/StackContainer/Stack1/Block_Box/Hazard"]
-position = Vector2( -1.52588e-05, -0.999985 )
-shape = SubResource( 33 )
-
-[node name="Block_Box2" type="KinematicBody2D" parent="StackController/StackContainer/Stack1"]
-position = Vector2( -81.0007, -150 )
-moving_platform_apply_velocity_on_leave = 2
-script = ExtResource( 18 )
-
-[node name="Sprite" type="Sprite" parent="StackController/StackContainer/Stack1/Block_Box2"]
-position = Vector2( 0, -1.52588e-05 )
-texture = ExtResource( 15 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StackController/StackContainer/Stack1/Block_Box2"]
-position = Vector2( 1.52588e-05, -0.500031 )
-shape = SubResource( 32 )
-
-[node name="Hazard" type="Area2D" parent="StackController/StackContainer/Stack1/Block_Box2"]
-position = Vector2( 4.57764e-05, 8.99999 )
-script = ExtResource( 19 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StackController/StackContainer/Stack1/Block_Box2/Hazard"]
-position = Vector2( -1.52588e-05, -0.999985 )
-shape = SubResource( 33 )
-
-[node name="Block_Box3" type="KinematicBody2D" parent="StackController/StackContainer/Stack1"]
-position = Vector2( 62.9993, -150 )
-moving_platform_apply_velocity_on_leave = 2
-script = ExtResource( 18 )
-
-[node name="Sprite" type="Sprite" parent="StackController/StackContainer/Stack1/Block_Box3"]
-position = Vector2( 0, -1.52588e-05 )
-texture = ExtResource( 15 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StackController/StackContainer/Stack1/Block_Box3"]
-position = Vector2( 1.52588e-05, -0.500031 )
-shape = SubResource( 32 )
-
-[node name="Hazard" type="Area2D" parent="StackController/StackContainer/Stack1/Block_Box3"]
-position = Vector2( 4.57764e-05, 8.99999 )
-script = ExtResource( 19 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StackController/StackContainer/Stack1/Block_Box3/Hazard"]
-position = Vector2( -1.52588e-05, -0.999985 )
-shape = SubResource( 33 )
+[node name="Block_Box6" parent="StackController/StackContainer/Stack1" instance=ExtResource( 21 )]
+position = Vector2( 112, -144 )
 
 [node name="Stack2" type="Node2D" parent="StackController/StackContainer"]
 visible = false
@@ -470,6 +406,7 @@ position = Vector2( -1.52588e-05, -0.999985 )
 shape = SubResource( 33 )
 
 [node name="Stack3" type="Node2D" parent="StackController/StackContainer"]
+visible = false
 script = ExtResource( 20 )
 
 [node name="Block_Box" parent="StackController/StackContainer/Stack3" instance=ExtResource( 21 )]
@@ -571,56 +508,13 @@ color = Color( 0, 0, 0, 1 )
 position = Vector2( 1, 105.5 )
 shape = SubResource( 25 )
 
-[node name="Block_Box" parent="." instance=ExtResource( 21 )]
-position = Vector2( 126, -6 )
+[node name="Block-Spring" parent="." instance=ExtResource( 22 )]
+position = Vector2( -226, 64 )
 
-[node name="Block_Box2" parent="." instance=ExtResource( 21 )]
-position = Vector2( 126, -22 )
-
-[node name="Block_Box3" parent="." instance=ExtResource( 21 )]
-position = Vector2( 110, -6 )
-
-[node name="Block_Box4" parent="." instance=ExtResource( 21 )]
-position = Vector2( 110, -22 )
-
-[node name="Block_Box5" parent="." instance=ExtResource( 21 )]
-position = Vector2( 94, -6 )
-
-[node name="Block_Box6" parent="." instance=ExtResource( 21 )]
-position = Vector2( 94, -22 )
-
-[node name="Block_Box7" parent="." instance=ExtResource( 21 )]
-position = Vector2( 79, -6 )
-
-[node name="Block_Box8" parent="." instance=ExtResource( 21 )]
-position = Vector2( 79, -22 )
-
-[node name="Spring" type="KinematicBody2D" parent="."]
-position = Vector2( -106, 90 )
-collision_layer = 2
-collision_mask = 7
-script = ExtResource( 23 )
-jump_multiplier = 1.5
-
-[node name="Sprite" type="Sprite" parent="Spring"]
-texture = ExtResource( 22 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Spring"]
-shape = SubResource( 34 )
-
-[node name="Hitbox" type="Area2D" parent="Spring"]
-collision_layer = 0
-collision_mask = 4
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Spring/Hitbox"]
-position = Vector2( 0, -8.5 )
-shape = SubResource( 35 )
+[node name="Block_Lever" parent="." instance=ExtResource( 2 )]
+position = Vector2( -123, -32 )
 
 [connection signal="body_entered" from="World/DeathPlane" to="World/DeathPlane" method="_on_Hazard_body_entered"]
-[connection signal="body_entered" from="StackController/StackContainer/Stack1/Block_Box/Hazard" to="StackController/StackContainer/Stack1/Block_Box/Hazard" method="_on_Hazard_body_entered"]
-[connection signal="body_entered" from="StackController/StackContainer/Stack1/Block_Box2/Hazard" to="StackController/StackContainer/Stack1/Block_Box2/Hazard" method="_on_Hazard_body_entered"]
-[connection signal="body_entered" from="StackController/StackContainer/Stack1/Block_Box3/Hazard" to="StackController/StackContainer/Stack1/Block_Box3/Hazard" method="_on_Hazard_body_entered"]
 [connection signal="body_entered" from="StackController/StackContainer/Stack2/Block_Box/Hazard" to="StackController/StackContainer/Stack2/Block_Box/Hazard" method="_on_Hazard_body_entered"]
 [connection signal="body_entered" from="StackController/StackContainer/Stack2/Block_Box2/Hazard" to="StackController/StackContainer/Stack2/Block_Box2/Hazard" method="_on_Hazard_body_entered"]
 [connection signal="body_entered" from="StackController/StackContainer/Stack2/Block_Box3/Hazard" to="StackController/StackContainer/Stack2/Block_Box3/Hazard" method="_on_Hazard_body_entered"]
-[connection signal="body_entered" from="Spring/Hitbox" to="Spring" method="_on_body_entered"]
