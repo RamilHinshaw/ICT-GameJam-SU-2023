@@ -20,7 +20,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="ICT Gamejam WI 2022"
+config/name="ICT Gamejam WI 2023"
 run/main_scene="res://Scenes/Splash.tscn"
 boot_splash/image="res://Sprites/loading.png"
 boot_splash/bg_color=Color( 0.188235, 0.172549, 0.180392, 1 )
@@ -128,7 +128,7 @@ quality/driver/driver_name="GLES2"
 quality/intended_usage/framebuffer_allocation=0
 2d/snapping/use_gpu_pixel_snap=true
 quality/filters/anisotropic_filter_level=1
-environment/default_clear_color=Color( 0.0509804, 0.0470588, 0.054902, 1 )
+environment/default_clear_color=Color( 0.74902, 0.878431, 0.894118, 1 )
 environment/default_environment="res://default_env.tres"
 
 [world]

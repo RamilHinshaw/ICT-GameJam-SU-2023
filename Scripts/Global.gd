@@ -130,24 +130,6 @@ func change_scenePacked(scene:PackedScene, transition:int = 0):
 	yield(_anim_fade, "animation_finished")	
 	_control.visible = false
 	
-# Used to check if both rods selected
-func rod_highlight_modifier(modifier:int):
-	_rods_highlighted += modifier
-	
-	if (_rods_highlighted >= 2):
-		
-		#If RESETTING THEN DON'T CHANGE!
-		if (is_world_paused == true):
-			return
-		
-		is_world_paused = true
-		play_sfx(sfx_level_complete)
-		
-		yield(get_tree().create_timer(1), "timeout")
-		_anim_fade.playback_speed = 0.4
-		next_level()		
-
-	
 func play_music(music : AudioStream, fade_dur: float = 0):
 	
 	if _audio_bgm.stream == music:
