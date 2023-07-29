@@ -5,10 +5,10 @@
 [ext_resource path="res://Scripts/Block.gd" type="Script" id=3]
 
 [sub_resource type="RectangleShape2D" id=26]
-extents = Vector2( 7, 8 )
+extents = Vector2( 7.00038, 8 )
 
 [sub_resource type="RectangleShape2D" id=27]
-extents = Vector2( 6, 0.499977 )
+extents = Vector2( 6.5, 0.499977 )
 
 [node name="Block_Box" type="KinematicBody2D" groups=["Block"]]
 position = Vector2( -1.00075, -166 )
@@ -26,7 +26,13 @@ position = Vector2( 0.000750065, 0 )
 shape = SubResource( 26 )
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
-position = Vector2( 0.000749946, 8 )
+position = Vector2( -6.99925, 8 )
+enabled = true
+cast_to = Vector2( 0, 1 )
+collision_mask = 3
+
+[node name="RayCast2D2" type="RayCast2D" parent="."]
+position = Vector2( 7.00075, 8 )
 enabled = true
 cast_to = Vector2( 0, 1 )
 collision_mask = 3

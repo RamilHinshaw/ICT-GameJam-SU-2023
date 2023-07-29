@@ -1,17 +1,27 @@
 extends Node2D
 
-export(Array, NodePath) var stacks
+#export(Array, NodePath) var stacks
 
 var _current_index:int = 0
 
 onready var anim := $AnimationPlayer
 onready var ui_stack_counter := $Label
 
+onready var stackContainer:Node2D = $StackContainer
+var stackss = []
+
 var _is_stackable_mode:bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	
+	for stack in stackContainer.get_children():
+		if stack is Stack:
+			stackss.push_back(stack)
+	
 	set_stacks_visiblity()
+	
+
 
 func _process(delta):
 	input()
@@ -26,11 +36,11 @@ func _process(delta):
 			_current_index -= 1
 			pass
 		
-		if (_current_index >= stacks.size() ):
+		if (_current_index >= stackss.size() ):
 			_current_index = 0
 			
 		elif (_current_index < 0 ):
-			_current_index = stacks.size() -1
+			_current_index = stackss.size() -1
 			
 		set_stacks_visiblity()
 		update_UI()
@@ -43,19 +53,19 @@ func drop_stack():
 	Global.is_paused = false
 	anim.play("Pan_Down")
 	_is_stackable_mode = false
-	get_node(stacks[_current_index]).call("activate")
+	stackss[_current_index].call("activate")
 
 
 func set_stacks_visiblity():
 	#CLEAR ALL FIRST		
-	for stack in stacks:
-		if get_node(stack).has_activated == false:
-			get_node(stack).call("set_visable", false)
+	for stack in stackss:
+		if stack.has_activated == false:
+			stack.call("set_visable", false)
 	
-	get_node(stacks[_current_index]).call("set_visable", true)
+	stackss[_current_index].call("set_visable", true)
 	
 func update_UI():
-	var max_size:int = stacks.size()
+	var max_size:int = stackss.size()
 	ui_stack_counter.text = "Stack: " + str(_current_index+1) + "/" + str(max_size)
 
 func input():
