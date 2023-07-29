@@ -7,7 +7,7 @@
 extents = Vector2( 8, 8 )
 
 [sub_resource type="RectangleShape2D" id=35]
-extents = Vector2( 8, 0.5 )
+extents = Vector2( 7, 0.5 )
 
 [node name="Block-Spring" type="KinematicBody2D"]
 position = Vector2( -106, 90 )
