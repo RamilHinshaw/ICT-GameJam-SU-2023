@@ -5,7 +5,7 @@
 [ext_resource path="res://Scripts/Block.gd" type="Script" id=3]
 
 [sub_resource type="RectangleShape2D" id=26]
-extents = Vector2( 7, 3 )
+extents = Vector2( 7, 8 )
 
 [sub_resource type="RectangleShape2D" id=27]
 extents = Vector2( 6, 0.499977 )
