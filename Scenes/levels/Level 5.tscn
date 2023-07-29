@@ -100,7 +100,6 @@ tile_data = PoolIntArray( -1507340, 7, 0, -1507339, 7, 0, -1507338, 7, 0, -15073
 [node name="StackController" type="Node2D" parent="."]
 position = Vector2( -1, -6 )
 script = ExtResource( 16 )
-stacks = [ NodePath("StackContainer/Stack1"), NodePath("StackContainer/Stack2"), NodePath("StackContainer/Stack3") ]
 
 [node name="Label" type="Label" parent="StackController"]
 margin_left = 115.0
