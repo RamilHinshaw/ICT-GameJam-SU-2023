@@ -99,7 +99,11 @@ func reset_level(has_died):
 	else:
 		_death_subtext = ""
 	
-	is_world_paused = true
+	#is_world_paused = true
+	
+	get_tree().reload_current_scene()
+	
+	return
 	var scene = levels[current_level]
 	change_scenePacked(scene)
 	

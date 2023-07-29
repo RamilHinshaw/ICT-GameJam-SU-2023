@@ -187,9 +187,6 @@ margin_top = -107.0
 margin_right = 1.0
 margin_bottom = 119.0
 color = Color( 0, 0, 0, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="KinematicBody2D" type="KinematicBody2D" parent="World/Seperator"]
 

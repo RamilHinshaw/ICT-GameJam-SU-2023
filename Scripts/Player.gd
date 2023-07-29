@@ -27,17 +27,10 @@ export var sfx_jump:AudioStream
 func _ready():
 	pass # Replace with function body.
 	
-#func _process(delta):
-##	if Input.is_action_just_released("ui_spin"):
-#
-#
-##		inverted_gravity = -inverted_gravity * inverted_gravity
-##		sprite.flip_v = !sprite.flip_v
-	
 func _physics_process(dt):
 	
 	# Don't do anything if world is spinning!
-	if (Global.is_player_paused):
+	if (Global.is_paused):
 		return
 	
 	var x_input = 0
@@ -56,7 +49,7 @@ func _physics_process(dt):
 	if Global.is_world_paused:
 		motion.x = 0
 
-	motion = move_and_slide(motion, Vector2.UP)
+	motion = move_and_slide(motion, Vector2.UP, false, 4, 0.785398,false)
 
 
 func movement(dt, motion, x_input):		

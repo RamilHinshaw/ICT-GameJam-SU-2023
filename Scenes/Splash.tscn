@@ -181,9 +181,6 @@ margin_top = -0.0786018
 margin_right = -0.15329
 margin_bottom = -0.078598
 theme = ExtResource( 5 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="CHANGE SCENE" type="Node2D" parent="."]
 script = ExtResource( 3 )

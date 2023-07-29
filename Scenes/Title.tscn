@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://Sprites/title.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/tilemap.tres" type="TileSet" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://Sprites/box.png" type="Texture" id=8]
 [ext_resource path="res://Menu.theme" type="Theme" id=9]
 [ext_resource path="res://Scripts/ChangeSceneButton.gd" type="Script" id=10]
+[ext_resource path="res://Scenes/levels/Level 1.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Audio/Music/One Man Symphony - Royalty Free Soundtrack Collection - 05 D2 (Reprise).mp3" type="AudioStream" id=12]
 [ext_resource path="res://Scripts/PlayMusic.gd" type="Script" id=13]
 [ext_resource path="res://SmallFont.theme" type="Theme" id=14]
@@ -184,6 +185,7 @@ script = ExtResource( 13 )
 music = ExtResource( 12 )
 
 [node name="BG" type="TileMap" parent="."]
+visible = false
 position = Vector2( 173, 135 )
 z_index = -2
 tile_set = ExtResource( 2 )
@@ -203,6 +205,7 @@ position = Vector2( 196, 101 )
 offset = Vector2( -0.039, 0 )
 
 [node name="Title" type="Sprite" parent="."]
+visible = false
 position = Vector2( 193, 44 )
 texture = ExtResource( 1 )
 
@@ -216,6 +219,18 @@ theme = ExtResource( 9 )
 text = "Exit"
 script = ExtResource( 10 )
 exit_instead = true
+
+[node name="Btn_Play" type="Button" parent="."]
+margin_left = 159.0
+margin_top = 108.0
+margin_right = 189.0
+margin_bottom = 128.0
+rect_scale = Vector2( 1.54605, 1.54605 )
+theme = ExtResource( 9 )
+text = "Play"
+script = ExtResource( 10 )
+scene = ExtResource( 11 )
+grab_focus = true
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 181, 190 )
@@ -253,6 +268,7 @@ position = Vector2( 95, 143 )
 position = Vector2( 302, 153 )
 
 [node name="Controller" type="Label" parent="."]
+visible = false
 margin_left = 263.0
 margin_top = 74.0
 margin_right = 427.0
@@ -265,3 +281,4 @@ __meta__ = {
 }
 
 [connection signal="pressed" from="Btn_Exit" to="Btn_Exit" method="_on_pressed"]
+[connection signal="pressed" from="Btn_Play" to="Btn_Play" method="_on_pressed"]
