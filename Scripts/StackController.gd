@@ -53,7 +53,7 @@ func drop_stack():
 	Global.is_paused = false
 	anim.play("Pan_Down")
 	_is_stackable_mode = false
-	get_node(stackss[_current_index]).call("activate")
+	stackss[_current_index].call("activate")
 
 
 func set_stacks_visiblity():

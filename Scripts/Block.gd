@@ -28,6 +28,8 @@ func _process(dt):
 	
 	motion.y = fall(dt, motion)
 	
+	print(motion.y)
+	
 			
 	colliding_with = move_and_collide(motion*dt)
 	
