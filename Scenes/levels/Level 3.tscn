@@ -287,7 +287,6 @@ __meta__ = {
 [node name="StackController" type="Node2D" parent="."]
 position = Vector2( -1, -6 )
 script = ExtResource( 16 )
-stacks = [ NodePath("StackContainer/Stack1"), NodePath("StackContainer/Stack2"), NodePath("StackContainer/Stack3"), NodePath("StackContainer/Stack4") ]
 
 [node name="Label" type="Label" parent="StackController"]
 margin_left = 115.0

@@ -3,7 +3,7 @@ extends KinematicBody2D
 class_name Block
 
 onready var col = $CollisionShape2D
-onready var raycast:RayCast2D = $RayCast2D
+#onready var raycast:RayCast2D = $RayCast2D
 onready var hazard:Area2D = $Hazard
 #export var acceleration:float = 512
 #export var max_speed:float = 64
@@ -44,7 +44,7 @@ func _process(dt):
 
 	for _raycast in raycasts:
 		if _raycast.is_colliding():
-			if (raycast.get_collider().is_in_group("Floor") or raycast.get_collider().is_in_group("Vanish")):
+			if (_raycast.get_collider().is_in_group("Floor") or _raycast.get_collider().is_in_group("Vanish")):
 				hit_detected = true
 		
 	if hit_detected:		
