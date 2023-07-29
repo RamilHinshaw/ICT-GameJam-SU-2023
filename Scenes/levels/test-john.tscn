@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=2]
+[gd_scene load_steps=41 format=2]
 
 [ext_resource path="res://Prefabs/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Prefabs/Lever.tscn" type="PackedScene" id=2]
@@ -21,12 +21,8 @@
 [ext_resource path="res://Scripts/Hazard.gd" type="Script" id=19]
 [ext_resource path="res://Scripts/Stack.gd" type="Script" id=20]
 [ext_resource path="res://Prefabs/Block_Box.tscn" type="PackedScene" id=21]
-
-[sub_resource type="RectangleShape2D" id=26]
-extents = Vector2( 7, 7 )
-
-[sub_resource type="RectangleShape2D" id=27]
-extents = Vector2( 7, 0.999954 )
+[ext_resource path="res://Sprites/new_sprites/background_Front_v0.png" type="Texture" id=22]
+[ext_resource path="res://Sprites/new_sprites/background_back_v0.png" type="Texture" id=23]
 
 [sub_resource type="ConvexPolygonShape2D" id=20]
 points = PoolVector2Array( 16, 16, 0, 16, 0, 0, 16, 0 )
@@ -199,6 +195,12 @@ tracks/0/keys = {
 [sub_resource type="RectangleShape2D" id=31]
 extents = Vector2( 219.5, 3.99998 )
 
+[sub_resource type="RectangleShape2D" id=26]
+extents = Vector2( 7, 7 )
+
+[sub_resource type="RectangleShape2D" id=27]
+extents = Vector2( 7, 0.999954 )
+
 [sub_resource type="Animation" id=28]
 resource_name = "Pan_Down"
 tracks/0/type = "value"
@@ -260,28 +262,6 @@ __meta__ = {
 "_edit_vertical_guides_": [ 398.0 ]
 }
 
-[node name="Block_BoxRB" type="KinematicBody2D" parent="."]
-position = Vector2( -129, -70 )
-moving_platform_apply_velocity_on_leave = 2
-script = ExtResource( 18 )
-
-[node name="Sprite" type="Sprite" parent="Block_BoxRB"]
-position = Vector2( 0, -1.52588e-05 )
-texture = ExtResource( 15 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Block_BoxRB"]
-position = Vector2( 0.000750065, 0 )
-shape = SubResource( 26 )
-
-[node name="Hazard" type="Area2D" parent="Block_BoxRB"]
-position = Vector2( 4.57764e-05, 8.99999 )
-collision_layer = 0
-script = ExtResource( 19 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Block_BoxRB/Hazard"]
-position = Vector2( -1.52588e-05, -0.999985 )
-shape = SubResource( 27 )
-
 [node name="World" type="Node2D" parent="."]
 rotation = 6.28319
 script = ExtResource( 10 )
@@ -333,6 +313,32 @@ script = ExtResource( 19 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/DeathPlane"]
 position = Vector2( 4.50005, 1.99988 )
 shape = SubResource( 31 )
+
+[node name="Sprite" type="Sprite" parent="World"]
+show_behind_parent = true
+texture = ExtResource( 22 )
+
+[node name="Block_BoxRB" type="KinematicBody2D" parent="."]
+position = Vector2( -129, -70 )
+moving_platform_apply_velocity_on_leave = 2
+script = ExtResource( 18 )
+
+[node name="Sprite" type="Sprite" parent="Block_BoxRB"]
+position = Vector2( 0, -1.52588e-05 )
+texture = ExtResource( 15 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Block_BoxRB"]
+position = Vector2( 0.000750065, 0 )
+shape = SubResource( 26 )
+
+[node name="Hazard" type="Area2D" parent="Block_BoxRB"]
+position = Vector2( 4.57764e-05, 8.99999 )
+collision_layer = 0
+script = ExtResource( 19 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Block_BoxRB/Hazard"]
+position = Vector2( -1.52588e-05, -0.999985 )
+shape = SubResource( 27 )
 
 [node name="StackController" type="Node2D" parent="."]
 script = ExtResource( 9 )
@@ -523,6 +529,12 @@ position = Vector2( 111, -246 )
 [node name="Block_Box11" parent="StackController/StackContainer/Stack3" instance=ExtResource( 21 )]
 position = Vector2( 127, -246 )
 
+[node name="BackgroundBackV0" type="Sprite" parent="StackController"]
+show_behind_parent = true
+position = Vector2( -1, -220 )
+scale = Vector2( 0.984699, 1 )
+texture = ExtResource( 23 )
+
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( -171, 89 )
 
@@ -552,8 +564,8 @@ color = Color( 0, 0, 0, 1 )
 position = Vector2( 1, 105.5 )
 shape = SubResource( 25 )
 
-[connection signal="body_entered" from="Block_BoxRB/Hazard" to="Block_BoxRB/Hazard" method="_on_Hazard_body_entered"]
 [connection signal="body_entered" from="World/DeathPlane" to="World/DeathPlane" method="_on_Hazard_body_entered"]
+[connection signal="body_entered" from="Block_BoxRB/Hazard" to="Block_BoxRB/Hazard" method="_on_Hazard_body_entered"]
 [connection signal="body_entered" from="StackController/StackContainer/Stack1/Block_Box/Hazard" to="StackController/StackContainer/Stack1/Block_Box/Hazard" method="_on_Hazard_body_entered"]
 [connection signal="body_entered" from="StackController/StackContainer/Stack1/Block_Box2/Hazard" to="StackController/StackContainer/Stack1/Block_Box2/Hazard" method="_on_Hazard_body_entered"]
 [connection signal="body_entered" from="StackController/StackContainer/Stack1/Block_Box3/Hazard" to="StackController/StackContainer/Stack1/Block_Box3/Hazard" method="_on_Hazard_body_entered"]
