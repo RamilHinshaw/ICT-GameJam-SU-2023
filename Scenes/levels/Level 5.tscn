@@ -81,7 +81,7 @@ margin_top = -106.0
 margin_right = -137.0
 margin_bottom = -92.0
 theme = ExtResource( 1 )
-text = "Level 1"
+text = "Level 5"
 
 [node name="TileMap" type="TileMap" parent="World" groups=["Floor"]]
 position = Vector2( -25.0002, 33.9999 )
