@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Menu.theme" type="Theme" id=1]
 [ext_resource path="res://Sprites/coin_small.png" type="Texture" id=2]
-[ext_resource path="res://Sprites/new_sprites/Prefabs/Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Prefabs/Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Sprites/new_sprites/background_Front_v0.png" type="Texture" id=4]
 [ext_resource path="res://Sprites/floor.png" type="Texture" id=5]
 [ext_resource path="res://Sprites/block.png" type="Texture" id=6]
@@ -17,7 +17,7 @@
 [ext_resource path="res://Scripts/Stack.gd" type="Script" id=15]
 [ext_resource path="res://Scripts/StackController.gd" type="Script" id=16]
 [ext_resource path="res://Scripts/Coin.gd" type="Script" id=17]
-[ext_resource path="res://Sprites/new_sprites/Prefabs/Block_Box.tscn" type="PackedScene" id=18]
+[ext_resource path="res://Prefabs/Block_Box.tscn" type="PackedScene" id=18]
 
 [sub_resource type="RectangleShape2D" id=14]
 extents = Vector2( 5, 6 )
@@ -241,7 +241,7 @@ tracks/0/keys = {
 "values": [ Vector2( -0.999985, 5 ) ]
 }
 
-[node name="Level 1" type="Node2D"]
+[node name="Level 5" type="Node2D"]
 position = Vector2( 177, 140 )
 __meta__ = {
 "_edit_horizontal_guides_": [  ],

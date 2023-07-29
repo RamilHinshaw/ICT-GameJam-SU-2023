@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Menu.theme" type="Theme" id=1]
 [ext_resource path="res://Sprites/coin_small.png" type="Texture" id=2]
-[ext_resource path="res://Sprites/new_sprites/Prefabs/Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Prefabs/Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Sprites/new_sprites/background_Front_v0.png" type="Texture" id=4]
 [ext_resource path="res://Sprites/floor.png" type="Texture" id=5]
 [ext_resource path="res://Sprites/block.png" type="Texture" id=6]
@@ -17,7 +17,7 @@
 [ext_resource path="res://Scripts/Stack.gd" type="Script" id=15]
 [ext_resource path="res://Scripts/StackController.gd" type="Script" id=16]
 [ext_resource path="res://Scripts/Coin.gd" type="Script" id=17]
-[ext_resource path="res://Sprites/new_sprites/Prefabs/Block_Box.tscn" type="PackedScene" id=18]
+[ext_resource path="res://Prefabs/Block_Box.tscn" type="PackedScene" id=18]
 
 [sub_resource type="RectangleShape2D" id=14]
 extents = Vector2( 5, 6 )
@@ -241,14 +241,14 @@ tracks/0/keys = {
 "values": [ Vector2( -0.999985, 5 ) ]
 }
 
-[node name="Level 1" type="Node2D"]
+[node name="Level 6" type="Node2D"]
 position = Vector2( 177, 140 )
 __meta__ = {
 "_edit_horizontal_guides_": [  ],
 "_edit_vertical_guides_": [ 398.0 ]
 }
 
-[node name="World" type="Node2D" parent="."]
+[node name="Level 6" type="Node2D" parent="."]
 rotation = 6.28319
 script = ExtResource( 10 )
 __meta__ = {
@@ -258,26 +258,26 @@ use_scene_name = true
 level_name = "Level TEST"
 music = ExtResource( 13 )
 
-[node name="Coin" type="Area2D" parent="World"]
+[node name="Coin" type="Area2D" parent="Level 6"]
 position = Vector2( 167, 82.9993 )
 script = ExtResource( 17 )
 
-[node name="Sprite" type="Sprite" parent="World/Coin"]
+[node name="Sprite" type="Sprite" parent="Level 6/Coin"]
 z_index = -1
 texture = ExtResource( 2 )
 hframes = 4
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Coin"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level 6/Coin"]
 position = Vector2( -0.00038147, -0.00038147 )
 shape = SubResource( 14 )
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="World/Coin"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Level 6/Coin"]
 autoplay = "coin"
 playback_speed = 0.66
 anims/RESET = SubResource( 34 )
 anims/coin = SubResource( 35 )
 
-[node name="TileMap" type="TileMap" parent="World" groups=["Floor"]]
+[node name="TileMap" type="TileMap" parent="Level 6" groups=["Floor"]]
 position = Vector2( -25, 34 )
 tile_set = SubResource( 18 )
 cell_size = Vector2( 16, 16 )
@@ -285,7 +285,7 @@ collision_mask = 0
 format = 1
 tile_data = PoolIntArray( -1507340, 7, 0, -1507339, 7, 0, -1507338, 7, 0, -1507337, 7, 0, -1507336, 7, 0, -1507335, 7, 0, -1507334, 7, 0, -1507333, 7, 0, -1507332, 7, 0, -1507331, 7, 0, -1507330, 7, 0, -1507329, 7, 0, -1572864, 7, 0, -1572863, 7, 0, -1572862, 7, 0, -1572861, 7, 0, -1572860, 7, 0, -1572859, 7, 0, -1572858, 7, 0, -1572857, 7, 0, -1572856, 7, 0, -1572855, 7, 0, -1572854, 7, 0, -1572853, 7, 0, -1572852, 7, 0, -1572851, 7, 0, -1572850, 7, 0, -1441804, 7, 0, -1507314, 7, 0, -1376268, 7, 0, -1441778, 7, 0, -1310732, 7, 0, -1376242, 7, 0, -1245196, 7, 0, -1310706, 7, 0, -1179660, 7, 0, -1245170, 7, 0, -1114124, 7, 0, -1179634, 7, 0, -1048588, 7, 0, -1114098, 7, 0, -983052, 7, 0, -1048562, 7, 0, -917516, 7, 0, -983026, 7, 0, -851980, 7, 0, -917490, 7, 0, -786444, 7, 0, -851954, 7, 0, -720908, 7, 0, -786418, 7, 0, -655372, 7, 0, -720882, 7, 0, -589836, 7, 0, -655346, 7, 0, -131067, 4, 0, -131066, 4, 0, -131065, 4, 0, -131064, 4, 0, -131063, 4, 0, 65539, 4, 0, 65542, 4, 0, 65543, 4, 0, 65544, 4, 0, 65545, 4, 0, 327669, 2, 0, 327670, 2, 0, 327671, 2, 0, 327672, 2, 0, 327673, 2, 0, 327674, 2, 0, 327675, 2, 0, 327676, 2, 0, 327677, 2, 0, 327678, 2, 0, 327679, 2, 0, 262144, 2, 0, 262145, 2, 0, 262146, 2, 0, 262147, 2, 0, 262148, 2, 0, 262149, 2, 0, 262150, 2, 0, 262151, 2, 0, 262152, 2, 0, 262153, 2, 0, 262154, 2, 0, 262155, 2, 0, 262156, 2, 0, 262157, 2, 0, 262158, 2, 0 )
 
-[node name="Label" type="Label" parent="World"]
+[node name="Label" type="Label" parent="Level 6"]
 margin_left = -184.0
 margin_top = -106.0
 margin_right = -137.0
@@ -293,15 +293,15 @@ margin_bottom = -92.0
 theme = ExtResource( 1 )
 text = "Level 1"
 
-[node name="DeathPlane" type="Area2D" parent="World"]
+[node name="DeathPlane" type="Area2D" parent="Level 6"]
 position = Vector2( -2.99948, 117 )
 script = ExtResource( 12 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="World/DeathPlane"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level 6/DeathPlane"]
 position = Vector2( 4.50005, 1.99988 )
 shape = SubResource( 31 )
 
-[node name="Background1" type="Sprite" parent="World"]
+[node name="Background1" type="Sprite" parent="Level 6"]
 show_behind_parent = true
 position = Vector2( -2, 1.52588e-05 )
 z_index = -1
@@ -310,7 +310,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Background2" type="Sprite" parent="World"]
+[node name="Background2" type="Sprite" parent="Level 6"]
 show_behind_parent = true
 position = Vector2( -1, -220 )
 scale = Vector2( 0.984699, 1 )
@@ -320,33 +320,33 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Wall Left" type="ColorRect" parent="World"]
+[node name="Wall Left" type="ColorRect" parent="Level 6"]
 margin_left = -196.0
 margin_top = -106.999
 margin_right = -194.0
 margin_bottom = 119.001
 color = Color( 0, 0, 0, 1 )
 
-[node name="KinematicBody2D" type="KinematicBody2D" parent="World/Wall Left"]
+[node name="KinematicBody2D" type="KinematicBody2D" parent="Level 6/Wall Left"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Wall Left/KinematicBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level 6/Wall Left/KinematicBody2D"]
 position = Vector2( 1, 105.5 )
 shape = SubResource( 25 )
 
-[node name="Wall Right" type="ColorRect" parent="World"]
+[node name="Wall Right" type="ColorRect" parent="Level 6"]
 margin_left = 192.0
 margin_top = -107.001
 margin_right = 194.0
 margin_bottom = 118.999
 color = Color( 0, 0, 0, 1 )
 
-[node name="KinematicBody2D" type="KinematicBody2D" parent="World/Wall Right"]
+[node name="KinematicBody2D" type="KinematicBody2D" parent="Level 6/Wall Right"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Wall Right/KinematicBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level 6/Wall Right/KinematicBody2D"]
 position = Vector2( 1, 105.5 )
 shape = SubResource( 25 )
 
-[node name="Hint" type="Label" parent="World"]
+[node name="Hint" type="Label" parent="Level 6"]
 margin_left = -110.0
 margin_top = -78.9995
 margin_right = 90.9997
@@ -474,4 +474,4 @@ position = Vector2( 64, -192 )
 [node name="Player" parent="." instance=ExtResource( 3 )]
 position = Vector2( -171, 89 )
 
-[connection signal="body_entered" from="World/DeathPlane" to="World/DeathPlane" method="_on_Hazard_body_entered"]
+[connection signal="body_entered" from="Level 6/DeathPlane" to="Level 6/DeathPlane" method="_on_Hazard_body_entered"]

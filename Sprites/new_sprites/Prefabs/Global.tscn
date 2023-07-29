@@ -1,8 +1,17 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Scripts/Global.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/levels/Level 4.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Audio/SFX/level_complete.wav" type="AudioStream" id=3]
+[ext_resource path="res://Scenes/levels/Level 9.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/levels/Level 3.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/levels/Level 1.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/levels/Level 5.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/levels/Level 6.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/levels/Level 7.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/levels/Level 2.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Scenes/levels/Level 8.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Scenes/levels/Level 10.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Scenes/levels/End.tscn" type="PackedScene" id=24]
 [ext_resource path="res://Scenes/Title.tscn" type="PackedScene" id=28]
 
@@ -75,7 +84,7 @@ pause_mode = 2
 position = Vector2( 0, 3 )
 script = ExtResource( 1 )
 sfx_level_complete = ExtResource( 3 )
-levels = [ ExtResource( 6 ) ]
+levels = [ ExtResource( 6 ), ExtResource( 10 ), ExtResource( 5 ), ExtResource( 2 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 11 ), ExtResource( 4 ), ExtResource( 12 ) ]
 last_level = ExtResource( 24 )
 title_level = ExtResource( 28 )
 

@@ -5,12 +5,13 @@ export(Array, NodePath) var stacks
 var _current_index:int = 0
 
 onready var anim := $AnimationPlayer
+onready var ui_stack_counter := $Label
 
 var _is_stackable_mode:bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	show_current_stack()
+	set_stacks_visiblity()
 
 func _process(delta):
 	input()
@@ -31,7 +32,8 @@ func _process(delta):
 		elif (_current_index < 0 ):
 			_current_index = stacks.size() -1
 			
-		show_current_stack()
+		set_stacks_visiblity()
+		update_UI()
 		
 		#HARD CODED FIX!
 		if Input.is_action_just_released("ui_up"):
@@ -44,13 +46,17 @@ func drop_stack():
 	get_node(stacks[_current_index]).call("activate")
 
 
-func show_current_stack():
+func set_stacks_visiblity():
 	#CLEAR ALL FIRST		
 	for stack in stacks:
 		if get_node(stack).has_activated == false:
 			get_node(stack).call("set_visable", false)
 	
 	get_node(stacks[_current_index]).call("set_visable", true)
+	
+func update_UI():
+	var max_size:int = stacks.size()
+	ui_stack_counter.text = "Stack: " + str(_current_index+1) + "/" + str(max_size)
 
 func input():
 	if Input.is_action_just_released("stack_mode"):
