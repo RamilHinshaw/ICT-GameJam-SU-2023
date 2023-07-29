@@ -11,6 +11,7 @@ var is_world_paused: bool = false
 var can_pause:bool = true
 
 var _rods_highlighted:int = 0
+#var _coins_collected:int = 0
 
 var is_selected_vanishing_block_red:bool = true
 
@@ -20,9 +21,6 @@ export var title_level:PackedScene
 
 #Used to change fade name
 var _death_subtext = ""
-
-
-
 
 #----------------------------------------------------------
 # FADE PROPERTIES

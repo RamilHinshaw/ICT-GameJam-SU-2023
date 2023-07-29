@@ -4,6 +4,10 @@ export var use_scene_name:bool = false
 export var level_name:String = "Level NULL"
 export var music:AudioStream
 
+signal coin_collected
+
+var coins_left:int = 0
+
 onready var lbl_level:Label = $Label
 
 func _ready():
@@ -15,7 +19,18 @@ func _ready():
 		lbl_level.text = level_name
 
 
+	# SET ALL COINS
+	for coin in self.get_children():
+		if coin is Coin:
+			if coin.has_method("set_world"):
+				coin.set_world(self)
+				coins_left += 1
 
+func coin_captured():
+	coins_left -= 1
+	
+	if (coins_left <= 0):
+		Global.next_level()
 #onready var anim = $AnimationPlayerrr
 #
 #var isUpsideDown:bool = false
