@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://Menu.theme" type="Theme" id=1]
 [ext_resource path="res://Prefabs/Environment.tscn" type="PackedScene" id=2]
@@ -16,7 +16,9 @@
 [ext_resource path="res://Sprites/new_sprites/Grass.png" type="Texture" id=14]
 [ext_resource path="res://Scripts/Stack.gd" type="Script" id=15]
 [ext_resource path="res://Scripts/StackController.gd" type="Script" id=16]
+[ext_resource path="res://Prefabs/Hazard.tscn" type="PackedScene" id=17]
 [ext_resource path="res://Prefabs/Block_Box.tscn" type="PackedScene" id=18]
+[ext_resource path="res://Prefabs/Block-Spring.tscn" type="PackedScene" id=19]
 
 [sub_resource type="ConvexPolygonShape2D" id=31]
 points = PoolVector2Array( 16, 16, 0, 16, 0, 0, 16, 0 )
@@ -246,14 +248,12 @@ __meta__ = {
 
 [node name="World" type="Node2D" parent="."]
 script = ExtResource( 10 )
-__meta__ = {
-"_edit_lock_": true
-}
 use_scene_name = true
 level_name = "Level TEST"
 music = ExtResource( 13 )
 
 [node name="Coin" parent="World" instance=ExtResource( 4 )]
+position = Vector2( 122, 32 )
 z_index = 1
 
 [node name="Label" type="Label" parent="World"]
@@ -262,7 +262,7 @@ margin_top = -106.0
 margin_right = -137.0
 margin_bottom = -92.0
 theme = ExtResource( 1 )
-text = "Level 1"
+text = "Level 3"
 
 [node name="TileMap" type="TileMap" parent="World" groups=["Floor"]]
 position = Vector2( -25.0002, 33.9999 )
@@ -270,9 +270,19 @@ tile_set = SubResource( 36 )
 cell_size = Vector2( 16, 16 )
 collision_mask = 0
 format = 1
-tile_data = PoolIntArray( -1507340, 7, 0, -1507339, 7, 0, -1507338, 7, 0, -1507337, 7, 0, -1507336, 7, 0, -1507335, 7, 0, -1507334, 7, 0, -1507333, 7, 0, -1507332, 7, 0, -1507331, 7, 0, -1507330, 7, 0, -1507329, 7, 0, -1572864, 7, 0, -1572863, 7, 0, -1572862, 7, 0, -1572861, 7, 0, -1572860, 7, 0, -1572859, 7, 0, -1572858, 7, 0, -1572857, 7, 0, -1572856, 7, 0, -1572855, 7, 0, -1572854, 7, 0, -1572853, 7, 0, -1572852, 7, 0, -1572851, 7, 0, -1572850, 7, 0, -1441804, 7, 0, -1507314, 7, 0, -1376268, 7, 0, -1441778, 7, 0, -1310732, 7, 0, -1376242, 7, 0, -1245196, 7, 0, -1310706, 7, 0, -1179660, 7, 0, -1245170, 7, 0, -1114124, 7, 0, -1179634, 7, 0, -1048588, 7, 0, -1114098, 7, 0, -983052, 7, 0, -1048562, 7, 0, -917516, 7, 0, -983026, 7, 0, -851980, 7, 0, -917490, 7, 0, -786444, 7, 0, -851954, 7, 0, -720908, 7, 0, -786418, 7, 0, -655372, 7, 0, -720882, 7, 0, -589836, 7, 0, -655346, 7, 0, -131067, 4, 0, -131066, 4, 0, -131065, 4, 0, -131064, 4, 0, -131063, 4, 0, 65539, 4, 0, 65542, 4, 0, 65543, 4, 0, 65544, 4, 0, 65545, 4, 0, 327669, 2, 0, 327670, 2, 0, 327671, 2, 0, 327672, 2, 0, 327673, 2, 0, 327674, 2, 0, 327675, 2, 0, 327676, 2, 0, 327677, 2, 0, 327678, 2, 0, 327679, 2, 0, 262144, 2, 0, 262145, 2, 0, 262146, 2, 0, 262147, 2, 0, 262148, 2, 0, 262149, 2, 0, 262150, 2, 0, 262151, 2, 0, 262152, 2, 0, 262153, 2, 0, 262154, 2, 0, 262155, 2, 0, 262156, 2, 0, 262157, 2, 0, 262158, 2, 0 )
+tile_data = PoolIntArray( -1507340, 7, 0, -1507339, 7, 0, -1507338, 7, 0, -1507337, 7, 0, -1507336, 7, 0, -1507335, 7, 0, -1507334, 7, 0, -1507333, 7, 0, -1507332, 7, 0, -1507331, 7, 0, -1507330, 7, 0, -1507329, 7, 0, -1572864, 7, 0, -1572863, 7, 0, -1572862, 7, 0, -1572861, 7, 0, -1572860, 7, 0, -1572859, 7, 0, -1572858, 7, 0, -1572857, 7, 0, -1572856, 7, 0, -1572855, 7, 0, -1572854, 7, 0, -1572853, 7, 0, -1572852, 7, 0, -1572851, 7, 0, -1572850, 7, 0, -1441804, 7, 0, -1507314, 7, 0, -1376268, 7, 0, -1441778, 7, 0, -1310732, 7, 0, -1376242, 7, 0, -1245196, 7, 0, -1310706, 7, 0, -1179660, 7, 0, -1245170, 7, 0, -1114124, 7, 0, -1179634, 7, 0, -1048588, 7, 0, -1114098, 7, 0, -983052, 7, 0, -1048562, 7, 0, -917516, 7, 0, -983026, 7, 0, -851980, 7, 0, -917490, 7, 0, -786444, 7, 0, -851954, 7, 0, -720908, 7, 0, -786418, 7, 0, -655372, 7, 0, -720882, 7, 0, -589836, 7, 0, -655346, 7, 0, -131067, 4, 0, -131066, 4, 0, -131065, 4, 0, -131064, 4, 0, -131063, 4, 0, 65539, 4, 0, 65542, 4, 0, 65543, 4, 0, 65544, 4, 0, 65545, 4, 0, 196619, 8, 0, 196620, 8, 0, 196621, 8, 0, 327669, 2, 0, 327670, 2, 0, 327671, 2, 0, 327672, 2, 0, 327673, 2, 0, 327676, 2, 0, 327679, 2, 0, 262144, 2, 0, 262145, 2, 0, 262146, 2, 0, 262147, 2, 0, 262148, 2, 0, 262149, 2, 0, 262150, 2, 0, 262151, 2, 0, 262152, 2, 0, 262153, 2, 0, 262154, 2, 0, 262155, 9, 0, 262156, 9, 0, 262157, 9, 0, 262158, 2, 0 )
+
+[node name="Coin2" parent="World" instance=ExtResource( 4 )]
+position = Vector2( -107, 81 )
+
+[node name="Coin3" parent="World" instance=ExtResource( 4 )]
+position = Vector2( 10, 75 )
 
 [node name="Environment" parent="." instance=ExtResource( 2 )]
+position = Vector2( -1, -5 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="StackController" type="Node2D" parent="."]
 position = Vector2( -1, -6 )
@@ -315,6 +325,7 @@ position = Vector2( 16, -144 )
 position = Vector2( 112, -144 )
 
 [node name="Stack2" type="Node2D" parent="StackController/StackContainer"]
+visible = false
 script = ExtResource( 15 )
 
 [node name="Block_Box2" parent="StackController/StackContainer/Stack2" instance=ExtResource( 18 )]
@@ -369,6 +380,9 @@ position = Vector2( 128, -224 )
 [node name="Block_Box11" parent="StackController/StackContainer/Stack3" instance=ExtResource( 18 )]
 position = Vector2( 144, -224 )
 
+[node name="Block-Spring" parent="StackController/StackContainer/Stack3" instance=ExtResource( 19 )]
+position = Vector2( 86, -132 )
+
 [node name="Stack4" type="Node2D" parent="StackController/StackContainer"]
 visible = false
 script = ExtResource( 15 )
@@ -393,3 +407,9 @@ position = Vector2( 64, -192 )
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
 position = Vector2( -171, 89 )
+
+[node name="Hazard" parent="." instance=ExtResource( 17 )]
+position = Vector2( -57, 99 )
+
+[node name="Hazard2" parent="." instance=ExtResource( 17 )]
+position = Vector2( -106, 103 )
