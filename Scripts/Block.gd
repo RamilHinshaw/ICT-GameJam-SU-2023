@@ -11,6 +11,8 @@ export var gravity:float = 200
 #export var air_resistance:float = 0.02
 export var is_frozen:bool = false
 
+var raycasts = []
+
 var colliding_with
 
 var motion = Vector2.ZERO
@@ -19,6 +21,11 @@ var start_x_pos: float
 
 func _ready():
 	start_x_pos = self.global_position.x
+	
+	#Get all raycast on this object
+	for _raycast in self.get_children():
+		if _raycast is RayCast2D:
+			raycasts.push_back(_raycast)
 
 func _process(dt):
 #func _physics_process(dt):
@@ -32,28 +39,24 @@ func _process(dt):
 	
 			
 	colliding_with = move_and_collide(motion*dt)
-	
-	if (colliding_with):
-#		motion = Vector2.ZERO
 
-#		if (raycast == null):
-#			return
-			
-		if (raycast.is_colliding()):
-#			print(raycast.get_collider().is_in_group("Floor"))
+	var hit_detected:bool = false
+
+	for _raycast in raycasts:
+		if _raycast.is_colliding():
 			if (raycast.get_collider().is_in_group("Floor") or raycast.get_collider().is_in_group("Vanish")):
-				motion = Vector2.ZERO
-				hazard.set_monitoring(false)
-		else:
-				hazard.set_monitoring(true)
-			
+				hit_detected = true
+		
+	if hit_detected:		
+		motion = Vector2.ZERO
+		hazard.set_monitoring(false)
 				
-#			print("COLLIDING!")
-			
+
 #	motion = move_and_slide(motion, Vector2.UP, false, 4, 0.785398,false)
 #	motion = move_and_slide(motion, Vector2.UP)
 	
 	self.global_position.x = start_x_pos
+	
 	
 func get_motion() -> Vector2:
 	return motion
