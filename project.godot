@@ -44,7 +44,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="ICT Gamejam WI 2023"
+config/name="ICT Gamejam SU 2023"
 run/main_scene="res://Scenes/Splash.tscn"
 boot_splash/image="res://Sprites/loading.png"
 boot_splash/bg_color=Color( 0.188235, 0.172549, 0.180392, 1 )
