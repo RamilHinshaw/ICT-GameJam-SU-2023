@@ -1,156 +1,21 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Menu.theme" type="Theme" id=1]
 [ext_resource path="res://Prefabs/Environment.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Prefabs/Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Prefabs/Coin.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Sprites/box.png" type="Texture" id=5]
-[ext_resource path="res://Sprites/bar.png" type="Texture" id=6]
-[ext_resource path="res://Sprites/bg1.png" type="Texture" id=7]
-[ext_resource path="res://Sprites/block.png" type="Texture" id=8]
-[ext_resource path="res://Sprites/black.png" type="Texture" id=9]
+[ext_resource path="res://Prefabs/Block_Saw.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Prefabs/Saw_inground.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scripts/World.gd" type="Script" id=10]
-[ext_resource path="res://Sprites/floor.png" type="Texture" id=11]
+[ext_resource path="res://Prefabs/Block_Lever.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Audio/Music/One Man Symphony - Royalty Free Soundtrack Collection - 05 D2 (Reprise).mp3" type="AudioStream" id=13]
+[ext_resource path="res://Prefabs/Vanishing-Blue-Block.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Scripts/Stack.gd" type="Script" id=15]
 [ext_resource path="res://Scripts/StackController.gd" type="Script" id=16]
+[ext_resource path="res://Prefabs/Block-Spring.tscn" type="PackedScene" id=17]
 [ext_resource path="res://Prefabs/Block_Box.tscn" type="PackedScene" id=18]
-
-[sub_resource type="ConvexPolygonShape2D" id=31]
-points = PoolVector2Array( 16, 16, 0, 16, 0, 0, 16, 0 )
-
-[sub_resource type="ConvexPolygonShape2D" id=32]
-points = PoolVector2Array( 16, 16, 0.0603447, 16, 0, 0, 16, 0 )
-
-[sub_resource type="ConvexPolygonShape2D" id=33]
-points = PoolVector2Array( 8, 8, 0, 8, 0, 0, 8, 0 )
-
-[sub_resource type="ConvexPolygonShape2D" id=34]
-points = PoolVector2Array( 16, 6, 0, 6, 0, 0, 16, 0 )
-
-[sub_resource type="ConvexPolygonShape2D" id=35]
-points = PoolVector2Array( 16, 16, 0, 16, 0, 0, 16, 0 )
-
-[sub_resource type="TileSet" id=36]
-0/name = "black.png 0"
-0/texture = ExtResource( 9 )
-0/tex_offset = Vector2( 0, 0 )
-0/modulate = Color( 1, 1, 1, 1 )
-0/region = Rect2( 0, 0, 16, 16 )
-0/tile_mode = 0
-0/occluder_offset = Vector2( 0, 0 )
-0/navigation_offset = Vector2( 0, 0 )
-0/shape_offset = Vector2( 0, 0 )
-0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-0/shape = SubResource( 31 )
-0/shape_one_way = false
-0/shape_one_way_margin = 1.0
-0/shapes = [ {
-"autotile_coord": Vector2( 0, 0 ),
-"one_way": false,
-"one_way_margin": 1.0,
-"shape": SubResource( 31 ),
-"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
-} ]
-0/z_index = 0
-2/name = "floor.png 2"
-2/texture = ExtResource( 11 )
-2/tex_offset = Vector2( 0, 0 )
-2/modulate = Color( 1, 1, 1, 1 )
-2/region = Rect2( 0, 0, 16, 16 )
-2/tile_mode = 0
-2/occluder_offset = Vector2( 0, 0 )
-2/navigation_offset = Vector2( 0, 0 )
-2/shape_offset = Vector2( 0, 0 )
-2/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-2/shape = SubResource( 32 )
-2/shape_one_way = false
-2/shape_one_way_margin = 1.0
-2/shapes = [ {
-"autotile_coord": Vector2( 0, 0 ),
-"one_way": false,
-"one_way_margin": 1.0,
-"shape": SubResource( 32 ),
-"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
-} ]
-2/z_index = 0
-3/name = "bg1.png 3"
-3/texture = ExtResource( 7 )
-3/tex_offset = Vector2( 0, 0 )
-3/modulate = Color( 1, 1, 1, 1 )
-3/region = Rect2( 0, 0, 16, 16 )
-3/tile_mode = 0
-3/occluder_offset = Vector2( 0, 0 )
-3/navigation_offset = Vector2( 0, 0 )
-3/shape_offset = Vector2( 0, 0 )
-3/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-3/shape_one_way = false
-3/shape_one_way_margin = 0.0
-3/shapes = [  ]
-3/z_index = 0
-5/name = "block.png 5"
-5/texture = ExtResource( 8 )
-5/tex_offset = Vector2( 0, 0 )
-5/modulate = Color( 1, 1, 1, 1 )
-5/region = Rect2( 4, 4, 8, 8 )
-5/tile_mode = 0
-5/occluder_offset = Vector2( 0, 0 )
-5/navigation_offset = Vector2( 0, 0 )
-5/shape_offset = Vector2( 0, 0 )
-5/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-5/shape = SubResource( 33 )
-5/shape_one_way = false
-5/shape_one_way_margin = 1.0
-5/shapes = [ {
-"autotile_coord": Vector2( 0, 0 ),
-"one_way": false,
-"one_way_margin": 1.0,
-"shape": SubResource( 33 ),
-"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
-} ]
-5/z_index = 0
-6/name = "bar.png 6"
-6/texture = ExtResource( 6 )
-6/tex_offset = Vector2( 0, 0 )
-6/modulate = Color( 1, 1, 1, 1 )
-6/region = Rect2( 0, 5, 16, 6 )
-6/tile_mode = 0
-6/occluder_offset = Vector2( 0, 0 )
-6/navigation_offset = Vector2( 0, 0 )
-6/shape_offset = Vector2( 0, 0 )
-6/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-6/shape = SubResource( 34 )
-6/shape_one_way = false
-6/shape_one_way_margin = 1.0
-6/shapes = [ {
-"autotile_coord": Vector2( 0, 0 ),
-"one_way": false,
-"one_way_margin": 1.0,
-"shape": SubResource( 34 ),
-"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
-} ]
-6/z_index = 0
-7/name = "box.png 7"
-7/texture = ExtResource( 5 )
-7/tex_offset = Vector2( 0, 0 )
-7/modulate = Color( 1, 1, 1, 1 )
-7/region = Rect2( 0, 0, 16, 16 )
-7/tile_mode = 0
-7/occluder_offset = Vector2( 0, 0 )
-7/navigation_offset = Vector2( 0, 0 )
-7/shape_offset = Vector2( 0, 0 )
-7/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-7/shape = SubResource( 35 )
-7/shape_one_way = false
-7/shape_one_way_margin = 1.0
-7/shapes = [ {
-"autotile_coord": Vector2( 0, 0 ),
-"one_way": false,
-"one_way_margin": 1.0,
-"shape": SubResource( 35 ),
-"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
-} ]
-7/z_index = 0
+[ext_resource path="res://Prefabs/Vanishing-Red-Block.tscn" type="PackedScene" id=19]
+[ext_resource path="res://Scenes/tileset.tres" type="TileSet" id=20]
 
 [sub_resource type="Animation" id=28]
 resource_name = "Pan_Down"
@@ -213,9 +78,6 @@ use_scene_name = true
 level_name = "Level TEST"
 music = ExtResource( 13 )
 
-[node name="Coin" parent="World" instance=ExtResource( 4 )]
-z_index = 1
-
 [node name="Label" type="Label" parent="World"]
 margin_left = -184.0
 margin_top = -106.0
@@ -226,13 +88,16 @@ text = "Level 1"
 
 [node name="TileMap" type="TileMap" parent="World" groups=["Floor"]]
 position = Vector2( -25.0002, 33.9999 )
-tile_set = SubResource( 36 )
+tile_set = ExtResource( 20 )
 cell_size = Vector2( 16, 16 )
 collision_mask = 0
 format = 1
-tile_data = PoolIntArray( -1507340, 7, 0, -1507339, 7, 0, -1507338, 7, 0, -1507337, 7, 0, -1507336, 7, 0, -1507335, 7, 0, -1507334, 7, 0, -1507333, 7, 0, -1507332, 7, 0, -1507331, 7, 0, -1507330, 7, 0, -1507329, 7, 0, -1572864, 7, 0, -1572863, 7, 0, -1572862, 7, 0, -1572861, 7, 0, -1572860, 7, 0, -1572859, 7, 0, -1572858, 7, 0, -1572857, 7, 0, -1572856, 7, 0, -1572855, 7, 0, -1572854, 7, 0, -1572853, 7, 0, -1572852, 7, 0, -1572851, 7, 0, -1572850, 7, 0, -1441804, 7, 0, -1507314, 7, 0, -1376268, 7, 0, -1441778, 7, 0, -1310732, 7, 0, -1376242, 7, 0, -1245196, 7, 0, -1310706, 7, 0, -1179660, 7, 0, -1245170, 7, 0, -1114124, 7, 0, -1179634, 7, 0, -1048588, 7, 0, -1114098, 7, 0, -983052, 7, 0, -1048562, 7, 0, -917516, 7, 0, -983026, 7, 0, -851980, 7, 0, -917490, 7, 0, -786444, 7, 0, -851954, 7, 0, -720908, 7, 0, -786418, 7, 0, -655372, 7, 0, -720882, 7, 0, -589836, 7, 0, -655346, 7, 0, -131067, 4, 0, -131066, 4, 0, -131065, 4, 0, -131064, 4, 0, -131063, 4, 0, 65539, 4, 0, 65542, 4, 0, 65543, 4, 0, 65544, 4, 0, 65545, 4, 0, 327669, 2, 0, 327670, 2, 0, 327671, 2, 0, 327672, 2, 0, 327673, 2, 0, 327674, 2, 0, 327675, 2, 0, 327676, 2, 0, 327677, 2, 0, 327678, 2, 0, 327679, 2, 0, 262144, 2, 0, 262145, 2, 0, 262146, 2, 0, 262147, 2, 0, 262148, 2, 0, 262149, 2, 0, 262150, 2, 0, 262151, 2, 0, 262152, 2, 0, 262153, 2, 0, 262154, 2, 0, 262155, 2, 0, 262156, 2, 0, 262157, 2, 0, 262158, 2, 0 )
+tile_data = PoolIntArray( -1507340, 7, 0, -1507339, 7, 0, -1507338, 7, 0, -1507337, 7, 0, -1507336, 7, 0, -1507335, 7, 0, -1507334, 7, 0, -1507333, 7, 0, -1507332, 7, 0, -1507331, 7, 0, -1507330, 7, 0, -1507329, 7, 0, -1572864, 7, 0, -1572863, 7, 0, -1572862, 7, 0, -1572861, 7, 0, -1572860, 7, 0, -1572859, 7, 0, -1572858, 7, 0, -1572857, 7, 0, -1572856, 7, 0, -1572855, 7, 0, -1572854, 7, 0, -1572853, 7, 0, -1572852, 7, 0, -1572851, 7, 0, -1572850, 7, 0, -1441804, 7, 0, -1507314, 7, 0, -1376268, 7, 0, -1441778, 7, 0, -1310732, 7, 0, -1376242, 7, 0, -1245196, 7, 0, -1310706, 7, 0, -1179660, 7, 0, -1245170, 7, 0, -1114124, 7, 0, -1179634, 7, 0, -1048588, 7, 0, -1114098, 7, 0, -983052, 7, 0, -1048562, 7, 0, -917516, 7, 0, -983026, 7, 0, -851980, 7, 0, -917490, 7, 0, -786444, 7, 0, -851954, 7, 0, -720908, 7, 0, -786418, 7, 0, -655372, 7, 0, -720882, 7, 0, -589836, 7, 0, -655346, 7, 0, -131067, 4, 0, -131066, 4, 0, -131065, 4, 0, -131064, 4, 0, -131063, 4, 0, 0, 2, 0, 1, 2, 0, 131071, 2, 0, 65536, 2, 0, 65537, 2, 0, 65538, 2, 0, 65539, 4, 0, 65542, 4, 0, 65543, 4, 0, 65544, 4, 0, 65545, 4, 0, 196606, 2, 0, 196607, 2, 0, 131072, 2, 0, 131073, 2, 0, 131074, 2, 0, 131075, 2, 0, 262141, 2, 0, 262142, 2, 0, 262143, 2, 0, 196608, 2, 0, 196609, 2, 0, 196610, 2, 0, 196611, 2, 0, 196612, 2, 0, 327669, 2, 0, 327670, 2, 0, 327671, 2, 0, 327672, 2, 0, 327673, 2, 0, 327674, 2, 0, 327675, 2, 0, 327676, 2, 0, 327677, 2, 0, 327678, 2, 0, 327679, 2, 0, 262144, 2, 0, 262145, 2, 0, 262146, 2, 0, 262147, 2, 0, 262148, 2, 0, 262149, 2, 0, 262150, 2, 0, 262151, 2, 0, 262152, 2, 0, 262153, 2, 0, 262154, 2, 0, 262155, 2, 0, 262156, 2, 0, 262157, 2, 0, 262158, 2, 0 )
 
 [node name="Environment" parent="." instance=ExtResource( 2 )]
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="StackController" type="Node2D" parent="."]
 position = Vector2( -1, -6 )
@@ -262,19 +127,31 @@ anims/RESET = SubResource( 30 )
 [node name="StackContainer" type="Node2D" parent="StackController"]
 
 [node name="Stack1" type="Node2D" parent="StackController/StackContainer"]
-visible = false
 script = ExtResource( 15 )
 
 [node name="Block_Box4" parent="StackController/StackContainer/Stack1" instance=ExtResource( 18 )]
 position = Vector2( -80, -144 )
 
-[node name="Block_Box5" parent="StackController/StackContainer/Stack1" instance=ExtResource( 18 )]
+[node name="Block_Lever" parent="StackController/StackContainer/Stack1" instance=ExtResource( 12 )]
+position = Vector2( -144, -160 )
+
+[node name="black-box" parent="StackController/StackContainer/Stack1" instance=ExtResource( 18 )]
 position = Vector2( 16, -144 )
+
+[node name="black-box2" parent="StackController/StackContainer/Stack1" instance=ExtResource( 18 )]
+position = Vector2( -144, -208 )
+
+[node name="block-box" parent="StackController/StackContainer/Stack1" instance=ExtResource( 18 )]
+position = Vector2( 16, -160 )
+
+[node name="Block-Spring" parent="StackController/StackContainer/Stack1" instance=ExtResource( 17 )]
+position = Vector2( 80, -176 )
 
 [node name="Block_Box6" parent="StackController/StackContainer/Stack1" instance=ExtResource( 18 )]
 position = Vector2( 112, -144 )
 
 [node name="Stack2" type="Node2D" parent="StackController/StackContainer"]
+visible = false
 script = ExtResource( 15 )
 
 [node name="Block_Box2" parent="StackController/StackContainer/Stack2" instance=ExtResource( 18 )]
@@ -284,13 +161,13 @@ position = Vector2( -80, -272 )
 position = Vector2( -144, -224 )
 
 [node name="Block_Box6" parent="StackController/StackContainer/Stack2" instance=ExtResource( 18 )]
-position = Vector2( -112, -176 )
+position = Vector2( -112, -192 )
 
 [node name="Block_Box9" parent="StackController/StackContainer/Stack2" instance=ExtResource( 18 )]
 position = Vector2( 112, -224 )
 
 [node name="Block_Box11" parent="StackController/StackContainer/Stack2" instance=ExtResource( 18 )]
-position = Vector2( 144, -176 )
+position = Vector2( 160, -144 )
 
 [node name="Stack3" type="Node2D" parent="StackController/StackContainer"]
 visible = false
@@ -352,4 +229,26 @@ position = Vector2( 80, -240 )
 position = Vector2( 64, -192 )
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
-position = Vector2( -171, 89 )
+position = Vector2( -166, 23 )
+
+[node name="Vanishing-Blue-Block" parent="." instance=ExtResource( 14 )]
+position = Vector2( 88, 13 )
+
+[node name="Vanishing-Red-Block" parent="." instance=ExtResource( 19 )]
+position = Vector2( -96, 0 )
+
+[node name="Saw_inground2" parent="." instance=ExtResource( 8 )]
+position = Vector2( 63, 58 )
+
+[node name="Block_Saw" parent="." instance=ExtResource( 5 )]
+
+[node name="Coin" parent="." instance=ExtResource( 4 )]
+z_index = 1
+
+[node name="Coin2" parent="." instance=ExtResource( 4 )]
+position = Vector2( -4, 22 )
+z_index = 1
+
+[node name="Coin3" parent="." instance=ExtResource( 4 )]
+position = Vector2( -121, 88 )
+z_index = 1
