@@ -406,10 +406,18 @@ position = Vector2( 80, -240 )
 position = Vector2( 64, -192 )
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
-position = Vector2( -171, 89 )
+position = Vector2( -185, 92 )
 
 [node name="Hazard" parent="." instance=ExtResource( 17 )]
 position = Vector2( -57, 99 )
 
-[node name="Hazard2" parent="." instance=ExtResource( 17 )]
-position = Vector2( -106, 103 )
+[node name="Hazard2" parent="Hazard" instance=ExtResource( 17 )]
+position = Vector2( -49, 4 )
+
+[node name="Hazard" parent="Hazard/Hazard2" instance=ExtResource( 17 )]
+position = Vector2( 25, 5 )
+
+[node name="Hazard" parent="Hazard/Hazard2/Hazard" instance=ExtResource( 17 )]
+
+[node name="Hazard2" parent="Hazard/Hazard2/Hazard/Hazard" instance=ExtResource( 17 )]
+position = Vector2( -21, -17 )
