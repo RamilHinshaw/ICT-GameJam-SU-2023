@@ -11,7 +11,7 @@ var coins_left:int = 0
 onready var lbl_level:Label = $Label
 
 func _ready():
-	Global.play_music(music)
+#	Global.play_music(music)
 	
 	if use_scene_name:
 		lbl_level.text = get_tree().get_current_scene().get_name()

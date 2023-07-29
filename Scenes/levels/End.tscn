@@ -1,7 +1,7 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Menu.theme" type="Theme" id=1]
-[ext_resource path="res://Sprites/coin_small.png" type="Texture" id=2]
+[ext_resource path="res://Prefabs/Coin.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Prefabs/Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Sprites/new_sprites/background_Front_v0.png" type="Texture" id=4]
 [ext_resource path="res://Scenes/tileset.tres" type="TileSet" id=5]
@@ -11,43 +11,7 @@
 [ext_resource path="res://Sprites/new_sprites/background_back_v0.png" type="Texture" id=14]
 [ext_resource path="res://Scripts/Stack.gd" type="Script" id=15]
 [ext_resource path="res://Scripts/StackController.gd" type="Script" id=16]
-[ext_resource path="res://Scripts/Coin.gd" type="Script" id=17]
 [ext_resource path="res://Prefabs/Block_Box.tscn" type="PackedScene" id=18]
-
-[sub_resource type="RectangleShape2D" id=14]
-extents = Vector2( 5, 6 )
-
-[sub_resource type="Animation" id=34]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ 0 ]
-}
-
-[sub_resource type="Animation" id=35]
-resource_name = "coin"
-length = 0.35
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 0, 1, 2, 3 ]
-}
 
 [sub_resource type="RectangleShape2D" id=31]
 extents = Vector2( 219.5, 3.99998 )
@@ -115,25 +79,6 @@ __meta__ = {
 }
 level_name = "Level TEST"
 music = ExtResource( 13 )
-
-[node name="Coin" type="Area2D" parent="World"]
-position = Vector2( 167, 82.9993 )
-script = ExtResource( 17 )
-
-[node name="Sprite" type="Sprite" parent="World/Coin"]
-z_index = -1
-texture = ExtResource( 2 )
-hframes = 4
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Coin"]
-position = Vector2( -0.00038147, -0.00038147 )
-shape = SubResource( 14 )
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="World/Coin"]
-autoplay = "coin"
-playback_speed = 0.66
-anims/RESET = SubResource( 34 )
-anims/coin = SubResource( 35 )
 
 [node name="TileMap" type="TileMap" parent="World" groups=["Floor"]]
 position = Vector2( -25, 34 )
@@ -332,5 +277,8 @@ position = Vector2( 127, -198 )
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
 position = Vector2( -171, 89 )
+
+[node name="Coin" parent="." instance=ExtResource( 2 )]
+position = Vector2( 149, 73 )
 
 [connection signal="body_entered" from="World/DeathPlane" to="World/DeathPlane" method="_on_Hazard_body_entered"]

@@ -41,9 +41,9 @@ func _process(dt):
 #			print(raycast.get_collider().is_in_group("Floor"))
 			if (raycast.get_collider().is_in_group("Floor") or raycast.get_collider().is_in_group("Vanish")):
 				motion = Vector2.ZERO
-#				hazard.set_monitoring(false)
-#		else:
-#				hazard.set_monitoring(true)
+				hazard.set_monitoring(false)
+		else:
+				hazard.set_monitoring(true)
 			
 				
 #			print("COLLIDING!")
