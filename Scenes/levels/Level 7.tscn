@@ -6,13 +6,13 @@
 [ext_resource path="res://Prefabs/Coin.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/tileset.tres" type="TileSet" id=5]
 [ext_resource path="res://Sprites/saw.png" type="Texture" id=6]
-[ext_resource path="res://Prefabs/Vanishing-Red-Block.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Prefabs/Hazard.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Prefabs/Block-Spring.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Scripts/World.gd" type="Script" id=10]
 [ext_resource path="res://Prefabs/Lever.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Scripts/Hazard.gd" type="Script" id=12]
 [ext_resource path="res://Audio/Music/One Man Symphony - Royalty Free Soundtrack Collection - 05 D2 (Reprise).mp3" type="AudioStream" id=13]
+[ext_resource path="res://Prefabs/Vanishing-Blue-Block.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Scripts/Stack.gd" type="Script" id=15]
 [ext_resource path="res://Scripts/StackController.gd" type="Script" id=16]
 [ext_resource path="res://Prefabs/Block_Box.tscn" type="PackedScene" id=18]
@@ -99,7 +99,7 @@ level_name = "Level TEST"
 music = ExtResource( 13 )
 
 [node name="Coin" parent="World" instance=ExtResource( 4 )]
-position = Vector2( -117, -29 )
+position = Vector2( -113, -36 )
 z_index = 1
 
 [node name="Label" type="Label" parent="World"]
@@ -116,22 +116,32 @@ tile_set = ExtResource( 5 )
 cell_size = Vector2( 16, 16 )
 collision_mask = 0
 format = 1
-tile_data = PoolIntArray( -1507340, 7, 0, -1507339, 7, 0, -1507338, 7, 0, -1507337, 7, 0, -1507336, 7, 0, -1507335, 7, 0, -1507334, 7, 0, -1507333, 7, 0, -1507332, 7, 0, -1507331, 7, 0, -1507330, 7, 0, -1507329, 7, 0, -1572864, 7, 0, -1572863, 7, 0, -1572862, 7, 0, -1572861, 7, 0, -1572860, 7, 0, -1572859, 7, 0, -1572858, 7, 0, -1572857, 7, 0, -1572856, 7, 0, -1572855, 7, 0, -1572854, 7, 0, -1572853, 7, 0, -1572852, 7, 0, -1572851, 7, 0, -1572850, 7, 0, -1441804, 7, 0, -1507314, 7, 0, -1376268, 7, 0, -1441778, 7, 0, -1310732, 7, 0, -1376242, 7, 0, -1245196, 7, 0, -1310706, 7, 0, -1179660, 7, 0, -1245170, 7, 0, -1114124, 7, 0, -1179634, 7, 0, -1048588, 7, 0, -1114098, 7, 0, -983052, 7, 0, -1048562, 7, 0, -917516, 7, 0, -983026, 7, 0, -851980, 7, 0, -917490, 7, 0, -786444, 7, 0, -851954, 7, 0, -720908, 7, 0, -786418, 7, 0, -655372, 7, 0, -720882, 7, 0, -589836, 7, 0, -655346, 7, 0, -327691, 8, 0, -327690, 8, 0, -327689, 8, 0, -262155, 9, 0, -262154, 9, 0, -262153, 9, 0, -327673, 8, 0, -196619, 9, 0, -196618, 9, 0, -196617, 9, 0, -262138, 8, 0, -262137, 9, 0, -262136, 8, 0, -131083, 9, 0, -131082, 9, 0, -131081, 9, 0, -196603, 8, 0, -196602, 9, 0, -196601, 9, 0, -196600, 9, 0, -196599, 8, 0, -65547, 9, 0, -65546, 9, 0, -65545, 9, 0, -131068, 8, 0, -131067, 9, 0, -131066, 9, 0, -131065, 9, 0, -131064, 9, 0, -131063, 9, 0, -131062, 8, 0, -11, 9, 0, -10, 9, 0, -9, 9, 0, -65529, 9, 0, 65525, 9, 0, 65529, 8, 0, 7, 9, 0, 131061, 9, 0, 131065, 9, 0, 131066, 8, 0, 65539, 4, 0, 65543, 9, 0, 196597, 9, 0, 196601, 9, 0, 196602, 9, 0, 196603, 8, 0, 131079, 9, 0, 262133, 9, 0, 262134, 9, 0, 262135, 9, 0, 262136, 9, 0, 262137, 9, 0, 262138, 9, 0, 262139, 9, 0, 262140, 8, 0, 262141, 8, 0, 262142, 8, 0, 196615, 9, 0, 262151, 9, 0 )
+tile_data = PoolIntArray( -1507340, 7, 0, -1507339, 7, 0, -1507338, 7, 0, -1507337, 7, 0, -1507336, 7, 0, -1507335, 7, 0, -1507334, 7, 0, -1507333, 7, 0, -1507332, 7, 0, -1507331, 7, 0, -1507330, 7, 0, -1507329, 7, 0, -1572864, 7, 0, -1572863, 7, 0, -1572862, 7, 0, -1572861, 7, 0, -1572860, 7, 0, -1572859, 7, 0, -1572858, 7, 0, -1572857, 7, 0, -1572856, 7, 0, -1572855, 7, 0, -1572854, 7, 0, -1572853, 7, 0, -1572852, 7, 0, -1572851, 7, 0, -1572850, 7, 0, -1441804, 7, 0, -1507314, 7, 0, -1376268, 7, 0, -1441778, 7, 0, -1310732, 7, 0, -1376242, 7, 0, -1245196, 7, 0, -1310706, 7, 0, -1179660, 7, 0, -1245170, 7, 0, -1114124, 7, 0, -1179634, 7, 0, -1048588, 7, 0, -1114098, 7, 0, -983052, 7, 0, -1048562, 7, 0, -917516, 7, 0, -983026, 7, 0, -851980, 7, 0, -917490, 7, 0, -786444, 7, 0, -851954, 7, 0, -720908, 7, 0, -786418, 7, 0, -655372, 7, 0, -720882, 7, 0, -589836, 7, 0, -655346, 7, 0, -327691, 11, 0, -327690, 11, 0, -327689, 7, 0, -262155, 11, 0, -262154, 10, 0, -262153, 10, 0, -327673, 8, 0, -196619, 11, 0, -196618, 10, 0, -196617, 10, 0, -262138, 8, 0, -262137, 9, 0, -262136, 8, 0, -131083, 12, 0, -131082, 11, 0, -131081, 11, 0, -131078, 10, 0, -196603, 8, 0, -196602, 9, 0, -196601, 9, 0, -196600, 9, 0, -196599, 8, 0, -65547, 12, 0, -65545, 11, 0, -65542, 10, 0, -131068, 8, 0, -131067, 9, 0, -131066, 9, 0, -131065, 9, 0, -131064, 9, 0, -131063, 9, 0, -131062, 8, 0, -11, 12, 0, -9, 11, 0, -6, 10, 0, -65529, 9, 0, 65525, 12, 0, 7, 9, 0, 131061, 12, 0, 65539, 4, 0, 65543, 9, 0, 196597, 12, 0, 196602, 10, 0, 196606, 13, 0, 131079, 9, 0, 262133, 12, 0, 262135, 11, 0, 262136, 11, 0, 262137, 11, 0, 262138, 10, 0, 262139, 10, 0, 262140, 13, 0, 262141, 13, 0, 262142, 13, 0, 196609, 12, 0, 196615, 9, 0, 327669, 12, 0, 327670, 12, 0, 327671, 11, 0, 327679, 12, 0, 262144, 12, 0, 262145, 12, 0, 262151, 9, 0 )
 
-[node name="Block_Box" parent="World" instance=ExtResource( 18 )]
-position = Vector2( 55.9993, -194 )
+[node name="Hazard" parent="World/TileMap" instance=ExtResource( 8 )]
+position = Vector2( -90.9998, -68.9999 )
+
+[node name="Hazard2" parent="World/TileMap" instance=ExtResource( 8 )]
+position = Vector2( -82.9998, -76.9999 )
+
+[node name="Hazard3" parent="World/TileMap" instance=ExtResource( 8 )]
+position = Vector2( -90.9998, -76.9999 )
+
+[node name="Hazard4" parent="World/TileMap" instance=ExtResource( 8 )]
+position = Vector2( -82.9998, -68.9999 )
 
 [node name="Block-Spring" parent="World" instance=ExtResource( 9 )]
-position = Vector2( -145, 74 )
+position = Vector2( -177, 84 )
 
 [node name="Hazard" type="Area2D" parent="World"]
 position = Vector2( 95, -3 )
-rotation = -3.66122
+rotation = -6.19281
 collision_layer = 2
 collision_mask = 4
 script = ExtResource( 12 )
 
 [node name="Sprite" type="Sprite" parent="World/Hazard"]
+visible = false
 z_index = 2
 texture = ExtResource( 6 )
 
@@ -157,20 +167,35 @@ position = Vector2( 0.999969, -87 )
 [node name="Hazard" parent="World/Hazard" instance=ExtResource( 8 )]
 position = Vector2( -56, -50 )
 
-[node name="Vanishing-Red-Block" parent="World" instance=ExtResource( 7 )]
-position = Vector2( -31, 51 )
-
-[node name="Vanishing-Red-Block2" parent="World" instance=ExtResource( 7 )]
-position = Vector2( -14, 51 )
-
-[node name="Vanishing-Red-Block3" parent="World" instance=ExtResource( 7 )]
-position = Vector2( 0, 34 )
-
 [node name="Lever" parent="World" instance=ExtResource( 11 )]
-position = Vector2( -75, 71 )
+position = Vector2( -177, 12 )
+
+[node name="Coin2" parent="World" instance=ExtResource( 4 )]
+position = Vector2( -49, 12 )
+
+[node name="Vanishing-Blue-Block" parent="World" instance=ExtResource( 14 )]
+position = Vector2( 112, 95 )
+
+[node name="Vanishing-Blue-Block2" parent="World" instance=ExtResource( 14 )]
+position = Vector2( 128, 95 )
+
+[node name="Vanishing-Blue-Block3" parent="World" instance=ExtResource( 14 )]
+position = Vector2( 144, 95 )
+
+[node name="Vanishing-Blue-Block4" parent="World" instance=ExtResource( 14 )]
+position = Vector2( 160, 95 )
+
+[node name="Vanishing-Blue-Block5" parent="World" instance=ExtResource( 14 )]
+position = Vector2( 176, 95 )
+
+[node name="Coin3" parent="World" instance=ExtResource( 4 )]
+position = Vector2( 111, 28 )
 
 [node name="Environment" parent="." instance=ExtResource( 2 )]
-position = Vector2( -1, -8 )
+position = Vector2( -1, -4 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="StackController" type="Node2D" parent="."]
 position = Vector2( -1, -6 )
@@ -200,72 +225,78 @@ anims/RESET = SubResource( 30 )
 [node name="StackContainer" type="Node2D" parent="StackController"]
 
 [node name="Stack1" type="Node2D" parent="StackController/StackContainer"]
-visible = false
 script = ExtResource( 15 )
 
 [node name="Block_Box4" parent="StackController/StackContainer/Stack1" instance=ExtResource( 18 )]
-position = Vector2( -80, -144 )
+position = Vector2( 0, -118 )
 
 [node name="Block_Box5" parent="StackController/StackContainer/Stack1" instance=ExtResource( 18 )]
-position = Vector2( 16, -144 )
+position = Vector2( -16, -118 )
 
 [node name="Block_Box6" parent="StackController/StackContainer/Stack1" instance=ExtResource( 18 )]
-position = Vector2( 112, -144 )
+position = Vector2( 144, -134 )
+
+[node name="Block-Spring" parent="StackController/StackContainer/Stack1" instance=ExtResource( 9 )]
+position = Vector2( -144, -142 )
 
 [node name="Stack2" type="Node2D" parent="StackController/StackContainer"]
+visible = false
 script = ExtResource( 15 )
 
 [node name="Block_Box2" parent="StackController/StackContainer/Stack2" instance=ExtResource( 18 )]
-position = Vector2( -80, -272 )
+position = Vector2( -32, -214 )
 
 [node name="Block_Box3" parent="StackController/StackContainer/Stack2" instance=ExtResource( 18 )]
-position = Vector2( -144, -224 )
+position = Vector2( -48, -262 )
 
 [node name="Block_Box6" parent="StackController/StackContainer/Stack2" instance=ExtResource( 18 )]
-position = Vector2( -112, -176 )
+position = Vector2( -32, -294 )
+
+[node name="Block-Spring" parent="StackController/StackContainer/Stack2/Block_Box6" instance=ExtResource( 9 )]
+position = Vector2( -74, 50 )
 
 [node name="Block_Box9" parent="StackController/StackContainer/Stack2" instance=ExtResource( 18 )]
-position = Vector2( 112, -224 )
+position = Vector2( 104, -222 )
 
 [node name="Block_Box11" parent="StackController/StackContainer/Stack2" instance=ExtResource( 18 )]
-position = Vector2( 144, -176 )
+position = Vector2( 80, -246 )
 
 [node name="Stack3" type="Node2D" parent="StackController/StackContainer"]
 visible = false
 script = ExtResource( 15 )
 
 [node name="Block_Box" parent="StackController/StackContainer/Stack3" instance=ExtResource( 18 )]
-position = Vector2( -160, -224 )
+position = Vector2( 0, -278 )
 
 [node name="Block_Box2" parent="StackController/StackContainer/Stack3" instance=ExtResource( 18 )]
-position = Vector2( -144, -224 )
+position = Vector2( 0, -254 )
 
 [node name="Block_Box3" parent="StackController/StackContainer/Stack3" instance=ExtResource( 18 )]
-position = Vector2( -128, -224 )
+position = Vector2( 0, -134 )
 
 [node name="Block_Box4" parent="StackController/StackContainer/Stack3" instance=ExtResource( 18 )]
-position = Vector2( -112, -224 )
+position = Vector2( 0, -118 )
 
 [node name="Block_Box5" parent="StackController/StackContainer/Stack3" instance=ExtResource( 18 )]
-position = Vector2( -32, -224 )
+position = Vector2( -32, -198 )
 
 [node name="Block_Box6" parent="StackController/StackContainer/Stack3" instance=ExtResource( 18 )]
-position = Vector2( -16, -224 )
+position = Vector2( -32, -214 )
 
 [node name="Block_Box7" parent="StackController/StackContainer/Stack3" instance=ExtResource( 18 )]
-position = Vector2( 0, -224 )
+position = Vector2( -16, -118 )
 
 [node name="Block_Box8" parent="StackController/StackContainer/Stack3" instance=ExtResource( 18 )]
-position = Vector2( 96, -224 )
+position = Vector2( -16, -214 )
 
 [node name="Block_Box9" parent="StackController/StackContainer/Stack3" instance=ExtResource( 18 )]
-position = Vector2( 112, -224 )
+position = Vector2( -16, -254 )
 
 [node name="Block_Box10" parent="StackController/StackContainer/Stack3" instance=ExtResource( 18 )]
-position = Vector2( 128, -224 )
+position = Vector2( 104, -222 )
 
 [node name="Block_Box11" parent="StackController/StackContainer/Stack3" instance=ExtResource( 18 )]
-position = Vector2( 144, -224 )
+position = Vector2( 120, -222 )
 
 [node name="Stack4" type="Node2D" parent="StackController/StackContainer"]
 visible = false
