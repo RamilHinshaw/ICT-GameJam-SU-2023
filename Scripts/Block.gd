@@ -41,11 +41,12 @@ func _process(dt):
 	if (colliding_with):
 #		motion = Vector2.ZERO
 
-		if (raycast == null):
-			return
+#		if (raycast == null):
+#			return
 			
 		if (raycast.is_colliding()):
-			if (raycast.get_collider().is_in_group("Floor")):
+#			print(raycast.get_collider().is_in_group("Floor"))
+			if (raycast.get_collider().is_in_group("Floor") or raycast.get_collider().is_in_group("Vanish")):
 				motion = Vector2.ZERO
 #			print("COLLIDING!")
 			

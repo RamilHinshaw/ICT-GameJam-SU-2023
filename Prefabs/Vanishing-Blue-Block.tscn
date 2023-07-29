@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id=20]
 extents = Vector2( 8, 8 )
 
-[node name="Vanishing-Blue-Block" type="KinematicBody2D"]
+[node name="Vanishing-Blue-Block" type="KinematicBody2D" groups=["Vanish"]]
 position = Vector2( 121, 35 )
 script = ExtResource( 1 )
 is_red = false
