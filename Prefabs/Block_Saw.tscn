@@ -1,0 +1,88 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://Sprites/new_sprites/block-saw.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/Block.gd" type="Script" id=2]
+[ext_resource path="res://Scripts/Hazard.gd" type="Script" id=3]
+[ext_resource path="res://Sprites/box.png" type="Texture" id=4]
+[ext_resource path="res://Saw_inground.gd" type="Script" id=5]
+
+[sub_resource type="RectangleShape2D" id=26]
+extents = Vector2( 7, 3 )
+
+[sub_resource type="RectangleShape2D" id=27]
+extents = Vector2( 6, 0.499977 )
+
+[sub_resource type="AtlasTexture" id=31]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=32]
+atlas = ExtResource( 1 )
+region = Rect2( 16, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=33]
+atlas = ExtResource( 1 )
+region = Rect2( 32, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=34]
+atlas = ExtResource( 1 )
+region = Rect2( 48, 0, 16, 16 )
+
+[sub_resource type="SpriteFrames" id=35]
+animations = [ {
+"frames": [ SubResource( 31 ), SubResource( 32 ), SubResource( 33 ), SubResource( 34 ) ],
+"loop": true,
+"name": "default",
+"speed": 20.0
+} ]
+
+[sub_resource type="CircleShape2D" id=6]
+radius = 6.08276
+
+[node name="Block_Saw" type="KinematicBody2D" groups=["Block"]]
+position = Vector2( -135, -7 )
+collision_layer = 2
+collision_mask = 15
+moving_platform_apply_velocity_on_leave = 2
+script = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+visible = false
+position = Vector2( 0, -1.52588e-05 )
+texture = ExtResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0.000751495, 5 )
+shape = SubResource( 26 )
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2( 0.000749946, 8 )
+enabled = true
+cast_to = Vector2( 0, 1 )
+collision_mask = 3
+
+[node name="Hazard" type="Area2D" parent="."]
+position = Vector2( 4.57764e-05, 8.99998 )
+collision_layer = 0
+collision_mask = 4
+script = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hazard"]
+position = Vector2( 0.000704169, -0.999985 )
+shape = SubResource( 27 )
+
+[node name="Saw_inground" type="Area2D" parent="."]
+script = ExtResource( 5 )
+
+[node name="AnimatedSprite3" type="AnimatedSprite" parent="Saw_inground"]
+frames = SubResource( 35 )
+frame = 3
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Saw_inground"]
+position = Vector2( 0, -1 )
+shape = SubResource( 6 )
+
+[connection signal="body_entered" from="Hazard" to="Hazard" method="_on_Hazard_body_entered"]
+[connection signal="area_entered" from="Saw_inground" to="Saw_inground" method="_on_Saw_inground_area_entered"]
+[connection signal="body_entered" from="Saw_inground" to="Saw_inground" method="_on_Saw_inground_body_entered"]
