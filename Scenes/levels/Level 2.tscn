@@ -241,7 +241,7 @@ tracks/0/keys = {
 "values": [ Vector2( -0.999985, 5 ) ]
 }
 
-[node name="Game" type="Node2D"]
+[node name="Level 2" type="Node2D"]
 position = Vector2( 177, 140 )
 __meta__ = {
 "_edit_horizontal_guides_": [  ],
@@ -254,6 +254,7 @@ script = ExtResource( 10 )
 __meta__ = {
 "_edit_lock_": true
 }
+use_scene_name = true
 level_name = "Level TEST"
 music = ExtResource( 13 )
 
