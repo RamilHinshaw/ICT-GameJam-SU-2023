@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Scripts/Rod.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/rod.png" type="Texture" id=2]
+[ext_resource path="res://Audio/SFX/rod.wav" type="AudioStream" id=3]
+
+[sub_resource type="RectangleShape2D" id=14]
+extents = Vector2( 7, 13.5 )
+
+[node name="Rod" type="Area2D"]
+position = Vector2( -22, 82 )
+script = ExtResource( 1 )
+sfx_on = ExtResource( 3 )
+
+[node name="Sprite" type="Sprite" parent="."]
+z_index = -1
+texture = ExtResource( 2 )
+hframes = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 1, 2.5 )
+shape = SubResource( 14 )
+
+[connection signal="body_entered" from="." to="." method="_on_Rod_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_Rod_body_exited"]

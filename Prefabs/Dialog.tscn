@@ -1,0 +1,62 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Menu.theme" type="Theme" id=2]
+[ext_resource path="res://Scripts/Dialog.gd" type="Script" id=3]
+[ext_resource path="res://8-Bit Madness.ttf" type="DynamicFontData" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 15
+font_data = ExtResource( 4 )
+
+[node name="Dialog" type="CanvasLayer"]
+pause_mode = 2
+script = ExtResource( 3 )
+
+[node name="Control" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BG" type="ColorRect" parent="Control"]
+margin_left = 16.0
+margin_top = 111.0
+margin_right = 240.0
+margin_bottom = 141.0
+color = Color( 0.0313726, 0.0941176, 0.12549, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FG" type="ColorRect" parent="Control/BG"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 1.0
+margin_top = 1.0
+margin_right = -1.0
+margin_bottom = -1.0
+color = Color( 0.203922, 0.407843, 0.337255, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Text" type="RichTextLabel" parent="Control/BG/FG"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 3.0
+margin_top = 3.0
+margin_right = -4.0
+margin_bottom = -3.0
+custom_colors/default_color = Color( 0.878431, 0.972549, 0.815686, 1 )
+custom_fonts/normal_font = SubResource( 1 )
+text = "dsdfasfsdfsd"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="Control"]
+
+[connection signal="timeout" from="Control/Timer" to="." method="_on_Timer_timeout"]

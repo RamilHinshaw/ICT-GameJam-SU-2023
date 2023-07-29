@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Sprites/gravity-shift.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/Gravity-Shift.gd" type="Script" id=2]
+[ext_resource path="res://Audio/SFX/gravity.wav" type="AudioStream" id=3]
+
+[sub_resource type="RectangleShape2D" id=22]
+extents = Vector2( 7, 5 )
+
+[sub_resource type="Animation" id=23]
+resource_name = "gravity-shift"
+length = 0.6
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6 ]
+}
+
+[node name="Gravity-Shift" type="Area2D"]
+position = Vector2( -120, 90 )
+script = ExtResource( 2 )
+sfx_shift = ExtResource( 3 )
+
+[node name="Sprite" type="Sprite" parent="."]
+z_index = 2
+texture = ExtResource( 1 )
+hframes = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 1.52588e-05, 3 )
+shape = SubResource( 22 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "gravity-shift"
+anims/gravity-shift = SubResource( 23 )
+
+[connection signal="body_entered" from="." to="." method="_on_GravityShift_body_entered"]

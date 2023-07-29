@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/rod.wav-5d9b4d884b89a424dfe18a8d24f07b38.sample"
+
+[deps]
+
+source_file="res://Audio/SFX/rod.wav"
+dest_files=[ "res://.import/rod.wav-5d9b4d884b89a424dfe18a8d24f07b38.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/One Man Symphony - Royalty Free Soundtrack Collection - 05 D2 (Reprise).mp3-76ab3d035d5bdde278321769d91d3344.mp3str"
+
+[deps]
+
+source_file="res://Audio/Music/One Man Symphony - Royalty Free Soundtrack Collection - 05 D2 (Reprise).mp3"
+dest_files=[ "res://.import/One Man Symphony - Royalty Free Soundtrack Collection - 05 D2 (Reprise).mp3-76ab3d035d5bdde278321769d91d3344.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
