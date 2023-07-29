@@ -1,8 +1,8 @@
-[gd_scene load_steps=38 format=2]
+[gd_scene load_steps=40 format=2]
 
 [ext_resource path="res://Prefabs/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Prefabs/Block_Lever.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Prefabs/Rod.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Sprites/coin_small.png" type="Texture" id=3]
 [ext_resource path="res://Sprites/black.png" type="Texture" id=4]
 [ext_resource path="res://Sprites/floor.png" type="Texture" id=5]
 [ext_resource path="res://Sprites/bg1.png" type="Texture" id=6]
@@ -11,17 +11,115 @@
 [ext_resource path="res://Scripts/StackController.gd" type="Script" id=9]
 [ext_resource path="res://Scripts/World.gd" type="Script" id=10]
 [ext_resource path="res://Prefabs/Hazard.tscn" type="PackedScene" id=11]
-[ext_resource path="res://Prefabs/Gravity-Shift.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Scripts/Coin.gd" type="Script" id=12]
 [ext_resource path="res://Prefabs/Vanishing-Red-Block.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Prefabs/Vanishing-Blue-Block.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Sprites/box.png" type="Texture" id=15]
 [ext_resource path="res://Audio/Music/One Man Symphony - Royalty Free Soundtrack Collection - 05 D2 (Reprise).mp3" type="AudioStream" id=16]
 [ext_resource path="res://Sprites/block.png" type="Texture" id=17]
-[ext_resource path="res://Scripts/Block.gd" type="Script" id=18]
 [ext_resource path="res://Scripts/Hazard.gd" type="Script" id=19]
 [ext_resource path="res://Scripts/Stack.gd" type="Script" id=20]
 [ext_resource path="res://Prefabs/Block_Box.tscn" type="PackedScene" id=21]
 [ext_resource path="res://Prefabs/Block-Spring.tscn" type="PackedScene" id=22]
+
+[sub_resource type="RectangleShape2D" id=14]
+extents = Vector2( 5, 6 )
+
+[sub_resource type="Animation" id=34]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+
+[sub_resource type="Animation" id=35]
+resource_name = "coin"
+length = 0.35
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3 ]
+}
+
+[sub_resource type="Animation" id=36]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+
+[sub_resource type="Animation" id=37]
+resource_name = "coin"
+length = 0.35
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3 ]
+}
+
+[sub_resource type="Animation" id=38]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+
+[sub_resource type="Animation" id=39]
+resource_name = "coin"
+length = 0.35
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3 ]
+}
 
 [sub_resource type="ConvexPolygonShape2D" id=20]
 points = PoolVector2Array( 16, 16, 0, 16, 0, 0, 16, 0 )
@@ -159,38 +257,6 @@ points = PoolVector2Array( 16, 16, 0, 16, 0, 0, 16, 0 )
 } ]
 7/z_index = 0
 
-[sub_resource type="Animation" id=16]
-resource_name = "To_Orig"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:rotation_degrees")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ 180.0, 360.0 ]
-}
-
-[sub_resource type="Animation" id=15]
-resource_name = "To_UpsideDown"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:rotation_degrees")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ 0.0, 180.0 ]
-}
-
 [sub_resource type="RectangleShape2D" id=31]
 extents = Vector2( 219.5, 3.99998 )
 
@@ -239,16 +305,10 @@ tracks/0/keys = {
 "values": [ Vector2( -0.999985, 5 ) ]
 }
 
-[sub_resource type="RectangleShape2D" id=32]
-extents = Vector2( 8.00002, 7.49999 )
-
-[sub_resource type="RectangleShape2D" id=33]
-extents = Vector2( 7, 0.999954 )
-
 [sub_resource type="RectangleShape2D" id=25]
 extents = Vector2( 1, 115.5 )
 
-[node name="Node2D" type="Node2D"]
+[node name="Test Level" type="Node2D"]
 position = Vector2( 177, 140 )
 __meta__ = {
 "_edit_horizontal_guides_": [  ],
@@ -256,9 +316,67 @@ __meta__ = {
 }
 
 [node name="World" type="Node2D" parent="."]
-rotation = -6.28319
+rotation = 6.28319
 script = ExtResource( 10 )
+level_name = "Level TEST"
 music = ExtResource( 16 )
+
+[node name="Coin" type="Area2D" parent="World"]
+position = Vector2( -94.9996, 82.0004 )
+script = ExtResource( 12 )
+
+[node name="Sprite" type="Sprite" parent="World/Coin"]
+z_index = -1
+texture = ExtResource( 3 )
+hframes = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Coin"]
+position = Vector2( -0.00038147, -0.00038147 )
+shape = SubResource( 14 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="World/Coin"]
+autoplay = "coin"
+playback_speed = 0.66
+anims/RESET = SubResource( 34 )
+anims/coin = SubResource( 35 )
+
+[node name="Coin2" type="Area2D" parent="World"]
+position = Vector2( 75, 81 )
+script = ExtResource( 12 )
+
+[node name="Sprite" type="Sprite" parent="World/Coin2"]
+z_index = -1
+texture = ExtResource( 3 )
+hframes = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Coin2"]
+position = Vector2( -0.00038147, -0.00038147 )
+shape = SubResource( 14 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="World/Coin2"]
+autoplay = "coin"
+playback_speed = 0.66
+anims/RESET = SubResource( 36 )
+anims/coin = SubResource( 37 )
+
+[node name="Coin3" type="Area2D" parent="World"]
+position = Vector2( 139, 80 )
+script = ExtResource( 12 )
+
+[node name="Sprite" type="Sprite" parent="World/Coin3"]
+z_index = -1
+texture = ExtResource( 3 )
+hframes = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Coin3"]
+position = Vector2( -0.00038147, -0.00038147 )
+shape = SubResource( 14 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="World/Coin3"]
+autoplay = "coin"
+playback_speed = 0.66
+anims/RESET = SubResource( 38 )
+anims/coin = SubResource( 39 )
 
 [node name="TileMap" type="TileMap" parent="World" groups=["Floor"]]
 position = Vector2( -25, 34 )
@@ -268,34 +386,11 @@ collision_mask = 0
 format = 1
 tile_data = PoolIntArray( -1507340, 7, 0, -1507339, 7, 0, -1507338, 7, 0, -1507337, 7, 0, -1507336, 7, 0, -1507335, 7, 0, -1507334, 7, 0, -1507333, 7, 0, -1507332, 7, 0, -1507331, 7, 0, -1507330, 7, 0, -1507329, 7, 0, -1572864, 7, 0, -1572863, 7, 0, -1572862, 7, 0, -1572861, 7, 0, -1572860, 7, 0, -1572859, 7, 0, -1572858, 7, 0, -1572857, 7, 0, -1572856, 7, 0, -1572855, 7, 0, -1572854, 7, 0, -1572853, 7, 0, -1572852, 7, 0, -1572851, 7, 0, -1572850, 7, 0, -1441804, 7, 0, -1507314, 7, 0, -1376268, 7, 0, -1441778, 7, 0, -1310732, 7, 0, -1376242, 7, 0, -1245196, 7, 0, -1310706, 7, 0, -1179660, 7, 0, -1245170, 7, 0, -1114124, 7, 0, -1179634, 7, 0, -1048588, 7, 0, -1114098, 7, 0, -983052, 7, 0, -1048562, 7, 0, -917516, 7, 0, -983026, 7, 0, -851980, 7, 0, -917490, 7, 0, -786444, 7, 0, -851954, 7, 0, -720908, 7, 0, -786418, 7, 0, -655372, 7, 0, -720882, 7, 0, -589836, 7, 0, -655346, 7, 0, -131067, 4, 0, -131066, 4, 0, -131065, 4, 0, -131064, 4, 0, -131063, 4, 0, 65539, 4, 0, 65542, 4, 0, 65543, 4, 0, 65544, 4, 0, 65545, 4, 0, 327669, 2, 0, 327670, 2, 0, 327671, 2, 0, 327672, 2, 0, 327673, 2, 0, 327674, 2, 0, 327675, 2, 0, 327676, 2, 0, 327677, 2, 0, 327678, 2, 0, 327679, 2, 0, 262147, 2, 0, 262148, 2, 0, 262149, 2, 0, 262150, 2, 0, 262151, 2, 0, 262152, 2, 0, 262153, 2, 0, 262154, 2, 0, 262155, 2, 0, 262156, 2, 0, 262157, 2, 0, 262158, 2, 0 )
 
-[node name="Rod" parent="World" instance=ExtResource( 3 )]
-visible = false
-position = Vector2( -94.9996, 82.0004 )
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="World"]
-anims/To_Orig = SubResource( 16 )
-anims/To_UpsideDown = SubResource( 15 )
-
-[node name="Rod2" parent="World" instance=ExtResource( 3 )]
-position = Vector2( 157, 80.9993 )
-
-[node name="Hazard" parent="World" instance=ExtResource( 11 )]
-
-[node name="Gravity-Shift" parent="World" instance=ExtResource( 12 )]
-position = Vector2( -321, 26.0014 )
-
-[node name="Vanishing-Blue-Block" parent="World" instance=ExtResource( 14 )]
-position = Vector2( -33, 10.0002 )
-
-[node name="Vanishing-Red-Block" parent="World" instance=ExtResource( 13 )]
-position = Vector2( -80.9999, 10.0004 )
-
 [node name="Label" type="Label" parent="World"]
-visible = false
 margin_left = -184.0
-margin_top = -106.0
+margin_top = -105.999
 margin_right = -137.0
-margin_bottom = -92.0
+margin_bottom = -91.9992
 theme = ExtResource( 8 )
 text = "Level 1"
 
@@ -341,69 +436,6 @@ position = Vector2( 112, -144 )
 [node name="Stack2" type="Node2D" parent="StackController/StackContainer"]
 visible = false
 script = ExtResource( 20 )
-
-[node name="Block_Box" type="KinematicBody2D" parent="StackController/StackContainer/Stack2"]
-position = Vector2( -1.00075, -166 )
-moving_platform_apply_velocity_on_leave = 2
-script = ExtResource( 18 )
-
-[node name="Sprite" type="Sprite" parent="StackController/StackContainer/Stack2/Block_Box"]
-position = Vector2( 0, -1.52588e-05 )
-texture = ExtResource( 15 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StackController/StackContainer/Stack2/Block_Box"]
-position = Vector2( 1.52588e-05, -0.500031 )
-shape = SubResource( 32 )
-
-[node name="Hazard" type="Area2D" parent="StackController/StackContainer/Stack2/Block_Box"]
-position = Vector2( 4.57764e-05, 8.99999 )
-script = ExtResource( 19 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StackController/StackContainer/Stack2/Block_Box/Hazard"]
-position = Vector2( -1.52588e-05, -0.999985 )
-shape = SubResource( 33 )
-
-[node name="Block_Box2" type="KinematicBody2D" parent="StackController/StackContainer/Stack2"]
-position = Vector2( -1.00067, -150 )
-moving_platform_apply_velocity_on_leave = 2
-script = ExtResource( 18 )
-
-[node name="Sprite" type="Sprite" parent="StackController/StackContainer/Stack2/Block_Box2"]
-position = Vector2( 0, -1.52588e-05 )
-texture = ExtResource( 15 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StackController/StackContainer/Stack2/Block_Box2"]
-position = Vector2( 1.52588e-05, -0.500031 )
-shape = SubResource( 32 )
-
-[node name="Hazard" type="Area2D" parent="StackController/StackContainer/Stack2/Block_Box2"]
-position = Vector2( 4.57764e-05, 8.99999 )
-script = ExtResource( 19 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StackController/StackContainer/Stack2/Block_Box2/Hazard"]
-position = Vector2( -1.52588e-05, -0.999985 )
-shape = SubResource( 33 )
-
-[node name="Block_Box3" type="KinematicBody2D" parent="StackController/StackContainer/Stack2"]
-position = Vector2( -1.0006, -134 )
-moving_platform_apply_velocity_on_leave = 2
-script = ExtResource( 18 )
-
-[node name="Sprite" type="Sprite" parent="StackController/StackContainer/Stack2/Block_Box3"]
-position = Vector2( 0, -1.52588e-05 )
-texture = ExtResource( 15 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StackController/StackContainer/Stack2/Block_Box3"]
-position = Vector2( 1.52588e-05, -0.500031 )
-shape = SubResource( 32 )
-
-[node name="Hazard" type="Area2D" parent="StackController/StackContainer/Stack2/Block_Box3"]
-position = Vector2( 4.57764e-05, 8.99999 )
-script = ExtResource( 19 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StackController/StackContainer/Stack2/Block_Box3/Hazard"]
-position = Vector2( -1.52588e-05, -0.999985 )
-shape = SubResource( 33 )
 
 [node name="Stack3" type="Node2D" parent="StackController/StackContainer"]
 visible = false
@@ -514,7 +546,12 @@ position = Vector2( -226, 64 )
 [node name="Block_Lever" parent="." instance=ExtResource( 2 )]
 position = Vector2( -123, -32 )
 
+[node name="Hazard" parent="." instance=ExtResource( 11 )]
+
+[node name="Vanishing-Blue-Block" parent="." instance=ExtResource( 14 )]
+position = Vector2( -33, 10.0002 )
+
+[node name="Vanishing-Red-Block" parent="." instance=ExtResource( 13 )]
+position = Vector2( -80.9999, 10.0004 )
+
 [connection signal="body_entered" from="World/DeathPlane" to="World/DeathPlane" method="_on_Hazard_body_entered"]
-[connection signal="body_entered" from="StackController/StackContainer/Stack2/Block_Box/Hazard" to="StackController/StackContainer/Stack2/Block_Box/Hazard" method="_on_Hazard_body_entered"]
-[connection signal="body_entered" from="StackController/StackContainer/Stack2/Block_Box2/Hazard" to="StackController/StackContainer/Stack2/Block_Box2/Hazard" method="_on_Hazard_body_entered"]
-[connection signal="body_entered" from="StackController/StackContainer/Stack2/Block_Box3/Hazard" to="StackController/StackContainer/Stack2/Block_Box3/Hazard" method="_on_Hazard_body_entered"]
