@@ -4,6 +4,7 @@ class_name Block
 
 onready var col = $CollisionShape2D
 onready var raycast:RayCast2D = $RayCast2D
+onready var hazard:Area2D = $Hazard
 #export var acceleration:float = 512
 #export var max_speed:float = 64
 export var gravity:float = 200
@@ -27,14 +28,6 @@ func _process(dt):
 	
 	motion.y = fall(dt, motion)
 	
-#	if Global.is_paused:
-#		return
-		
-#	if (is_on_floor()):
-#
-##		motion = Vector2.ZERO
-#		return
-#	motion.x = 0
 			
 	colliding_with = move_and_collide(motion*dt)
 	
@@ -48,6 +41,11 @@ func _process(dt):
 #			print(raycast.get_collider().is_in_group("Floor"))
 			if (raycast.get_collider().is_in_group("Floor") or raycast.get_collider().is_in_group("Vanish")):
 				motion = Vector2.ZERO
+#				hazard.set_monitoring(false)
+#		else:
+#				hazard.set_monitoring(true)
+			
+				
 #			print("COLLIDING!")
 			
 #	motion = move_and_slide(motion, Vector2.UP, false, 4, 0.785398,false)

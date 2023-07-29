@@ -2,6 +2,9 @@ extends Area2D
 
 class_name Coin
 
+#AUDIO
+export var sfx_coin:AudioStream
+
 onready var sprite = $Sprite
 onready var col = $CollisionShape2D
 
@@ -16,13 +19,14 @@ func _on_body_entered(body):
 	
 	if body.name == "Player" or body.name == "Player-ghost":
 		print("Player entered!")
+		Global.play_sfx(sfx_coin)
 		visible = false
 		col.disabled = true
 		_world.coin_captured()
 		queue_free()
 #		sprite.frame = 1
 #		Global.rod_highlight_modifier(1)
-#		Global.play_sfx(sfx_on)
+
 
 #func _on_body_exited(body):
 #	if body.name == "Player" or body.name == "Player-ghost":
