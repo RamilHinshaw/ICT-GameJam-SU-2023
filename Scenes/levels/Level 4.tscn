@@ -78,17 +78,6 @@ use_scene_name = true
 level_name = "Level TEST"
 music = ExtResource( 13 )
 
-[node name="Coin" parent="World" instance=ExtResource( 4 )]
-z_index = 1
-
-[node name="Coin2" parent="World" instance=ExtResource( 4 )]
-position = Vector2( -4, 22 )
-z_index = 1
-
-[node name="Coin3" parent="World" instance=ExtResource( 4 )]
-position = Vector2( -121, 88 )
-z_index = 1
-
 [node name="Label" type="Label" parent="World"]
 margin_left = -184.0
 margin_top = -106.0
@@ -252,3 +241,14 @@ position = Vector2( -96, 0 )
 position = Vector2( 63, 58 )
 
 [node name="Block_Saw" parent="." instance=ExtResource( 5 )]
+
+[node name="Coin" parent="." instance=ExtResource( 4 )]
+z_index = 1
+
+[node name="Coin2" parent="." instance=ExtResource( 4 )]
+position = Vector2( -4, 22 )
+z_index = 1
+
+[node name="Coin3" parent="." instance=ExtResource( 4 )]
+position = Vector2( -121, 88 )
+z_index = 1

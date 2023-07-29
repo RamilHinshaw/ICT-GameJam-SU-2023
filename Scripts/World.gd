@@ -20,7 +20,9 @@ func _ready():
 
 
 	# SET ALL COINS
-	for coin in self.get_children():
+#	for coin in self.get_children():
+	var coins = get_tree().get_nodes_in_group("Coin")
+	for coin in coins:
 		if coin is Coin:
 			if coin.has_method("set_world"):
 				coin.set_world(self)
