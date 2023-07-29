@@ -487,6 +487,7 @@ position = Vector2( -1.52588e-05, -0.999985 )
 shape = SubResource( 33 )
 
 [node name="Stack3" type="Node2D" parent="StackController/StackContainer"]
+visible = false
 script = ExtResource( 20 )
 
 [node name="Block_Box" parent="StackController/StackContainer/Stack3" instance=ExtResource( 21 )]

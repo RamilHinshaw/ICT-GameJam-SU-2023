@@ -1,22 +1,32 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=39 format=2]
 
 [ext_resource path="res://Prefabs/Player.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Prefabs/Rod.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Scenes/tilemap.tres" type="TileSet" id=3]
-[ext_resource path="res://Sprites/floor.png" type="Texture" id=4]
-[ext_resource path="res://Sprites/bg1.png" type="Texture" id=5]
-[ext_resource path="res://Scripts/World.gd" type="Script" id=6]
+[ext_resource path="res://Prefabs/Lever.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Prefabs/Rod.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Sprites/black.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/floor.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/bg1.png" type="Texture" id=6]
 [ext_resource path="res://Sprites/bar.png" type="Texture" id=7]
-[ext_resource path="res://Sprites/block.png" type="Texture" id=8]
-[ext_resource path="res://Sprites/black.png" type="Texture" id=9]
-[ext_resource path="res://Sprites/box.png" type="Texture" id=10]
-[ext_resource path="res://Prefabs/Lever.tscn" type="PackedScene" id=12]
-[ext_resource path="res://Prefabs/Gravity-Shift.tscn" type="PackedScene" id=13]
-[ext_resource path="res://Prefabs/Hazard.tscn" type="PackedScene" id=14]
-[ext_resource path="res://Prefabs/Vanishing-Blue-Block.tscn" type="PackedScene" id=15]
-[ext_resource path="res://Prefabs/Vanishing-Red-Block.tscn" type="PackedScene" id=16]
-[ext_resource path="res://Audio/Music/One Man Symphony - Royalty Free Soundtrack Collection - 05 D2 (Reprise).mp3" type="AudioStream" id=17]
-[ext_resource path="res://Menu.theme" type="Theme" id=18]
+[ext_resource path="res://Menu.theme" type="Theme" id=8]
+[ext_resource path="res://Scripts/StackController.gd" type="Script" id=9]
+[ext_resource path="res://Scripts/World.gd" type="Script" id=10]
+[ext_resource path="res://Prefabs/Hazard.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Prefabs/Gravity-Shift.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Prefabs/Vanishing-Red-Block.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Prefabs/Vanishing-Blue-Block.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Sprites/box.png" type="Texture" id=15]
+[ext_resource path="res://Audio/Music/One Man Symphony - Royalty Free Soundtrack Collection - 05 D2 (Reprise).mp3" type="AudioStream" id=16]
+[ext_resource path="res://Sprites/block.png" type="Texture" id=17]
+[ext_resource path="res://Scripts/Block.gd" type="Script" id=18]
+[ext_resource path="res://Scripts/Hazard.gd" type="Script" id=19]
+[ext_resource path="res://Scripts/Stack.gd" type="Script" id=20]
+[ext_resource path="res://Prefabs/Block_Box.tscn" type="PackedScene" id=21]
+
+[sub_resource type="RectangleShape2D" id=26]
+extents = Vector2( 7, 7 )
+
+[sub_resource type="RectangleShape2D" id=27]
+extents = Vector2( 7, 0.999954 )
 
 [sub_resource type="ConvexPolygonShape2D" id=20]
 points = PoolVector2Array( 16, 16, 0, 16, 0, 0, 16, 0 )
@@ -35,7 +45,7 @@ points = PoolVector2Array( 16, 16, 0, 16, 0, 0, 16, 0 )
 
 [sub_resource type="TileSet" id=18]
 0/name = "black.png 0"
-0/texture = ExtResource( 9 )
+0/texture = ExtResource( 4 )
 0/tex_offset = Vector2( 0, 0 )
 0/modulate = Color( 1, 1, 1, 1 )
 0/region = Rect2( 0, 0, 16, 16 )
@@ -56,7 +66,7 @@ points = PoolVector2Array( 16, 16, 0, 16, 0, 0, 16, 0 )
 } ]
 0/z_index = 0
 2/name = "floor.png 2"
-2/texture = ExtResource( 4 )
+2/texture = ExtResource( 5 )
 2/tex_offset = Vector2( 0, 0 )
 2/modulate = Color( 1, 1, 1, 1 )
 2/region = Rect2( 0, 0, 16, 16 )
@@ -77,7 +87,7 @@ points = PoolVector2Array( 16, 16, 0, 16, 0, 0, 16, 0 )
 } ]
 2/z_index = 0
 3/name = "bg1.png 3"
-3/texture = ExtResource( 5 )
+3/texture = ExtResource( 6 )
 3/tex_offset = Vector2( 0, 0 )
 3/modulate = Color( 1, 1, 1, 1 )
 3/region = Rect2( 0, 0, 16, 16 )
@@ -91,7 +101,7 @@ points = PoolVector2Array( 16, 16, 0, 16, 0, 0, 16, 0 )
 3/shapes = [  ]
 3/z_index = 0
 5/name = "block.png 5"
-5/texture = ExtResource( 8 )
+5/texture = ExtResource( 17 )
 5/tex_offset = Vector2( 0, 0 )
 5/modulate = Color( 1, 1, 1, 1 )
 5/region = Rect2( 4, 4, 8, 8 )
@@ -133,7 +143,7 @@ points = PoolVector2Array( 16, 16, 0, 16, 0, 0, 16, 0 )
 } ]
 6/z_index = 0
 7/name = "box.png 7"
-7/texture = ExtResource( 10 )
+7/texture = ExtResource( 15 )
 7/tex_offset = Vector2( 0, 0 )
 7/modulate = Color( 1, 1, 1, 1 )
 7/region = Rect2( 0, 0, 16, 16 )
@@ -186,6 +196,63 @@ tracks/0/keys = {
 "values": [ 0.0, 180.0 ]
 }
 
+[sub_resource type="RectangleShape2D" id=31]
+extents = Vector2( 219.5, 3.99998 )
+
+[sub_resource type="Animation" id=28]
+resource_name = "Pan_Down"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Camera2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -1, -216 ), Vector2( -0.999985, 5 ) ]
+}
+
+[sub_resource type="Animation" id=29]
+resource_name = "Pan_Up"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Camera2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -0.999985, 5 ), Vector2( -1.00099, -216 ) ]
+}
+
+[sub_resource type="Animation" id=30]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Camera2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -0.999985, 5 ) ]
+}
+
+[sub_resource type="RectangleShape2D" id=32]
+extents = Vector2( 8.00002, 7.49999 )
+
+[sub_resource type="RectangleShape2D" id=33]
+extents = Vector2( 7, 0.999954 )
+
+[sub_resource type="RectangleShape2D" id=25]
+extents = Vector2( 1, 115.5 )
+
 [node name="Node2D" type="Node2D"]
 position = Vector2( 177, 140 )
 __meta__ = {
@@ -193,61 +260,303 @@ __meta__ = {
 "_edit_vertical_guides_": [ 398.0 ]
 }
 
+[node name="Block_BoxRB" type="KinematicBody2D" parent="."]
+position = Vector2( -129, -70 )
+moving_platform_apply_velocity_on_leave = 2
+script = ExtResource( 18 )
+
+[node name="Sprite" type="Sprite" parent="Block_BoxRB"]
+position = Vector2( 0, -1.52588e-05 )
+texture = ExtResource( 15 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Block_BoxRB"]
+position = Vector2( 0.000750065, 0 )
+shape = SubResource( 26 )
+
+[node name="Hazard" type="Area2D" parent="Block_BoxRB"]
+position = Vector2( 4.57764e-05, 8.99999 )
+collision_layer = 0
+script = ExtResource( 19 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Block_BoxRB/Hazard"]
+position = Vector2( -1.52588e-05, -0.999985 )
+shape = SubResource( 27 )
+
 [node name="World" type="Node2D" parent="."]
 rotation = 6.28319
-script = ExtResource( 6 )
-music = ExtResource( 17 )
-
-[node name="BG" type="TileMap" parent="World"]
-visible = false
-position = Vector2( -24, 34 )
-z_index = -2
-tile_set = ExtResource( 3 )
-cell_size = Vector2( 16, 16 )
-format = 1
-tile_data = PoolIntArray( -589825, 0, 0, -655360, 0, 0, -655359, 0, 0, -655358, 0, 0, -655357, 0, 0, -524299, 3, 0, -524298, 3, 0, -524297, 3, 0, -524296, 3, 0, -524295, 3, 0, -524294, 3, 0, -524293, 3, 0, -524292, 3, 0, -524291, 3, 0, -524290, 3, 0, -524289, 3, 0, -589824, 3, 0, -589823, 3, 0, -589822, 3, 0, -589821, 3, 0, -589820, 3, 0, -589819, 3, 0, -589818, 3, 0, -589817, 3, 0, -589816, 3, 0, -589815, 3, 0, -589814, 3, 0, -589813, 3, 0, -589812, 3, 0, -589811, 0, 0, -458763, 3, 0, -458762, 3, 0, -458761, 3, 0, -458760, 3, 0, -458759, 3, 0, -458758, 3, 0, -458757, 3, 0, -458756, 3, 0, -458755, 3, 0, -458754, 3, 0, -458753, 3, 0, -524288, 3, 0, -524287, 3, 0, -524286, 3, 0, -524285, 3, 0, -524284, 3, 0, -524283, 3, 0, -524282, 3, 0, -524281, 3, 0, -524280, 3, 0, -524279, 3, 0, -524278, 3, 0, -524277, 3, 0, -524276, 3, 0, -524275, 0, 0, -393227, 3, 0, -393226, 3, 0, -393225, 3, 0, -393224, 3, 0, -393223, 3, 0, -393222, 3, 0, -393221, 3, 0, -393220, 3, 0, -393219, 3, 0, -393218, 3, 0, -393217, 3, 0, -458752, 3, 0, -458751, 3, 0, -458750, 3, 0, -458749, 3, 0, -458748, 3, 0, -458747, 3, 0, -458746, 3, 0, -458745, 3, 0, -458744, 3, 0, -458743, 3, 0, -458742, 3, 0, -458741, 3, 0, -458740, 3, 0, -458739, 0, 0, -327691, 3, 0, -327690, 3, 0, -327689, 3, 0, -327688, 3, 0, -327687, 3, 0, -327686, 3, 0, -327685, 3, 0, -327684, 3, 0, -327683, 3, 0, -327682, 3, 0, -327681, 3, 0, -393216, 3, 0, -393215, 3, 0, -393214, 3, 0, -393213, 3, 0, -393212, 3, 0, -393211, 3, 0, -393210, 3, 0, -393209, 3, 0, -393208, 3, 0, -393207, 3, 0, -393206, 3, 0, -393205, 3, 0, -393204, 3, 0, -393203, 0, 0, -262155, 3, 0, -262154, 3, 0, -262153, 3, 0, -262152, 3, 0, -262151, 3, 0, -262150, 3, 0, -262149, 3, 0, -262148, 3, 0, -262147, 3, 0, -262146, 3, 0, -262145, 3, 0, -327680, 3, 0, -327679, 3, 0, -327678, 3, 0, -327677, 3, 0, -327676, 3, 0, -327675, 3, 0, -327674, 3, 0, -327673, 3, 0, -327672, 3, 0, -327671, 3, 0, -327670, 3, 0, -327669, 3, 0, -327668, 3, 0, -327667, 0, 0, -196619, 3, 0, -196618, 3, 0, -196617, 3, 0, -196616, 3, 0, -196615, 3, 0, -196614, 3, 0, -196613, 3, 0, -196612, 3, 0, -196611, 3, 0, -196610, 3, 0, -196609, 3, 0, -262144, 3, 0, -262143, 3, 0, -262142, 3, 0, -262141, 3, 0, -262140, 3, 0, -262139, 3, 0, -262138, 3, 0, -262137, 3, 0, -262136, 3, 0, -262135, 3, 0, -262134, 3, 0, -262133, 3, 0, -262132, 3, 0, -262131, 0, 0, -131083, 3, 0, -131082, 3, 0, -131081, 3, 0, -131080, 3, 0, -131079, 3, 0, -131078, 3, 0, -131077, 3, 0, -131076, 3, 0, -131075, 3, 0, -131074, 3, 0, -131073, 3, 0, -196608, 3, 0, -196607, 3, 0, -196606, 3, 0, -196605, 3, 0, -196604, 3, 0, -196603, 3, 0, -196602, 3, 0, -196601, 3, 0, -196600, 3, 0, -196599, 3, 0, -196598, 3, 0, -196597, 3, 0, -196596, 3, 0, -196595, 0, 0, -65547, 3, 0, -65546, 3, 0, -65545, 3, 0, -65544, 3, 0, -65543, 3, 0, -65542, 3, 0, -65541, 3, 0, -65540, 3, 0, -65539, 3, 0, -65538, 3, 0, -65537, 3, 0, -131072, 3, 0, -131071, 3, 0, -131070, 3, 0, -131069, 3, 0, -131068, 3, 0, -131067, 3, 0, -131066, 3, 0, -131065, 3, 0, -131064, 3, 0, -131063, 3, 0, -131062, 3, 0, -131061, 3, 0, -131060, 3, 0, -131059, 0, 0, -11, 3, 0, -10, 3, 0, -9, 3, 0, -8, 3, 0, -7, 3, 0, -6, 3, 0, -5, 3, 0, -4, 3, 0, -3, 3, 0, -2, 3, 0, -1, 3, 0, -65536, 3, 0, -65535, 3, 0, -65534, 3, 0, -65533, 3, 0, -65532, 3, 0, -65531, 3, 0, -65530, 3, 0, -65529, 3, 0, -65528, 3, 0, -65527, 3, 0, -65526, 3, 0, -65525, 3, 0, -65524, 3, 0, -65523, 0, 0, 65525, 3, 0, 65526, 3, 0, 65527, 3, 0, 65528, 3, 0, 65529, 3, 0, 65530, 3, 0, 65531, 3, 0, 65532, 3, 0, 65533, 3, 0, 65534, 3, 0, 65535, 3, 0, 0, 3, 0, 1, 3, 0, 2, 3, 0, 3, 3, 0, 4, 3, 0, 5, 3, 0, 6, 3, 0, 7, 3, 0, 8, 3, 0, 9, 3, 0, 10, 3, 0, 11, 3, 0, 12, 3, 0, 13, 0, 0, 131061, 3, 0, 131062, 3, 0, 131063, 3, 0, 131064, 3, 0, 131065, 3, 0, 131066, 3, 0, 131067, 3, 0, 131068, 3, 0, 131069, 3, 0, 131070, 3, 0, 131071, 3, 0, 65536, 3, 0, 65537, 3, 0, 65538, 3, 0, 65539, 3, 0, 65540, 3, 0, 65541, 3, 0, 65542, 3, 0, 65543, 3, 0, 65544, 3, 0, 65545, 3, 0, 65546, 3, 0, 65547, 3, 0, 65548, 3, 0, 65549, 0, 0, 196597, 3, 0, 196598, 3, 0, 196599, 3, 0, 196600, 3, 0, 196601, 3, 0, 196602, 3, 0, 196603, 3, 0, 196604, 3, 0, 196605, 3, 0, 196606, 3, 0, 196607, 3, 0, 131072, 3, 0, 131073, 3, 0, 131074, 3, 0, 131075, 3, 0, 131076, 3, 0, 131077, 3, 0, 131078, 3, 0, 131079, 3, 0, 131080, 3, 0, 131081, 3, 0, 131082, 3, 0, 131083, 3, 0, 131084, 3, 0, 131085, 0, 0, 262133, 3, 0, 262134, 3, 0, 262135, 3, 0, 262136, 3, 0, 262137, 3, 0, 262138, 3, 0, 262139, 3, 0, 262140, 3, 0, 262141, 3, 0, 262142, 3, 0, 262143, 3, 0, 196608, 3, 0, 196609, 3, 0, 196610, 3, 0, 196611, 3, 0, 196612, 3, 0, 196613, 3, 0, 196614, 3, 0, 196615, 3, 0, 196616, 3, 0, 196617, 3, 0, 196618, 3, 0, 196619, 3, 0, 196620, 3, 0, 196621, 0, 0, 327668, 0, 0, 327669, 0, 0, 327670, 1, 0, 327671, 1, 0, 327672, 1, 0, 327673, 1, 0, 327674, 1, 0, 327675, 1, 0, 327676, 1, 0, 327677, 1, 0, 327678, 1, 0, 327679, 1, 0, 262144, 1, 0, 262145, 1, 0, 262146, 1, 0, 262147, 1, 0, 262148, 1, 0, 262149, 1, 0, 262150, 1, 0, 262151, 1, 0, 262152, 1, 0, 262153, 1, 0, 262154, 1, 0, 262155, 1, 0, 262156, 1, 0, 262157, 0, 0 )
+script = ExtResource( 10 )
+music = ExtResource( 16 )
 
 [node name="TileMap" type="TileMap" parent="World"]
-position = Vector2( -24, 34 )
+position = Vector2( -25, 34 )
 tile_set = SubResource( 18 )
 cell_size = Vector2( 16, 16 )
 format = 1
-tile_data = PoolIntArray( 65539, 4, 0, 65542, 4, 0, 65543, 4, 0, 65544, 4, 0, 65545, 4, 0, 131077, 7, 0, 131078, 7, 0, 196612, 7, 0, 196613, 7, 0, 196614, 7, 0, 196615, 7, 0, 327670, 2, 0, 327671, 2, 0, 327672, 2, 0, 327673, 2, 0, 327674, 2, 0, 327675, 2, 0, 327676, 2, 0, 327677, 2, 0, 327678, 2, 0, 327679, 2, 0, 262144, 2, 0, 262145, 2, 0, 262146, 2, 0, 262147, 2, 0, 262148, 2, 0, 262149, 2, 0, 262150, 2, 0, 262151, 2, 0, 262152, 2, 0, 262153, 2, 0, 262154, 2, 0, 262155, 2, 0, 262156, 2, 0, 262157, 2, 0 )
+tile_data = PoolIntArray( -1507340, 7, 0, -1507339, 7, 0, -1507338, 7, 0, -1507337, 7, 0, -1507336, 7, 0, -1507335, 7, 0, -1507334, 7, 0, -1507333, 7, 0, -1507332, 7, 0, -1507331, 7, 0, -1507330, 7, 0, -1507329, 7, 0, -1572864, 7, 0, -1572863, 7, 0, -1572862, 7, 0, -1572861, 7, 0, -1572860, 7, 0, -1572859, 7, 0, -1572858, 7, 0, -1572857, 7, 0, -1572856, 7, 0, -1572855, 7, 0, -1572854, 7, 0, -1572853, 7, 0, -1572852, 7, 0, -1572851, 7, 0, -1572850, 7, 0, -1441804, 7, 0, -1507314, 7, 0, -1376268, 7, 0, -1441778, 7, 0, -1310732, 7, 0, -1376242, 7, 0, -1245196, 7, 0, -1310706, 7, 0, -1179660, 7, 0, -1245170, 7, 0, -1114124, 7, 0, -1179634, 7, 0, -1048588, 7, 0, -1114098, 7, 0, -983052, 7, 0, -1048562, 7, 0, -917516, 7, 0, -983026, 7, 0, -851980, 7, 0, -917490, 7, 0, -786444, 7, 0, -851954, 7, 0, -720908, 7, 0, -786418, 7, 0, -655372, 7, 0, -720882, 7, 0, -589836, 7, 0, -655346, 7, 0, -131067, 4, 0, -131066, 4, 0, -131065, 4, 0, -131064, 4, 0, -131063, 4, 0, 65539, 4, 0, 65542, 4, 0, 65543, 4, 0, 65544, 4, 0, 65545, 4, 0, 327669, 2, 0, 327670, 2, 0, 327671, 2, 0, 327672, 2, 0, 327673, 2, 0, 327674, 2, 0, 327675, 2, 0, 327676, 2, 0, 327677, 2, 0, 327678, 2, 0, 327679, 2, 0, 262147, 2, 0, 262148, 2, 0, 262149, 2, 0, 262150, 2, 0, 262151, 2, 0, 262152, 2, 0, 262153, 2, 0, 262154, 2, 0, 262155, 2, 0, 262156, 2, 0, 262157, 2, 0, 262158, 2, 0 )
 
-[node name="Camera2D" type="Camera2D" parent="World"]
-position = Vector2( -1, 0 )
-scale = Vector2( 0.984699, 1 )
-offset = Vector2( -0.039, 0 )
-current = true
-
-[node name="Rod" parent="World" instance=ExtResource( 2 )]
+[node name="Rod" parent="World" instance=ExtResource( 3 )]
+visible = false
 position = Vector2( -94.9996, 82.0004 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="World"]
 anims/To_Orig = SubResource( 16 )
 anims/To_UpsideDown = SubResource( 15 )
 
-[node name="Rod2" parent="World" instance=ExtResource( 2 )]
+[node name="Rod2" parent="World" instance=ExtResource( 3 )]
 position = Vector2( 157, 80.9993 )
 
-[node name="Hazard" parent="World" instance=ExtResource( 14 )]
+[node name="Hazard" parent="World" instance=ExtResource( 11 )]
 
-[node name="Gravity-Shift" parent="World" instance=ExtResource( 13 )]
+[node name="Gravity-Shift" parent="World" instance=ExtResource( 12 )]
 position = Vector2( -154, -3.99931 )
 
-[node name="Lever" parent="World" instance=ExtResource( 12 )]
+[node name="Lever" parent="World" instance=ExtResource( 2 )]
 
-[node name="Vanishing-Blue-Block" parent="World" instance=ExtResource( 15 )]
+[node name="Vanishing-Blue-Block" parent="World" instance=ExtResource( 14 )]
+position = Vector2( -31, 6.00012 )
 
-[node name="Vanishing-Red-Block" parent="World" instance=ExtResource( 16 )]
+[node name="Vanishing-Red-Block" parent="World" instance=ExtResource( 13 )]
 
 [node name="Label" type="Label" parent="World"]
+visible = false
 margin_left = -184.0
 margin_top = -106.0
 margin_right = -137.0
 margin_bottom = -92.0
-theme = ExtResource( 18 )
+theme = ExtResource( 8 )
 text = "Level 1"
+
+[node name="DeathPlane" type="Area2D" parent="World"]
+position = Vector2( -2.99948, 117 )
+script = ExtResource( 19 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/DeathPlane"]
+position = Vector2( 4.50005, 1.99988 )
+shape = SubResource( 31 )
+
+[node name="StackController" type="Node2D" parent="."]
+script = ExtResource( 9 )
+stacks = [ NodePath("StackContainer/Stack1"), NodePath("StackContainer/Stack2"), NodePath("StackContainer/Stack3") ]
+
+[node name="Camera2D" type="Camera2D" parent="StackController"]
+position = Vector2( -0.999985, 5 )
+scale = Vector2( 0.984699, 1 )
+offset = Vector2( -0.039, 0 )
+current = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="StackController"]
+playback_speed = 4.0
+anims/Pan_Down = SubResource( 28 )
+anims/Pan_Up = SubResource( 29 )
+anims/RESET = SubResource( 30 )
+
+[node name="StackContainer" type="Node2D" parent="StackController"]
+
+[node name="Stack1" type="Node2D" parent="StackController/StackContainer"]
+visible = false
+script = ExtResource( 20 )
+
+[node name="Block_Box" type="KinematicBody2D" parent="StackController/StackContainer/Stack1"]
+position = Vector2( -1, -150 )
+moving_platform_apply_velocity_on_leave = 2
+script = ExtResource( 18 )
+
+[node name="Sprite" type="Sprite" parent="StackController/StackContainer/Stack1/Block_Box"]
+position = Vector2( 0, -1.52588e-05 )
+texture = ExtResource( 15 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StackController/StackContainer/Stack1/Block_Box"]
+position = Vector2( 1.52588e-05, -0.500031 )
+shape = SubResource( 32 )
+
+[node name="Hazard" type="Area2D" parent="StackController/StackContainer/Stack1/Block_Box"]
+position = Vector2( 4.57764e-05, 8.99999 )
+script = ExtResource( 19 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StackController/StackContainer/Stack1/Block_Box/Hazard"]
+position = Vector2( -1.52588e-05, -0.999985 )
+shape = SubResource( 33 )
+
+[node name="Block_Box2" type="KinematicBody2D" parent="StackController/StackContainer/Stack1"]
+position = Vector2( -81.0007, -150 )
+moving_platform_apply_velocity_on_leave = 2
+script = ExtResource( 18 )
+
+[node name="Sprite" type="Sprite" parent="StackController/StackContainer/Stack1/Block_Box2"]
+position = Vector2( 0, -1.52588e-05 )
+texture = ExtResource( 15 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StackController/StackContainer/Stack1/Block_Box2"]
+position = Vector2( 1.52588e-05, -0.500031 )
+shape = SubResource( 32 )
+
+[node name="Hazard" type="Area2D" parent="StackController/StackContainer/Stack1/Block_Box2"]
+position = Vector2( 4.57764e-05, 8.99999 )
+script = ExtResource( 19 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StackController/StackContainer/Stack1/Block_Box2/Hazard"]
+position = Vector2( -1.52588e-05, -0.999985 )
+shape = SubResource( 33 )
+
+[node name="Block_Box3" type="KinematicBody2D" parent="StackController/StackContainer/Stack1"]
+position = Vector2( 62.9993, -150 )
+moving_platform_apply_velocity_on_leave = 2
+script = ExtResource( 18 )
+
+[node name="Sprite" type="Sprite" parent="StackController/StackContainer/Stack1/Block_Box3"]
+position = Vector2( 0, -1.52588e-05 )
+texture = ExtResource( 15 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StackController/StackContainer/Stack1/Block_Box3"]
+position = Vector2( 1.52588e-05, -0.500031 )
+shape = SubResource( 32 )
+
+[node name="Hazard" type="Area2D" parent="StackController/StackContainer/Stack1/Block_Box3"]
+position = Vector2( 4.57764e-05, 8.99999 )
+script = ExtResource( 19 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StackController/StackContainer/Stack1/Block_Box3/Hazard"]
+position = Vector2( -1.52588e-05, -0.999985 )
+shape = SubResource( 33 )
+
+[node name="Stack2" type="Node2D" parent="StackController/StackContainer"]
+visible = false
+script = ExtResource( 20 )
+
+[node name="Block_Box" type="KinematicBody2D" parent="StackController/StackContainer/Stack2"]
+position = Vector2( -1.00075, -166 )
+moving_platform_apply_velocity_on_leave = 2
+script = ExtResource( 18 )
+
+[node name="Sprite" type="Sprite" parent="StackController/StackContainer/Stack2/Block_Box"]
+position = Vector2( 0, -1.52588e-05 )
+texture = ExtResource( 15 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StackController/StackContainer/Stack2/Block_Box"]
+position = Vector2( 1.52588e-05, -0.500031 )
+shape = SubResource( 32 )
+
+[node name="Hazard" type="Area2D" parent="StackController/StackContainer/Stack2/Block_Box"]
+position = Vector2( 4.57764e-05, 8.99999 )
+script = ExtResource( 19 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StackController/StackContainer/Stack2/Block_Box/Hazard"]
+position = Vector2( -1.52588e-05, -0.999985 )
+shape = SubResource( 33 )
+
+[node name="Block_Box2" type="KinematicBody2D" parent="StackController/StackContainer/Stack2"]
+position = Vector2( -1.00067, -150 )
+moving_platform_apply_velocity_on_leave = 2
+script = ExtResource( 18 )
+
+[node name="Sprite" type="Sprite" parent="StackController/StackContainer/Stack2/Block_Box2"]
+position = Vector2( 0, -1.52588e-05 )
+texture = ExtResource( 15 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StackController/StackContainer/Stack2/Block_Box2"]
+position = Vector2( 1.52588e-05, -0.500031 )
+shape = SubResource( 32 )
+
+[node name="Hazard" type="Area2D" parent="StackController/StackContainer/Stack2/Block_Box2"]
+position = Vector2( 4.57764e-05, 8.99999 )
+script = ExtResource( 19 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StackController/StackContainer/Stack2/Block_Box2/Hazard"]
+position = Vector2( -1.52588e-05, -0.999985 )
+shape = SubResource( 33 )
+
+[node name="Block_Box3" type="KinematicBody2D" parent="StackController/StackContainer/Stack2"]
+position = Vector2( -1.0006, -134 )
+moving_platform_apply_velocity_on_leave = 2
+script = ExtResource( 18 )
+
+[node name="Sprite" type="Sprite" parent="StackController/StackContainer/Stack2/Block_Box3"]
+position = Vector2( 0, -1.52588e-05 )
+texture = ExtResource( 15 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StackController/StackContainer/Stack2/Block_Box3"]
+position = Vector2( 1.52588e-05, -0.500031 )
+shape = SubResource( 32 )
+
+[node name="Hazard" type="Area2D" parent="StackController/StackContainer/Stack2/Block_Box3"]
+position = Vector2( 4.57764e-05, 8.99999 )
+script = ExtResource( 19 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StackController/StackContainer/Stack2/Block_Box3/Hazard"]
+position = Vector2( -1.52588e-05, -0.999985 )
+shape = SubResource( 33 )
+
+[node name="Stack3" type="Node2D" parent="StackController/StackContainer"]
+visible = false
+script = ExtResource( 20 )
+
+[node name="Block_Box" parent="StackController/StackContainer/Stack3" instance=ExtResource( 21 )]
+position = Vector2( -177, -246 )
+
+[node name="Block_Box2" parent="StackController/StackContainer/Stack3" instance=ExtResource( 21 )]
+position = Vector2( -161, -246 )
+
+[node name="Block_Box3" parent="StackController/StackContainer/Stack3" instance=ExtResource( 21 )]
+position = Vector2( -145, -246 )
+
+[node name="Block_Box4" parent="StackController/StackContainer/Stack3" instance=ExtResource( 21 )]
+position = Vector2( -129, -246 )
+
+[node name="Block_Box5" parent="StackController/StackContainer/Stack3" instance=ExtResource( 21 )]
+position = Vector2( -49, -246 )
+
+[node name="Block_Box6" parent="StackController/StackContainer/Stack3" instance=ExtResource( 21 )]
+position = Vector2( -33, -246 )
+
+[node name="Block_Box7" parent="StackController/StackContainer/Stack3" instance=ExtResource( 21 )]
+position = Vector2( -17, -246 )
+
+[node name="Block_Box8" parent="StackController/StackContainer/Stack3" instance=ExtResource( 21 )]
+position = Vector2( 79, -246 )
+
+[node name="Block_Box9" parent="StackController/StackContainer/Stack3" instance=ExtResource( 21 )]
+position = Vector2( 95, -246 )
+
+[node name="Block_Box10" parent="StackController/StackContainer/Stack3" instance=ExtResource( 21 )]
+position = Vector2( 111, -246 )
+
+[node name="Block_Box11" parent="StackController/StackContainer/Stack3" instance=ExtResource( 21 )]
+position = Vector2( 127, -246 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( -171, 89 )
+
+[node name="Wall Left" type="ColorRect" parent="."]
+margin_left = -196.0
+margin_top = -107.0
+margin_right = -194.0
+margin_bottom = 119.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="KinematicBody2D" type="KinematicBody2D" parent="Wall Left"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall Left/KinematicBody2D"]
+position = Vector2( 1, 105.5 )
+shape = SubResource( 25 )
+
+[node name="Wall Right" type="ColorRect" parent="."]
+margin_left = 192.0
+margin_top = -107.0
+margin_right = 194.0
+margin_bottom = 119.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="KinematicBody2D" type="KinematicBody2D" parent="Wall Right"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall Right/KinematicBody2D"]
+position = Vector2( 1, 105.5 )
+shape = SubResource( 25 )
+
+[connection signal="body_entered" from="Block_BoxRB/Hazard" to="Block_BoxRB/Hazard" method="_on_Hazard_body_entered"]
+[connection signal="body_entered" from="World/DeathPlane" to="World/DeathPlane" method="_on_Hazard_body_entered"]
+[connection signal="body_entered" from="StackController/StackContainer/Stack1/Block_Box/Hazard" to="StackController/StackContainer/Stack1/Block_Box/Hazard" method="_on_Hazard_body_entered"]
+[connection signal="body_entered" from="StackController/StackContainer/Stack1/Block_Box2/Hazard" to="StackController/StackContainer/Stack1/Block_Box2/Hazard" method="_on_Hazard_body_entered"]
+[connection signal="body_entered" from="StackController/StackContainer/Stack1/Block_Box3/Hazard" to="StackController/StackContainer/Stack1/Block_Box3/Hazard" method="_on_Hazard_body_entered"]
+[connection signal="body_entered" from="StackController/StackContainer/Stack2/Block_Box/Hazard" to="StackController/StackContainer/Stack2/Block_Box/Hazard" method="_on_Hazard_body_entered"]
+[connection signal="body_entered" from="StackController/StackContainer/Stack2/Block_Box2/Hazard" to="StackController/StackContainer/Stack2/Block_Box2/Hazard" method="_on_Hazard_body_entered"]
+[connection signal="body_entered" from="StackController/StackContainer/Stack2/Block_Box3/Hazard" to="StackController/StackContainer/Stack2/Block_Box3/Hazard" method="_on_Hazard_body_entered"]
