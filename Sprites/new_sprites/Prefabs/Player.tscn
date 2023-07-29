@@ -1,7 +1,7 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
-[ext_resource path="res://Sprites/Player.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/new_sprites/pc_and_movement/Player_movement_stirp.png" type="Texture" id=2]
 [ext_resource path="res://Audio/SFX/jump-1.wav" type="AudioStream" id=3]
 [ext_resource path="res://Audio/SFX/death.wav" type="AudioStream" id=4]
 
@@ -19,7 +19,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0 ),
+"times": PoolRealArray( -0.00999999 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ 4 ]
@@ -27,6 +27,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id=3]
 resource_name = "Idle"
+length = 1.154
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
@@ -35,16 +36,15 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( -0.11, 0.5, 1.14317 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
-"values": [ 0, 1 ]
+"values": [ 8, 9, 8 ]
 }
 
 [sub_resource type="Animation" id=5]
 resource_name = "Move"
-length = 0.5
-loop = true
+length = 0.942
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
@@ -52,10 +52,49 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.252863 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( -0.0437616, 0.200742, 0.433962, 0.685989 ),
+"transitions": PoolRealArray( 1.1487, 1, 1, 1 ),
 "update": 1,
-"values": [ 2, 3 ]
+"values": [ 0, 1, 2, 3 ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "test"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 2.29 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 2 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = false
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -8.33333, -11 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = false
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
 }
 
 [node name="Player" type="KinematicBody2D" groups=["Player"]]
@@ -77,14 +116,14 @@ position = Vector2( 0.5, -0.5 )
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( -7.33333, -11 )
+position = Vector2( -8.33333, -11 )
 texture = ExtResource( 2 )
 centered = false
-hframes = 5
-frame = 4
+hframes = 12
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../Sprite")
 anims/Airborne = SubResource( 4 )
 anims/Idle = SubResource( 3 )
 anims/Move = SubResource( 5 )
+anims/test = SubResource( 6 )
