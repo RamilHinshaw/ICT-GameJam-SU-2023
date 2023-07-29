@@ -11,6 +11,7 @@ var is_world_paused: bool = false
 var can_pause:bool = true
 
 var _rods_highlighted:int = 0
+
 var is_selected_vanishing_block_red:bool = true
 
 export(Array, PackedScene) var levels
@@ -101,6 +102,7 @@ func reset_level(has_died):
 	
 	#is_world_paused = true
 	
+	reset_values()
 	get_tree().reload_current_scene()
 	
 	return
@@ -113,6 +115,7 @@ func change_scene(scene_path:String, transition:int = 0):
 	
 func reset_values():
 	is_selected_vanishing_block_red = true
+	Global.is_paused = false
 	
 func change_scenePacked(scene:PackedScene, transition:int = 0):	
 	

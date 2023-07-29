@@ -1,7 +1,7 @@
-[gd_scene load_steps=39 format=2]
+[gd_scene load_steps=41 format=2]
 
 [ext_resource path="res://Prefabs/Player.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Prefabs/Lever.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Prefabs/Block_Lever.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Prefabs/Rod.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Sprites/black.png" type="Texture" id=4]
 [ext_resource path="res://Sprites/floor.png" type="Texture" id=5]
@@ -21,12 +21,8 @@
 [ext_resource path="res://Scripts/Hazard.gd" type="Script" id=19]
 [ext_resource path="res://Scripts/Stack.gd" type="Script" id=20]
 [ext_resource path="res://Prefabs/Block_Box.tscn" type="PackedScene" id=21]
-
-[sub_resource type="RectangleShape2D" id=26]
-extents = Vector2( 7, 7 )
-
-[sub_resource type="RectangleShape2D" id=27]
-extents = Vector2( 7, 0.999954 )
+[ext_resource path="res://Sprites/placeholder.png" type="Texture" id=22]
+[ext_resource path="res://Scripts/Spring.gd" type="Script" id=23]
 
 [sub_resource type="ConvexPolygonShape2D" id=20]
 points = PoolVector2Array( 16, 16, 0, 16, 0, 0, 16, 0 )
@@ -253,6 +249,12 @@ extents = Vector2( 7, 0.999954 )
 [sub_resource type="RectangleShape2D" id=25]
 extents = Vector2( 1, 115.5 )
 
+[sub_resource type="RectangleShape2D" id=34]
+extents = Vector2( 8, 8 )
+
+[sub_resource type="RectangleShape2D" id=35]
+extents = Vector2( 8, 0.5 )
+
 [node name="Node2D" type="Node2D"]
 position = Vector2( 177, 140 )
 __meta__ = {
@@ -260,30 +262,8 @@ __meta__ = {
 "_edit_vertical_guides_": [ 398.0 ]
 }
 
-[node name="Block_BoxRB" type="KinematicBody2D" parent="."]
-position = Vector2( -129, -70 )
-moving_platform_apply_velocity_on_leave = 2
-script = ExtResource( 18 )
-
-[node name="Sprite" type="Sprite" parent="Block_BoxRB"]
-position = Vector2( 0, -1.52588e-05 )
-texture = ExtResource( 15 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Block_BoxRB"]
-position = Vector2( 0.000750065, 0 )
-shape = SubResource( 26 )
-
-[node name="Hazard" type="Area2D" parent="Block_BoxRB"]
-position = Vector2( 4.57764e-05, 8.99999 )
-collision_layer = 0
-script = ExtResource( 19 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Block_BoxRB/Hazard"]
-position = Vector2( -1.52588e-05, -0.999985 )
-shape = SubResource( 27 )
-
 [node name="World" type="Node2D" parent="."]
-rotation = 6.28319
+rotation = -6.28319
 script = ExtResource( 10 )
 music = ExtResource( 16 )
 
@@ -291,6 +271,7 @@ music = ExtResource( 16 )
 position = Vector2( -25, 34 )
 tile_set = SubResource( 18 )
 cell_size = Vector2( 16, 16 )
+collision_mask = 0
 format = 1
 tile_data = PoolIntArray( -1507340, 7, 0, -1507339, 7, 0, -1507338, 7, 0, -1507337, 7, 0, -1507336, 7, 0, -1507335, 7, 0, -1507334, 7, 0, -1507333, 7, 0, -1507332, 7, 0, -1507331, 7, 0, -1507330, 7, 0, -1507329, 7, 0, -1572864, 7, 0, -1572863, 7, 0, -1572862, 7, 0, -1572861, 7, 0, -1572860, 7, 0, -1572859, 7, 0, -1572858, 7, 0, -1572857, 7, 0, -1572856, 7, 0, -1572855, 7, 0, -1572854, 7, 0, -1572853, 7, 0, -1572852, 7, 0, -1572851, 7, 0, -1572850, 7, 0, -1441804, 7, 0, -1507314, 7, 0, -1376268, 7, 0, -1441778, 7, 0, -1310732, 7, 0, -1376242, 7, 0, -1245196, 7, 0, -1310706, 7, 0, -1179660, 7, 0, -1245170, 7, 0, -1114124, 7, 0, -1179634, 7, 0, -1048588, 7, 0, -1114098, 7, 0, -983052, 7, 0, -1048562, 7, 0, -917516, 7, 0, -983026, 7, 0, -851980, 7, 0, -917490, 7, 0, -786444, 7, 0, -851954, 7, 0, -720908, 7, 0, -786418, 7, 0, -655372, 7, 0, -720882, 7, 0, -589836, 7, 0, -655346, 7, 0, -131067, 4, 0, -131066, 4, 0, -131065, 4, 0, -131064, 4, 0, -131063, 4, 0, 65539, 4, 0, 65542, 4, 0, 65543, 4, 0, 65544, 4, 0, 65545, 4, 0, 327669, 2, 0, 327670, 2, 0, 327671, 2, 0, 327672, 2, 0, 327673, 2, 0, 327674, 2, 0, 327675, 2, 0, 327676, 2, 0, 327677, 2, 0, 327678, 2, 0, 327679, 2, 0, 262147, 2, 0, 262148, 2, 0, 262149, 2, 0, 262150, 2, 0, 262151, 2, 0, 262152, 2, 0, 262153, 2, 0, 262154, 2, 0, 262155, 2, 0, 262156, 2, 0, 262157, 2, 0, 262158, 2, 0 )
 
@@ -308,14 +289,15 @@ position = Vector2( 157, 80.9993 )
 [node name="Hazard" parent="World" instance=ExtResource( 11 )]
 
 [node name="Gravity-Shift" parent="World" instance=ExtResource( 12 )]
-position = Vector2( -154, -3.99931 )
+position = Vector2( -321, 26.0014 )
 
-[node name="Lever" parent="World" instance=ExtResource( 2 )]
+[node name="Block_Lever" parent="World" instance=ExtResource( 2 )]
 
 [node name="Vanishing-Blue-Block" parent="World" instance=ExtResource( 14 )]
-position = Vector2( -31, 6.00012 )
+position = Vector2( -33, 10.0002 )
 
 [node name="Vanishing-Red-Block" parent="World" instance=ExtResource( 13 )]
+position = Vector2( -80.9999, 10.0004 )
 
 [node name="Label" type="Label" parent="World"]
 visible = false
@@ -335,8 +317,9 @@ position = Vector2( 4.50005, 1.99988 )
 shape = SubResource( 31 )
 
 [node name="StackController" type="Node2D" parent="."]
+position = Vector2( -1, -6 )
 script = ExtResource( 9 )
-stacks = [ NodePath("StackContainer/Stack1"), NodePath("StackContainer/Stack2"), NodePath("StackContainer/Stack3") ]
+stacks = [ NodePath("StackContainer/Stack1"), NodePath("StackContainer/Stack2"), NodePath("StackContainer/Stack3"), NodePath("StackContainer/Stack4") ]
 
 [node name="Camera2D" type="Camera2D" parent="StackController"]
 position = Vector2( -0.999985, 5 )
@@ -487,41 +470,77 @@ position = Vector2( -1.52588e-05, -0.999985 )
 shape = SubResource( 33 )
 
 [node name="Stack3" type="Node2D" parent="StackController/StackContainer"]
-visible = false
 script = ExtResource( 20 )
 
 [node name="Block_Box" parent="StackController/StackContainer/Stack3" instance=ExtResource( 21 )]
-position = Vector2( -177, -246 )
+position = Vector2( -176, -240 )
 
 [node name="Block_Box2" parent="StackController/StackContainer/Stack3" instance=ExtResource( 21 )]
-position = Vector2( -161, -246 )
+position = Vector2( -160, -240 )
 
 [node name="Block_Box3" parent="StackController/StackContainer/Stack3" instance=ExtResource( 21 )]
-position = Vector2( -145, -246 )
+position = Vector2( -144, -240 )
 
 [node name="Block_Box4" parent="StackController/StackContainer/Stack3" instance=ExtResource( 21 )]
-position = Vector2( -129, -246 )
+position = Vector2( -128, -240 )
 
 [node name="Block_Box5" parent="StackController/StackContainer/Stack3" instance=ExtResource( 21 )]
-position = Vector2( -49, -246 )
+position = Vector2( -48, -240 )
 
 [node name="Block_Box6" parent="StackController/StackContainer/Stack3" instance=ExtResource( 21 )]
-position = Vector2( -33, -246 )
+position = Vector2( -32, -240 )
 
 [node name="Block_Box7" parent="StackController/StackContainer/Stack3" instance=ExtResource( 21 )]
-position = Vector2( -17, -246 )
+position = Vector2( -16, -240 )
 
 [node name="Block_Box8" parent="StackController/StackContainer/Stack3" instance=ExtResource( 21 )]
-position = Vector2( 79, -246 )
+position = Vector2( 80, -240 )
 
 [node name="Block_Box9" parent="StackController/StackContainer/Stack3" instance=ExtResource( 21 )]
-position = Vector2( 95, -246 )
+position = Vector2( 96, -240 )
 
 [node name="Block_Box10" parent="StackController/StackContainer/Stack3" instance=ExtResource( 21 )]
-position = Vector2( 111, -246 )
+position = Vector2( 112, -240 )
 
 [node name="Block_Box11" parent="StackController/StackContainer/Stack3" instance=ExtResource( 21 )]
-position = Vector2( 127, -246 )
+position = Vector2( 128, -240 )
+
+[node name="Stack4" type="Node2D" parent="StackController/StackContainer"]
+visible = false
+script = ExtResource( 20 )
+
+[node name="Block_Box" parent="StackController/StackContainer/Stack4" instance=ExtResource( 21 )]
+position = Vector2( -33, -198 )
+
+[node name="Block_Box2" parent="StackController/StackContainer/Stack4" instance=ExtResource( 21 )]
+position = Vector2( -97, -294 )
+
+[node name="Block_Box3" parent="StackController/StackContainer/Stack4" instance=ExtResource( 21 )]
+position = Vector2( -145, -246 )
+
+[node name="Block_Box4" parent="StackController/StackContainer/Stack4" instance=ExtResource( 21 )]
+position = Vector2( -129, -246 )
+
+[node name="Block_Box5" parent="StackController/StackContainer/Stack4" instance=ExtResource( 21 )]
+position = Vector2( -49, -246 )
+
+[node name="Block_Box6" parent="StackController/StackContainer/Stack4" instance=ExtResource( 21 )]
+position = Vector2( -129, -198 )
+
+[node name="Block_Box7" parent="StackController/StackContainer/Stack4" instance=ExtResource( 21 )]
+position = Vector2( -17, -246 )
+
+[node name="Block_Box8" parent="StackController/StackContainer/Stack4" instance=ExtResource( 21 )]
+position = Vector2( 79, -246 )
+
+[node name="Block_Box9" parent="StackController/StackContainer/Stack4" instance=ExtResource( 21 )]
+position = Vector2( 95, -246 )
+
+[node name="Block_Box10" parent="StackController/StackContainer/Stack4" instance=ExtResource( 21 )]
+position = Vector2( 63, -198 )
+
+[node name="Block_Box11" parent="StackController/StackContainer/Stack4" instance=ExtResource( 21 )]
+position = Vector2( 127, -198 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( -171, 89 )
@@ -552,7 +571,51 @@ color = Color( 0, 0, 0, 1 )
 position = Vector2( 1, 105.5 )
 shape = SubResource( 25 )
 
-[connection signal="body_entered" from="Block_BoxRB/Hazard" to="Block_BoxRB/Hazard" method="_on_Hazard_body_entered"]
+[node name="Block_Box" parent="." instance=ExtResource( 21 )]
+position = Vector2( 126, -6 )
+
+[node name="Block_Box2" parent="." instance=ExtResource( 21 )]
+position = Vector2( 126, -22 )
+
+[node name="Block_Box3" parent="." instance=ExtResource( 21 )]
+position = Vector2( 110, -6 )
+
+[node name="Block_Box4" parent="." instance=ExtResource( 21 )]
+position = Vector2( 110, -22 )
+
+[node name="Block_Box5" parent="." instance=ExtResource( 21 )]
+position = Vector2( 94, -6 )
+
+[node name="Block_Box6" parent="." instance=ExtResource( 21 )]
+position = Vector2( 94, -22 )
+
+[node name="Block_Box7" parent="." instance=ExtResource( 21 )]
+position = Vector2( 79, -6 )
+
+[node name="Block_Box8" parent="." instance=ExtResource( 21 )]
+position = Vector2( 79, -22 )
+
+[node name="Spring" type="KinematicBody2D" parent="."]
+position = Vector2( -106, 90 )
+collision_layer = 2
+collision_mask = 7
+script = ExtResource( 23 )
+jump_multiplier = 1.5
+
+[node name="Sprite" type="Sprite" parent="Spring"]
+texture = ExtResource( 22 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Spring"]
+shape = SubResource( 34 )
+
+[node name="Hitbox" type="Area2D" parent="Spring"]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Spring/Hitbox"]
+position = Vector2( 0, -8.5 )
+shape = SubResource( 35 )
+
 [connection signal="body_entered" from="World/DeathPlane" to="World/DeathPlane" method="_on_Hazard_body_entered"]
 [connection signal="body_entered" from="StackController/StackContainer/Stack1/Block_Box/Hazard" to="StackController/StackContainer/Stack1/Block_Box/Hazard" method="_on_Hazard_body_entered"]
 [connection signal="body_entered" from="StackController/StackContainer/Stack1/Block_Box2/Hazard" to="StackController/StackContainer/Stack1/Block_Box2/Hazard" method="_on_Hazard_body_entered"]
@@ -560,3 +623,4 @@ shape = SubResource( 25 )
 [connection signal="body_entered" from="StackController/StackContainer/Stack2/Block_Box/Hazard" to="StackController/StackContainer/Stack2/Block_Box/Hazard" method="_on_Hazard_body_entered"]
 [connection signal="body_entered" from="StackController/StackContainer/Stack2/Block_Box2/Hazard" to="StackController/StackContainer/Stack2/Block_Box2/Hazard" method="_on_Hazard_body_entered"]
 [connection signal="body_entered" from="StackController/StackContainer/Stack2/Block_Box3/Hazard" to="StackController/StackContainer/Stack2/Block_Box3/Hazard" method="_on_Hazard_body_entered"]
+[connection signal="body_entered" from="Spring/Hitbox" to="Spring" method="_on_body_entered"]

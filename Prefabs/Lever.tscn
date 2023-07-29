@@ -4,7 +4,7 @@
 [ext_resource path="res://Scripts/Lever.gd" type="Script" id=2]
 [ext_resource path="res://Audio/SFX/lever.wav" type="AudioStream" id=3]
 
-[sub_resource type="RectangleShape2D" id=22]
+[sub_resource type="RectangleShape2D" id=37]
 extents = Vector2( 7, 5 )
 
 [node name="Lever" type="Area2D"]
@@ -19,6 +19,6 @@ hframes = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -7.62939e-06, 3 )
-shape = SubResource( 22 )
+shape = SubResource( 37 )
 
 [connection signal="body_entered" from="." to="." method="_on_Lever_body_entered"]

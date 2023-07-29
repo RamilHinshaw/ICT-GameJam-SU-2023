@@ -11,8 +11,6 @@ var _is_stackable_mode:bool = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	show_current_stack()
-	
-
 
 func _process(delta):
 	input()
@@ -37,16 +35,20 @@ func _process(delta):
 		
 		#HARD CODED FIX!
 		if Input.is_action_just_released("ui_up"):
-			Global.is_paused = false
-			anim.play("Pan_Down")
-			_is_stackable_mode = false
-			get_node(stacks[_current_index]).call("activate")
+			drop_stack()
+			
+func drop_stack():
+	Global.is_paused = false
+	anim.play("Pan_Down")
+	_is_stackable_mode = false
+	get_node(stacks[_current_index]).call("activate")
 
 
 func show_current_stack():
 	#CLEAR ALL FIRST		
 	for stack in stacks:
-		get_node(stack).call("set_visable", false)
+		if get_node(stack).has_activated == false:
+			get_node(stack).call("set_visable", false)
 	
 	get_node(stacks[_current_index]).call("set_visable", true)
 

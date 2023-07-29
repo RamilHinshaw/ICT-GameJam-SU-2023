@@ -85,6 +85,10 @@ func jump(dt, motion, jump_input):
 		
 	return motion.y
 	
+# used for springs
+func force_jump(multiplier):
+	motion.y = (-jump_force * multiplier)
+		
 func update_animations(x_input):
 	if (is_on_floor() && inverted_gravity == 1) or (is_on_ceiling() && inverted_gravity == -1):
 		if x_input == 0:

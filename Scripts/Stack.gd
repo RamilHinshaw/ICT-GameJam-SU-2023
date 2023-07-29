@@ -2,6 +2,8 @@ extends Node2D
 
 class_name Stack
 
+var has_activated:bool = false
+
 func _ready():
 	
 	#Start all blocks frozen in this stack
@@ -12,12 +14,13 @@ func set_visable(val:bool):
 	
 func activate():
 	# Get all block under this and set to not frozen!
+	has_activated = true
 	set_freeze_children(false)
 	pass
 	
 func set_freeze_children(val:bool):
 	for child in self.get_children():
-		print(child.name)
+		#print(child.name)
 #		if child is Block:
 		if child.has_method("set_freeze"):
 			child.set_freeze(val)
