@@ -19,6 +19,7 @@ func _on_body_entered(body):
 		visible = false
 		col.disabled = true
 		_world.coin_captured()
+		queue_free()
 #		sprite.frame = 1
 #		Global.rod_highlight_modifier(1)
 #		Global.play_sfx(sfx_on)
