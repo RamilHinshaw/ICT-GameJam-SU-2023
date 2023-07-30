@@ -136,5 +136,5 @@ margin_top = -79.0
 margin_right = 36.0
 margin_bottom = -62.0
 theme = ExtResource( 1 )
-text = "Press 'X' on controller or keyboard
-to jump!"
+text = "Press 'A'' on controller or spacebar 
+keyboard to jump!"

@@ -1,5 +1,7 @@
 extends Area2D
 
+class_name Hazard
+
 var _on_floor:bool = false
 
 func _on_Hazard_body_entered(body):
@@ -11,7 +13,9 @@ func _on_Hazard_body_entered(body):
 #
 #	if (_on_floor):
 #		return
-	
-	if body.name == "Player" or body.name == "Player-ghost":
+#	if body.is_in_group("Player"):
+#		body.kill_player()
+#		Global.reset_level(true)
+	if body.name == "Player" or body.name == "Player2":
 		body.kill_player()
 		Global.reset_level(true)

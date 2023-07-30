@@ -49,6 +49,7 @@ script = ExtResource( 3 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hazard"]
 position = Vector2( -4.57764e-05, -1.49995 )
 shape = SubResource( 27 )
+disabled = true
 
 [node name="Lever" type="Area2D" parent="."]
 position = Vector2( 3.05176e-05, -4 )

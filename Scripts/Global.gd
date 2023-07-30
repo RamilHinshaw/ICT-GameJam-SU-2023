@@ -15,6 +15,8 @@ var _rods_highlighted:int = 0
 
 var is_selected_vanishing_block_red:bool = true
 
+var is_multiplayer:bool = false
+
 export(Array, PackedScene) var levels
 export var last_level:PackedScene
 export var title_level:PackedScene
@@ -52,6 +54,7 @@ func _ready():
 func _process(delta):
 	
 	if (get_tree().get_current_scene().get_name() == "Title"):
+		is_multiplayer = false
 		return
 	
 	if Input.is_action_just_released("ui_reset"):
@@ -100,10 +103,10 @@ func reset_level(has_died):
 	
 	#is_world_paused = true
 	
-	reset_values()
-	get_tree().reload_current_scene()
+#	reset_values()
+#	get_tree().reload_current_scene()	
+#	return
 	
-	return
 	var scene = levels[current_level]
 	change_scenePacked(scene)
 	

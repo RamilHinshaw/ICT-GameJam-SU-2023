@@ -7,6 +7,7 @@ onready var col = $CollisionShape2D
 var cols = []
 #onready var raycast:RayCast2D = $RayCast2D
 onready var hazard:Area2D = $Hazard
+var hazards = []
 #export var acceleration:float = 512
 #export var max_speed:float = 64
 export var gravity:float = 200
@@ -36,6 +37,10 @@ func _ready():
 		if _col is CollisionShape2D:
 			cols.push_back(_col)
 
+	for _hazard in self.get_children():
+		if _hazard is Hazard:
+			hazards.push_back(_hazard)
+
 func _process(dt):
 #func _physics_process(dt):
 	
@@ -58,7 +63,15 @@ func _process(dt):
 		
 	if hit_detected:		
 		motion = Vector2.ZERO
-		hazard.set_monitoring(false)
+#		hazard.set_monitoring(false)
+
+		for _hazard in hazards:
+			_hazard.set_monitoring(false)
+	else:
+#		hazard.set_monitoring(true)
+
+		for _hazard in hazards:
+			_hazard.set_monitoring(true)
 				
 
 #	motion = move_and_slide(motion, Vector2.UP, false, 4, 0.785398,false)

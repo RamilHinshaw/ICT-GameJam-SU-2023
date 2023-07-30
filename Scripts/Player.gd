@@ -15,10 +15,15 @@ export var invert_xinput:int = 1
 
 export var inverted_gravity:int = 1 
 
+export var input_right:String = "ui_right"
+export var input_left:String = "ui_left"
+export var input_up:String = "ui_up"
+
 var _can_change_gravity:bool = true
 
 var motion = Vector2.ZERO
 
+#AUDIO
 #AUDIO
 export var sfx_death:AudioStream
 export var sfx_jump:AudioStream
@@ -34,11 +39,11 @@ func _physics_process(dt):
 		return
 	
 	var x_input = 0
-	var jump_input = "ui_up"
+	var jump_input = input_up
 		
 	if (Global.is_world_paused == false):
 		
-		x_input = (Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")) * invert_xinput
+		x_input = (Input.get_action_strength(input_right) - Input.get_action_strength(input_left)) * invert_xinput
 		motion.x = movement(dt, motion, x_input)
 		motion.y = jump(dt, motion, jump_input)
 		
