@@ -149,12 +149,31 @@ position = Vector2( 1, 105.5 )
 shape = SubResource( 25 )
 
 [node name="Hint" type="Label" parent="World"]
-margin_left = -110.0
-margin_top = -78.9995
-margin_right = 90.9997
-margin_bottom = -11.9995
+margin_left = -111.0
+margin_top = -94.9995
+margin_right = 89.9993
+margin_bottom = -27.9995
 theme = ExtResource( 1 )
 text = "THANKS FOR PLAYING OUR GAME!"
+
+[node name="Hint2" type="Label" parent="World"]
+margin_left = -190.0
+margin_top = -44.0
+margin_right = -99.0
+margin_bottom = 23.0
+theme = ExtResource( 1 )
+text = "Made by:
+Ramil Hinshaw
+John Jalali"
+
+[node name="Hint3" type="Label" parent="World"]
+margin_left = 91.9998
+margin_top = -49.0004
+margin_right = 183.0
+margin_bottom = 17.9996
+theme = ExtResource( 1 )
+text = "Music from
+SoundImage"
 
 [node name="StackController" type="Node2D" parent="."]
 position = Vector2( -1, -6 )

@@ -138,6 +138,7 @@ position = Vector2( -2, -136 )
 position = Vector2( -167, 89 )
 
 [node name="Hint" type="Label" parent="."]
+visible = false
 margin_left = -79.0
 margin_top = -79.0
 margin_right = 36.0
