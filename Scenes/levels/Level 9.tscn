@@ -181,26 +181,35 @@ script = ExtResource( 15 )
 script = ExtResource( 15 )
 
 [node name="Block_LineH" parent="StackController/StackContainer/Stack3" instance=ExtResource( 12 )]
-position = Vector2( 163, -258 )
+position = Vector2( 128, -262 )
 
 [node name="Block_LineH2" parent="StackController/StackContainer/Stack3" instance=ExtResource( 12 )]
-position = Vector2( 99, -258 )
+position = Vector2( 64, -262 )
+
+[node name="Block_Box" parent="StackController/StackContainer/Stack3" instance=ExtResource( 18 )]
+position = Vector2( 110.999, -292 )
+
+[node name="Block_Box2" parent="StackController/StackContainer/Stack3" instance=ExtResource( 18 )]
+position = Vector2( 94.9992, -292 )
+
+[node name="Block_LineV" parent="StackController/StackContainer/Stack3" instance=ExtResource( 7 )]
+position = Vector2( 106, -201 )
 
 [node name="Stack4" type="Node2D" parent="StackController/StackContainer"]
 visible = false
 script = ExtResource( 15 )
 
 [node name="Block_Box" parent="StackController/StackContainer/Stack4" instance=ExtResource( 18 )]
-position = Vector2( -32, -192 )
+position = Vector2( 96, -206 )
 
 [node name="Block_Box4" parent="StackController/StackContainer/Stack4" instance=ExtResource( 18 )]
-position = Vector2( -128, -240 )
+position = Vector2( 96, -270 )
 
 [node name="Block_Box5" parent="StackController/StackContainer/Stack4" instance=ExtResource( 18 )]
-position = Vector2( -48, -240 )
+position = Vector2( 64, -238 )
 
 [node name="Block_Box7" parent="StackController/StackContainer/Stack4" instance=ExtResource( 18 )]
-position = Vector2( -16, -240 )
+position = Vector2( 80, -270 )
 
 [node name="Block_Box8" parent="StackController/StackContainer/Stack4" instance=ExtResource( 18 )]
 position = Vector2( 80, -240 )
@@ -210,3 +219,6 @@ position = Vector2( 64, -192 )
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
 position = Vector2( -171, 89 )
+
+[node name="Block_Box" parent="." instance=ExtResource( 18 )]
+position = Vector2( 95, -324 )
