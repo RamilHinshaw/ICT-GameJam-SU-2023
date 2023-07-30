@@ -1,10 +1,11 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Menu.theme" type="Theme" id=1]
 [ext_resource path="res://Prefabs/Coin.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Prefabs/Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Prefabs/Environment.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/tileset.tres" type="TileSet" id=5]
+[ext_resource path="res://Prefabs/Hazard.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scripts/World.gd" type="Script" id=10]
 [ext_resource path="res://Scripts/Stack.gd" type="Script" id=15]
 [ext_resource path="res://Scripts/StackController.gd" type="Script" id=16]
@@ -70,6 +71,12 @@ __meta__ = {
 }
 use_scene_name = true
 level_name = "Level TEST"
+
+[node name="Hazard" parent="World" instance=ExtResource( 6 )]
+position = Vector2( -5.99959, 92 )
+
+[node name="Hazard" parent="World/Hazard" instance=ExtResource( 6 )]
+position = Vector2( 6.99995, -10 )
 
 [node name="Coin" parent="World" instance=ExtResource( 2 )]
 z_index = 1

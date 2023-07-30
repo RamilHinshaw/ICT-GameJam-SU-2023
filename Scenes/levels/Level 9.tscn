@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://Menu.theme" type="Theme" id=1]
 [ext_resource path="res://Prefabs/Environment.tscn" type="PackedScene" id=2]
@@ -12,9 +12,14 @@
 [ext_resource path="res://Scripts/World.gd" type="Script" id=10]
 [ext_resource path="res://Prefabs/Block_Saw.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Prefabs/Block_LineH.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Prefabs/Block-Spring.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Sprites/new_sprites/spiring.png" type="Texture" id=14]
 [ext_resource path="res://Scripts/Stack.gd" type="Script" id=15]
 [ext_resource path="res://Scripts/StackController.gd" type="Script" id=16]
+[ext_resource path="res://spring_go_crazy.gd" type="Script" id=17]
 [ext_resource path="res://Prefabs/Block_Box.tscn" type="PackedScene" id=18]
+[ext_resource path="res://Scripts/Hazard.gd" type="Script" id=19]
+[ext_resource path="res://Scripts/Spring.gd" type="Script" id=20]
 
 [sub_resource type="Animation" id=28]
 resource_name = "Pan_Down"
@@ -60,6 +65,35 @@ tracks/0/keys = {
 "update": 0,
 "values": [ Vector2( -0.999985, 5 ) ]
 }
+
+[sub_resource type="AtlasTexture" id=36]
+atlas = ExtResource( 14 )
+region = Rect2( 0, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=37]
+atlas = ExtResource( 14 )
+region = Rect2( 16, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=38]
+atlas = ExtResource( 14 )
+region = Rect2( 32, 0, 16, 16 )
+
+[sub_resource type="SpriteFrames" id=39]
+animations = [ {
+"frames": [ SubResource( 36 ), SubResource( 37 ), SubResource( 38 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=34]
+extents = Vector2( 8, 8 )
+
+[sub_resource type="RectangleShape2D" id=35]
+extents = Vector2( 7, 0.5 )
+
+[sub_resource type="RectangleShape2D" id=40]
+extents = Vector2( 6, 0.499977 )
 
 [node name="Level 9" type="Node2D"]
 position = Vector2( 177, 140 )
@@ -109,16 +143,16 @@ position = Vector2( -6, -195 )
 position = Vector2( 76, -195 )
 
 [node name="Block_L1" parent="World" instance=ExtResource( 8 )]
-position = Vector2( -89, -260 )
+position = Vector2( -89, -268 )
 
 [node name="Block_L2" parent="World" instance=ExtResource( 9 )]
 position = Vector2( -105, -212 )
 
+[node name="Block_L3" parent="World" instance=ExtResource( 9 )]
+position = Vector2( -57, -236 )
+
 [node name="Environment" parent="." instance=ExtResource( 2 )]
-position = Vector2( -5, -2 )
-__meta__ = {
-"_edit_lock_": true
-}
+position = Vector2( -1, -4 )
 
 [node name="StackController" type="Node2D" parent="."]
 position = Vector2( -1, -6 )
@@ -177,6 +211,49 @@ position = Vector2( 112, -144 )
 [node name="Stack2" type="Node2D" parent="StackController/StackContainer"]
 script = ExtResource( 15 )
 
+[node name="Block-Spring" parent="StackController/StackContainer/Stack2" instance=ExtResource( 13 )]
+position = Vector2( -24, -246 )
+script = ExtResource( 17 )
+jump_multiplier = 2.5
+
+[node name="Block-Spring2" type="KinematicBody2D" parent="StackController/StackContainer/Stack2"]
+position = Vector2( -56, -318 )
+collision_layer = 2
+collision_mask = 7
+script = ExtResource( 20 )
+jump_multiplier = 1.5
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="StackController/StackContainer/Stack2/Block-Spring2"]
+frames = SubResource( 39 )
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StackController/StackContainer/Stack2/Block-Spring2"]
+shape = SubResource( 34 )
+
+[node name="RayCast2D" type="RayCast2D" parent="StackController/StackContainer/Stack2/Block-Spring2"]
+position = Vector2( 0.000747681, 8 )
+enabled = true
+cast_to = Vector2( 0, 1 )
+collision_mask = 3
+
+[node name="Hitbox" type="Area2D" parent="StackController/StackContainer/Stack2/Block-Spring2"]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StackController/StackContainer/Stack2/Block-Spring2/Hitbox"]
+position = Vector2( 0, -8.5 )
+shape = SubResource( 35 )
+
+[node name="Hazard" type="Area2D" parent="StackController/StackContainer/Stack2/Block-Spring2"]
+position = Vector2( 4.57764e-05, 8.99998 )
+collision_layer = 0
+collision_mask = 4
+script = ExtResource( 19 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StackController/StackContainer/Stack2/Block-Spring2/Hazard"]
+position = Vector2( 0.000704169, -0.999985 )
+shape = SubResource( 40 )
+
 [node name="Stack3" type="Node2D" parent="StackController/StackContainer"]
 script = ExtResource( 15 )
 
@@ -196,7 +273,6 @@ position = Vector2( 94.9992, -292 )
 position = Vector2( 106, -201 )
 
 [node name="Stack4" type="Node2D" parent="StackController/StackContainer"]
-visible = false
 script = ExtResource( 15 )
 
 [node name="Block_Box" parent="StackController/StackContainer/Stack4" instance=ExtResource( 18 )]
@@ -222,3 +298,6 @@ position = Vector2( -171, 89 )
 
 [node name="Block_Box" parent="." instance=ExtResource( 18 )]
 position = Vector2( 95, -324 )
+
+[connection signal="body_entered" from="StackController/StackContainer/Stack2/Block-Spring2/Hitbox" to="StackController/StackContainer/Stack2/Block-Spring2" method="_on_body_entered"]
+[connection signal="body_entered" from="StackController/StackContainer/Stack2/Block-Spring2/Hazard" to="StackController/StackContainer/Stack2/Block-Spring2/Hazard" method="_on_Hazard_body_entered"]
