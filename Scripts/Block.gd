@@ -3,6 +3,8 @@ extends KinematicBody2D
 class_name Block
 
 onready var col = $CollisionShape2D
+
+var cols = []
 #onready var raycast:RayCast2D = $RayCast2D
 onready var hazard:Area2D = $Hazard
 #export var acceleration:float = 512
@@ -26,6 +28,11 @@ func _ready():
 	for _raycast in self.get_children():
 		if _raycast is RayCast2D:
 			raycasts.push_back(_raycast)
+			
+	#Get all raycast on this object
+	for _col in self.get_children():
+		if _col is CollisionShape2D:
+			cols.push_back(_col)
 
 func _process(dt):
 #func _physics_process(dt):
@@ -35,7 +42,7 @@ func _process(dt):
 	
 	motion.y = fall(dt, motion)
 	
-	print(motion.y)
+#	print(motion.y)
 	
 			
 	colliding_with = move_and_collide(motion*dt)
@@ -67,4 +74,6 @@ func fall(dt, motion):
 	
 func set_freeze(val):
 	is_frozen = val
-	col.disabled = val
+	
+	for _col in cols:
+		_col.disabled = val
