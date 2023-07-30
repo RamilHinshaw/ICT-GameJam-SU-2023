@@ -111,30 +111,47 @@ text = "Stack: 1/	4"
 [node name="StackContainer" type="Node2D" parent="StackController"]
 
 [node name="Stack1" type="Node2D" parent="StackController/StackContainer"]
+visible = false
 script = ExtResource( 3 )
 
 [node name="Block_Box4" parent="StackController/StackContainer/Stack1" instance=ExtResource( 6 )]
-position = Vector2( 128, -192 )
-
-[node name="Block_Box5" parent="StackController/StackContainer/Stack1" instance=ExtResource( 6 )]
-position = Vector2( 128, -176 )
-
-[node name="Block_Box6" parent="StackController/StackContainer/Stack1" instance=ExtResource( 6 )]
-position = Vector2( 128, -208 )
-
-[node name="Block_Box7" parent="StackController/StackContainer/Stack1" instance=ExtResource( 6 )]
-position = Vector2( 112, -176 )
-
-[node name="Block_Box8" parent="StackController/StackContainer/Stack1" instance=ExtResource( 6 )]
-position = Vector2( 112, -192 )
+position = Vector2( 128, -224 )
 
 [node name="Block_Box9" parent="StackController/StackContainer/Stack1" instance=ExtResource( 6 )]
-position = Vector2( 96, -176 )
+position = Vector2( 48, -160 )
 
 [node name="Block_Box10" parent="StackController/StackContainer/Stack1" instance=ExtResource( 6 )]
-position = Vector2( 0, -176 )
+position = Vector2( -16, -160 )
 
 [node name="Block_Box11" parent="StackController/StackContainer/Stack1" instance=ExtResource( 6 )]
+position = Vector2( -128, -160 )
+
+[node name="Stack2" type="Node2D" parent="StackController/StackContainer"]
+visible = false
+script = ExtResource( 3 )
+
+[node name="Block_Box4" parent="StackController/StackContainer/Stack2" instance=ExtResource( 6 )]
+position = Vector2( 64, -176 )
+
+[node name="Block_Box5" parent="StackController/StackContainer/Stack2" instance=ExtResource( 6 )]
+position = Vector2( -80, -208 )
+
+[node name="Block_Box6" parent="StackController/StackContainer/Stack2" instance=ExtResource( 6 )]
+position = Vector2( 128, -208 )
+
+[node name="Stack3" type="Node2D" parent="StackController/StackContainer"]
+script = ExtResource( 3 )
+
+[node name="Block_Box8" parent="StackController/StackContainer/Stack3" instance=ExtResource( 6 )]
+position = Vector2( 112, -192 )
+
+[node name="Block_Box9" parent="StackController/StackContainer/Stack3" instance=ExtResource( 6 )]
+position = Vector2( 64, -176 )
+
+[node name="Block_Box10" parent="StackController/StackContainer/Stack3" instance=ExtResource( 6 )]
+position = Vector2( 0, -176 )
+
+[node name="Block_Box11" parent="StackController/StackContainer/Stack3" instance=ExtResource( 6 )]
 position = Vector2( -64, -176 )
 
 [node name="Camera2D" type="Camera2D" parent="StackController"]
@@ -158,8 +175,7 @@ margin_top = -93.0
 margin_right = 122.0
 margin_bottom = -76.0
 theme = ExtResource( 8 )
-text = "Press 'X' on controller or keyboard
-to go into Stack Mode"
+text = "Go into stack mode again"
 
 [node name="Hint2" type="Label" parent="."]
 margin_left = -109.0
@@ -167,6 +183,5 @@ margin_top = -299.0
 margin_right = 142.0
 margin_bottom = -274.0
 theme = ExtResource( 8 )
-text = "Press the Jump button to activate the 
-object causing it to fall.
-Watch out, they hurt if they fall on you."
+text = "Press the d-pad or arrow keys to switch
+between different blocks to activate"

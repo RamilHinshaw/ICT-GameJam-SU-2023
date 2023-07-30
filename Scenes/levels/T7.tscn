@@ -1,14 +1,16 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Scripts/World.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/StackController.gd" type="Script" id=2]
 [ext_resource path="res://Scripts/Stack.gd" type="Script" id=3]
 [ext_resource path="res://Prefabs/Environment.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Prefabs/Player.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Prefabs/Block_Box.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Prefabs/Block_LineH.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Prefabs/Coin.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Menu.theme" type="Theme" id=8]
 [ext_resource path="res://Scenes/tileset.tres" type="TileSet" id=9]
+[ext_resource path="res://Prefabs/Block_L2.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Prefabs/Block_L1.tscn" type="PackedScene" id=11]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Pan_Down"
@@ -113,29 +115,25 @@ text = "Stack: 1/	4"
 [node name="Stack1" type="Node2D" parent="StackController/StackContainer"]
 script = ExtResource( 3 )
 
-[node name="Block_Box4" parent="StackController/StackContainer/Stack1" instance=ExtResource( 6 )]
-position = Vector2( 128, -192 )
+[node name="Block_L1" parent="StackController/StackContainer/Stack1" instance=ExtResource( 11 )]
+position = Vector2( -16, -192 )
 
-[node name="Block_Box5" parent="StackController/StackContainer/Stack1" instance=ExtResource( 6 )]
-position = Vector2( 128, -176 )
+[node name="Block_L2" parent="StackController/StackContainer/Stack1" instance=ExtResource( 11 )]
+position = Vector2( -16, -144 )
 
-[node name="Block_Box6" parent="StackController/StackContainer/Stack1" instance=ExtResource( 6 )]
-position = Vector2( 128, -208 )
+[node name="Stack2" type="Node2D" parent="StackController/StackContainer"]
+position = Vector2( -32, -32 )
+script = ExtResource( 3 )
 
-[node name="Block_Box7" parent="StackController/StackContainer/Stack1" instance=ExtResource( 6 )]
-position = Vector2( 112, -176 )
+[node name="Block_L2" parent="StackController/StackContainer/Stack2" instance=ExtResource( 10 )]
+position = Vector2( 16, -240 )
 
-[node name="Block_Box8" parent="StackController/StackContainer/Stack1" instance=ExtResource( 6 )]
-position = Vector2( 112, -192 )
+[node name="Stack3" type="Node2D" parent="StackController/StackContainer"]
+position = Vector2( -80, -96 )
+script = ExtResource( 3 )
 
-[node name="Block_Box9" parent="StackController/StackContainer/Stack1" instance=ExtResource( 6 )]
-position = Vector2( 96, -176 )
-
-[node name="Block_Box10" parent="StackController/StackContainer/Stack1" instance=ExtResource( 6 )]
-position = Vector2( 0, -176 )
-
-[node name="Block_Box11" parent="StackController/StackContainer/Stack1" instance=ExtResource( 6 )]
-position = Vector2( -64, -176 )
+[node name="Block_LineH" parent="StackController/StackContainer/Stack3" instance=ExtResource( 6 )]
+position = Vector2( 115, -172 )
 
 [node name="Camera2D" type="Camera2D" parent="StackController"]
 position = Vector2( -0.999985, 5 )
@@ -153,20 +151,19 @@ anims/RESET = SubResource( 3 )
 position = Vector2( -167, 89 )
 
 [node name="Hint" type="Label" parent="."]
-margin_left = -114.0
-margin_top = -93.0
-margin_right = 122.0
-margin_bottom = -76.0
+margin_left = -81.0
+margin_top = -86.0
+margin_right = 155.0
+margin_bottom = -69.0
 theme = ExtResource( 8 )
-text = "Press 'X' on controller or keyboard
-to go into Stack Mode"
+text = "Order matters"
 
 [node name="Hint2" type="Label" parent="."]
+visible = false
 margin_left = -109.0
 margin_top = -299.0
 margin_right = 142.0
 margin_bottom = -274.0
 theme = ExtResource( 8 )
-text = "Press the Jump button to activate the 
-object causing it to fall.
-Watch out, they hurt if they fall on you."
+text = "Press the d-pad or arrow keys to switch
+between different blocks to activate"
