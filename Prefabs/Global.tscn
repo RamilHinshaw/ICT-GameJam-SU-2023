@@ -19,7 +19,7 @@
 [ext_resource path="res://Scenes/levels/T7.tscn" type="PackedScene" id=17]
 [ext_resource path="res://Scenes/levels/T4.tscn" type="PackedScene" id=18]
 [ext_resource path="res://Scenes/levels/T3.tscn" type="PackedScene" id=19]
-[ext_resource path="res://Scenes/levels/R1.tscn" type="PackedScene" id=20]
+[ext_resource path="res://Scenes/levels/T8.tscn" type="PackedScene" id=20]
 [ext_resource path="res://Scenes/levels/End.tscn" type="PackedScene" id=24]
 [ext_resource path="res://Scenes/Title.tscn" type="PackedScene" id=28]
 
@@ -92,7 +92,7 @@ pause_mode = 2
 position = Vector2( 0, 3 )
 script = ExtResource( 1 )
 sfx_level_complete = ExtResource( 3 )
-levels = [ ExtResource( 16 ), ExtResource( 13 ), ExtResource( 19 ), ExtResource( 18 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 17 ), ExtResource( 11 ), ExtResource( 20 ), ExtResource( 6 ), ExtResource( 10 ), ExtResource( 5 ), ExtResource( 2 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 11 ), ExtResource( 4 ), ExtResource( 12 ) ]
+levels = [ ExtResource( 16 ), ExtResource( 13 ), ExtResource( 19 ), ExtResource( 18 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 17 ), ExtResource( 20 ), ExtResource( 6 ), ExtResource( 10 ), ExtResource( 5 ), ExtResource( 2 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 11 ), ExtResource( 4 ), ExtResource( 12 ) ]
 last_level = ExtResource( 24 )
 title_level = ExtResource( 28 )
 

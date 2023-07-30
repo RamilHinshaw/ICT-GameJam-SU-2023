@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Menu.theme" type="Theme" id=1]
 [ext_resource path="res://Prefabs/Coin.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Prefabs/Environment.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/tileset.tres" type="TileSet" id=5]
 [ext_resource path="res://Prefabs/Hazard.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Prefabs/Player2.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scripts/World.gd" type="Script" id=10]
 [ext_resource path="res://Scripts/Stack.gd" type="Script" id=15]
 [ext_resource path="res://Scripts/StackController.gd" type="Script" id=16]
@@ -145,3 +146,6 @@ margin_right = 36.0
 margin_bottom = -62.0
 theme = ExtResource( 1 )
 text = "Go to Coin to win level"
+
+[node name="Player2" parent="." instance=ExtResource( 7 )]
+position = Vector2( -136, 91 )

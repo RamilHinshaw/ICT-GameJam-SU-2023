@@ -62,6 +62,10 @@ func _process(delta):
 	if Input.is_action_just_released("ui_reset"):
 		reset_level(false)
 		
+	if Input.is_action_just_released("ui_mp"):
+		is_multiplayer = true
+		reset_level(false)
+		
 	if Input.is_action_just_released("ui_esc"):
 		#_audio_bgm.stop()
 		get_tree().change_scene("res://Scenes/Title.tscn")
