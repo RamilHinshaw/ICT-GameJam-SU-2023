@@ -13,6 +13,8 @@ export var gravity:float = 200
 #export var air_resistance:float = 0.02
 export var is_frozen:bool = false
 
+export var disable_motion:bool = false
+
 var raycasts = []
 
 var colliding_with
@@ -37,7 +39,7 @@ func _ready():
 func _process(dt):
 #func _physics_process(dt):
 	
-	if is_frozen:
+	if is_frozen or disable_motion:
 		return
 	
 	motion.y = fall(dt, motion)
