@@ -420,9 +420,9 @@ margin_bottom = 46.0
 text = "Jump/drop"
 
 [node name="Label" type="Label" parent="Tittle and Controllers"]
-margin_left = -118.154
+margin_left = -98.4615
 margin_top = 290.909
-margin_right = 117.846
+margin_right = 137.538
 margin_bottom = 345.909
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Arrow keys move

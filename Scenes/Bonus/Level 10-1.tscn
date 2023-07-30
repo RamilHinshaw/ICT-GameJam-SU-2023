@@ -1,0 +1,183 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://Prefabs/Environment.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Prefabs/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Prefabs/Coin.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scripts/World.gd" type="Script" id=4]
+[ext_resource path="res://Scripts/Stack.gd" type="Script" id=5]
+[ext_resource path="res://Scripts/StackController.gd" type="Script" id=6]
+[ext_resource path="res://Prefabs/Block_Box.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/tileset.tres" type="TileSet" id=8]
+[ext_resource path="res://Prefabs/Hazard.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Menu.theme" type="Theme" id=10]
+
+[sub_resource type="Animation" id=28]
+resource_name = "Pan_Down"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Camera2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -1, -216 ), Vector2( -0.999985, 5 ) ]
+}
+
+[sub_resource type="Animation" id=29]
+resource_name = "Pan_Up"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Camera2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -0.999985, 5 ), Vector2( -1.00099, -216 ) ]
+}
+
+[sub_resource type="Animation" id=30]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Camera2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -0.999985, 5 ) ]
+}
+
+[node name="Level 1-1" type="Node2D"]
+position = Vector2( 177, 140 )
+__meta__ = {
+"_edit_horizontal_guides_": [  ],
+"_edit_vertical_guides_": [ 398.0 ]
+}
+
+[node name="World" type="Node2D" parent="."]
+rotation = 6.28319
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_lock_": true
+}
+use_scene_name = true
+level_name = "Level TEST"
+
+[node name="Hazard" parent="World" instance=ExtResource( 9 )]
+position = Vector2( -8.99956, 100 )
+
+[node name="Hazard" parent="World/Hazard" instance=ExtResource( 9 )]
+position = Vector2( 6.99995, -10 )
+
+[node name="Hazard2" parent="World/Hazard" instance=ExtResource( 9 )]
+position = Vector2( 12.9999, -16 )
+
+[node name="Hazard3" parent="World/Hazard" instance=ExtResource( 9 )]
+position = Vector2( 17.9998, -22.9999 )
+
+[node name="Label" type="Label" parent="World"]
+margin_left = -184.0
+margin_top = -106.0
+margin_right = -137.0
+margin_bottom = -92.0
+theme = ExtResource( 10 )
+text = "Level 1"
+
+[node name="TileMap" type="TileMap" parent="World" groups=["Floor"]]
+position = Vector2( -25.0002, 33.9999 )
+tile_set = ExtResource( 8 )
+cell_size = Vector2( 16, 16 )
+collision_mask = 0
+format = 1
+tile_data = PoolIntArray( -1507340, 7, 0, -1507339, 7, 0, -1507338, 7, 0, -1507337, 7, 0, -1507336, 7, 0, -1507335, 7, 0, -1507334, 7, 0, -1507333, 7, 0, -1507332, 7, 0, -1507331, 7, 0, -1507330, 7, 0, -1507329, 7, 0, -1572864, 7, 0, -1572863, 7, 0, -1572862, 7, 0, -1572861, 7, 0, -1572860, 7, 0, -1572859, 7, 0, -1572858, 7, 0, -1572857, 7, 0, -1572856, 7, 0, -1572855, 7, 0, -1572854, 7, 0, -1572853, 7, 0, -1572852, 7, 0, -1572851, 7, 0, -1572850, 7, 0, -1441804, 7, 0, -1507314, 7, 0, -1376268, 7, 0, -1441778, 7, 0, -1310732, 7, 0, -1376242, 7, 0, -1245196, 7, 0, -1310706, 7, 0, -1179660, 7, 0, -1245170, 7, 0, -1114124, 7, 0, -1179634, 7, 0, -1048588, 7, 0, -1114098, 7, 0, -983052, 7, 0, -1048562, 7, 0, -917516, 7, 0, -983026, 7, 0, -851980, 7, 0, -917490, 7, 0, -786444, 7, 0, -851954, 7, 0, -720908, 7, 0, -786418, 7, 0, -655372, 7, 0, -720882, 7, 0, -589836, 7, 0, -655346, 7, 0, -131067, 4, 0, -131066, 4, 0, -131065, 4, 0, -131064, 4, 0, -131063, 4, 0, 65539, 4, 0, 65542, 4, 0, 65543, 4, 0, 65544, 4, 0, 65545, 4, 0, 327669, 8, 0, 327670, 8, 0, 327671, 8, 0, 327672, 8, 0, 327673, 8, 0, 327674, 8, 0, 327675, 8, 0, 327676, 8, 0, 327677, 8, 0, 327678, 8, 0, 327679, 8, 0, 262144, 8, 0, 262145, 8, 0, 262146, 8, 0, 262147, 8, 0, 262148, 8, 0, 262149, 8, 0, 262150, 8, 0, 262151, 8, 0, 262152, 8, 0, 262153, 8, 0, 262154, 8, 0, 262155, 8, 0, 262156, 8, 0, 262157, 8, 0, 262158, 8, 0 )
+
+[node name="Hazard2" parent="World" instance=ExtResource( 9 )]
+position = Vector2( 103, 99.9995 )
+
+[node name="Hazard3" parent="World/Hazard2" instance=ExtResource( 9 )]
+position = Vector2( 7.99995, -8.00005 )
+
+[node name="Hazard4" parent="World/Hazard2" instance=ExtResource( 9 )]
+position = Vector2( 15.9999, -16.0001 )
+
+[node name="Hazard" parent="World/Hazard2" instance=ExtResource( 9 )]
+position = Vector2( 24, -24.0003 )
+
+[node name="Coin" parent="World" instance=ExtResource( 3 )]
+position = Vector2( 167, 82.9993 )
+z_index = 1
+
+[node name="Hazard3" parent="World" instance=ExtResource( 9 )]
+position = Vector2( 71.0002, 35.9997 )
+
+[node name="Hazard" parent="World/Hazard3" instance=ExtResource( 9 )]
+position = Vector2( 6.10352e-05, 16 )
+
+[node name="Hazard2" parent="World/Hazard3" instance=ExtResource( 9 )]
+position = Vector2( 0.000137329, 32 )
+
+[node name="Hazard3" parent="World/Hazard3" instance=ExtResource( 9 )]
+position = Vector2( 0.000213623, 48 )
+
+[node name="Environment" parent="." instance=ExtResource( 1 )]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="StackController" type="Node2D" parent="."]
+position = Vector2( -1, -6 )
+script = ExtResource( 6 )
+
+[node name="Label" type="Label" parent="StackController"]
+margin_left = 115.0
+margin_top = -326.0
+margin_right = 193.0
+margin_bottom = -312.0
+theme = ExtResource( 10 )
+text = "Stack: 1/	4"
+
+[node name="Camera2D" type="Camera2D" parent="StackController"]
+position = Vector2( -0.999985, 5 )
+scale = Vector2( 0.984699, 1 )
+offset = Vector2( -0.039, 0 )
+current = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="StackController"]
+playback_speed = 4.0
+anims/Pan_Down = SubResource( 28 )
+anims/Pan_Up = SubResource( 29 )
+anims/RESET = SubResource( 30 )
+
+[node name="StackContainer" type="Node2D" parent="StackController"]
+
+[node name="Stack1" type="Node2D" parent="StackController/StackContainer"]
+script = ExtResource( 5 )
+
+[node name="Block_Box4" parent="StackController/StackContainer/Stack1" instance=ExtResource( 7 )]
+position = Vector2( -2, -136 )
+
+[node name="Block_Box" parent="StackController/StackContainer/Stack1" instance=ExtResource( 7 )]
+position = Vector2( -1.00075, -164 )
+
+[node name="Block_Box2" parent="StackController/StackContainer/Stack1" instance=ExtResource( 7 )]
+position = Vector2( -25.0007, -132 )
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+position = Vector2( -167, 89 )
+
+[node name="Hint" type="Label" parent="."]
+margin_left = -79.0
+margin_top = -79.0
+margin_right = 36.0
+margin_bottom = -62.0
+theme = ExtResource( 10 )
+text = "Go to Coin to win level"
