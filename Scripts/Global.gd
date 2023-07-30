@@ -57,6 +57,7 @@ func _process(delta):
 	if (get_tree().get_current_scene().get_name() == "Title"):
 		is_multiplayer = false
 		reset_counter = 0
+		current_level = 0
 		return
 	
 	if Input.is_action_just_released("ui_reset"):

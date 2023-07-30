@@ -37,13 +37,14 @@ func _ready():
 
 func spawn_player2():
 	# Because we lose reference on spawn and will use to spawn ontop of player
-	print("SPAWNED PLAYER 2!")
+	
 	var temp_player = get_tree().get_nodes_in_group("Player")
 	
 	# Spawn Player 2
 	var player2 = player2_prefab.instance()
-	temp_player[0].get_parent().add_child(player2)
+	self.add_child(player2)
 	player2.global_position = temp_player[0].global_position
+	print("SPAWNED PLAYER 2!")
 
 func coin_captured():
 	coins_left -= 1

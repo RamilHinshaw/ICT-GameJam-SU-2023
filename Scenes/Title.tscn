@@ -301,11 +301,23 @@ text = "Exit"
 script = ExtResource( 10 )
 exit_instead = true
 
-[node name="Btn_Play" type="Button" parent="."]
+[node name="BT_MP" type="Button" parent="."]
+margin_left = -65.0
+margin_top = -16.0
+margin_right = 13.0
+margin_bottom = 4.0
+rect_scale = Vector2( 1.54605, 1.54605 )
+theme = ExtResource( 15 )
+text = "COOP"
+script = ExtResource( 10 )
+scene = ExtResource( 2 )
+set_mp = true
+
+[node name="Btn_Play2" type="Button" parent="."]
 margin_left = -29.0
-margin_top = -21.0
+margin_top = -38.0
 margin_right = 1.0
-margin_bottom = -1.0
+margin_bottom = -18.0
 rect_scale = Vector2( 1.54605, 1.54605 )
 theme = ExtResource( 15 )
 text = "Play"
@@ -419,4 +431,5 @@ M to call block menu"
 uppercase = true
 
 [connection signal="pressed" from="Btn_Exit" to="Btn_Exit" method="_on_pressed"]
-[connection signal="pressed" from="Btn_Play" to="Btn_Play" method="_on_pressed"]
+[connection signal="pressed" from="BT_MP" to="BT_MP" method="_on_pressed"]
+[connection signal="pressed" from="Btn_Play2" to="Btn_Play2" method="_on_pressed"]
