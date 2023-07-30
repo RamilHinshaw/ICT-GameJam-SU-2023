@@ -37,7 +37,7 @@ func _ready():
 func _process(dt):
 #func _physics_process(dt):
 	
-	if is_frozen or Global.is_paused:
+	if is_frozen:
 		return
 	
 	motion.y = fall(dt, motion)
@@ -51,8 +51,8 @@ func _process(dt):
 
 	for _raycast in raycasts:
 		if _raycast.is_colliding():
-			if (_raycast.get_collider().is_in_group("Floor") or _raycast.get_collider().is_in_group("Vanish")):
-				hit_detected = true
+#			if (_raycast.get_collider().is_in_group("Floor") or _raycast.get_collider().is_in_group("Vanish")):
+			hit_detected = true
 		
 	if hit_detected:		
 		motion = Vector2.ZERO
