@@ -5,10 +5,10 @@
 [ext_resource path="res://Sprites/new_sprites/Yellow_tile.png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=31]
-extents = Vector2( 30.5, 8 )
+extents = Vector2( 31, 8 )
 
 [sub_resource type="RectangleShape2D" id=32]
-extents = Vector2( 30.5, 0.499977 )
+extents = Vector2( 31, 0.499977 )
 
 [node name="Block_LineH" type="KinematicBody2D" groups=["Block"]]
 position = Vector2( 259, -44 )
@@ -34,7 +34,7 @@ position = Vector2( 32, 0 )
 texture = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 7.5, 0 )
+position = Vector2( 8, 0 )
 shape = SubResource( 31 )
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
@@ -44,7 +44,7 @@ cast_to = Vector2( 0, 1 )
 collision_mask = 3
 
 [node name="RayCast2D2" type="RayCast2D" parent="."]
-position = Vector2( 38, 8 )
+position = Vector2( 39, 8 )
 enabled = true
 cast_to = Vector2( 0, 1 )
 collision_mask = 3
@@ -62,7 +62,7 @@ collision_mask = 4
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hazard"]
-position = Vector2( 7.49994, -0.999985 )
+position = Vector2( 7.99994, -0.999985 )
 shape = SubResource( 32 )
 
 [connection signal="body_entered" from="Hazard" to="Hazard" method="_on_Hazard_body_entered"]

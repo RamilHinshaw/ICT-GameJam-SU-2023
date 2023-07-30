@@ -10,7 +10,7 @@
 [ext_resource path="res://Menu.theme" type="Theme" id=8]
 [ext_resource path="res://Scenes/tileset.tres" type="TileSet" id=9]
 [ext_resource path="res://Prefabs/Block_L2.tscn" type="PackedScene" id=10]
-[ext_resource path="res://Prefabs/Block_L1.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Prefabs/Block_Box.tscn" type="PackedScene" id=12]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Pan_Down"
@@ -112,28 +112,23 @@ text = "Stack: 1/	4"
 
 [node name="StackContainer" type="Node2D" parent="StackController"]
 
-[node name="Stack1" type="Node2D" parent="StackController/StackContainer"]
-script = ExtResource( 3 )
-
-[node name="Block_L1" parent="StackController/StackContainer/Stack1" instance=ExtResource( 11 )]
-position = Vector2( -16, -192 )
-
-[node name="Block_L2" parent="StackController/StackContainer/Stack1" instance=ExtResource( 11 )]
-position = Vector2( -16, -144 )
-
-[node name="Stack2" type="Node2D" parent="StackController/StackContainer"]
-position = Vector2( -32, -32 )
-script = ExtResource( 3 )
-
-[node name="Block_L2" parent="StackController/StackContainer/Stack2" instance=ExtResource( 10 )]
-position = Vector2( 16, -240 )
-
 [node name="Stack3" type="Node2D" parent="StackController/StackContainer"]
 position = Vector2( -80, -96 )
 script = ExtResource( 3 )
 
 [node name="Block_LineH" parent="StackController/StackContainer/Stack3" instance=ExtResource( 6 )]
-position = Vector2( 115, -172 )
+position = Vector2( 112, -64 )
+
+[node name="Stack4" type="Node2D" parent="StackController/StackContainer"]
+position = Vector2( -80, -96 )
+script = ExtResource( 3 )
+
+[node name="Block_Box" parent="StackController/StackContainer/Stack4" instance=ExtResource( 12 )]
+position = Vector2( 80, -160 )
+
+[node name="Block_L2" parent="StackController/StackContainer/Stack4" instance=ExtResource( 10 )]
+position = Vector2( 96, -128 )
+scale = Vector2( -1, 1 )
 
 [node name="Camera2D" type="Camera2D" parent="StackController"]
 position = Vector2( -0.999985, 5 )
@@ -156,7 +151,7 @@ margin_top = -86.0
 margin_right = 155.0
 margin_bottom = -69.0
 theme = ExtResource( 8 )
-text = "Order matters"
+text = "Order matters & location matters"
 
 [node name="Hint2" type="Label" parent="."]
 visible = false
