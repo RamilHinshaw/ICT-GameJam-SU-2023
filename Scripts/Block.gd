@@ -49,6 +49,10 @@ func _process(dt):
 	
 	motion.y = fall(dt, motion)
 	
+	var max_speed = 250
+	if (motion.y > max_speed):
+		motion.y = max_speed
+	
 #	print(motion.y)
 	
 			

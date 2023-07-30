@@ -1,0 +1,210 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Menu.theme" type="Theme" id=1]
+[ext_resource path="res://Prefabs/Coin.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Prefabs/Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Prefabs/Environment.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/tileset.tres" type="TileSet" id=5]
+[ext_resource path="res://Scripts/World.gd" type="Script" id=10]
+[ext_resource path="res://Prefabs/Block_Box.tscn" type="PackedScene" id=18]
+
+[node name="Level 1" type="Node2D"]
+pause_mode = 1
+position = Vector2( 177, 140 )
+__meta__ = {
+"_edit_horizontal_guides_": [  ],
+"_edit_vertical_guides_": [ 398.0 ]
+}
+
+[node name="World" type="Node2D" parent="."]
+rotation = 6.28319
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_lock_": true
+}
+use_scene_name = true
+level_name = "Level TEST"
+
+[node name="Label" type="Label" parent="World"]
+margin_left = -184.0
+margin_top = -106.0
+margin_right = -137.0
+margin_bottom = -92.0
+theme = ExtResource( 1 )
+text = "Level 1"
+
+[node name="TileMap" type="TileMap" parent="World" groups=["Floor"]]
+position = Vector2( -25.0002, 33.9999 )
+tile_set = ExtResource( 5 )
+cell_size = Vector2( 16, 16 )
+collision_mask = 0
+format = 1
+tile_data = PoolIntArray( -1507340, 7, 0, -1572850, 7, 0, -1441804, 7, 0, -1507314, 7, 0, -1376268, 7, 0, -1441778, 7, 0, -1310732, 7, 0, -1376242, 7, 0, -1245196, 7, 0, -1310706, 7, 0, -1179660, 7, 0, -1245170, 7, 0, -1114124, 7, 0, -1179634, 7, 0, -1048588, 7, 0, -1114098, 7, 0, -983052, 7, 0, -1048562, 7, 0, -917516, 7, 0, -983026, 7, 0, -851980, 7, 0, -917490, 7, 0, -786444, 7, 0, -851954, 7, 0, -720908, 7, 0, -786418, 7, 0, -655372, 7, 0, -720882, 7, 0, -589836, 7, 0, -655346, 7, 0, -131067, 4, 0, -131066, 4, 0, -131065, 4, 0, -131064, 4, 0, -131063, 4, 0, 65539, 4, 0, 65542, 4, 0, 65543, 4, 0, 65544, 4, 0, 65545, 4, 0, 327669, 8, 0, 327670, 8, 0, 327671, 8, 0, 327672, 8, 0, 327673, 8, 0, 327674, 8, 0, 327675, 8, 0, 327676, 8, 0, 327677, 8, 0, 327678, 8, 0, 327679, 8, 0, 262144, 8, 0, 262145, 8, 0, 262146, 8, 0, 262147, 8, 0, 262148, 8, 0, 262149, 8, 0, 262150, 8, 0, 262151, 8, 0, 262152, 8, 0, 262153, 8, 0, 262154, 8, 0, 262155, 8, 0, 262156, 8, 0, 262157, 8, 0, 262158, 8, 0 )
+
+[node name="Environment" parent="." instance=ExtResource( 4 )]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Player" parent="." instance=ExtResource( 3 )]
+position = Vector2( -167, 89 )
+
+[node name="Hint" type="Label" parent="."]
+visible = false
+margin_left = -79.0
+margin_top = -79.0
+margin_right = 36.0
+margin_bottom = -62.0
+theme = ExtResource( 1 )
+text = "Go to Coin to win level"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( -2, 1 )
+scale = Vector2( 0.984699, 1 )
+offset = Vector2( -0.039, 0 )
+current = true
+
+[node name="Block_Box" parent="." instance=ExtResource( 18 )]
+position = Vector2( 31, -214 )
+
+[node name="Block_Box3" parent="." instance=ExtResource( 18 )]
+position = Vector2( 31, -214 )
+
+[node name="Block_Box2" parent="." instance=ExtResource( 18 )]
+position = Vector2( -152, -134 )
+
+[node name="Block_Box4" parent="." instance=ExtResource( 18 )]
+position = Vector2( -113, -246 )
+
+[node name="Block_Box5" parent="." instance=ExtResource( 18 )]
+position = Vector2( -49, -262 )
+
+[node name="Block_Box6" parent="." instance=ExtResource( 18 )]
+position = Vector2( -49, -198 )
+
+[node name="Block_Box7" parent="." instance=ExtResource( 18 )]
+position = Vector2( 127, -182 )
+
+[node name="Block_Box8" parent="." instance=ExtResource( 18 )]
+position = Vector2( 127, -438 )
+
+[node name="Block_Box9" parent="." instance=ExtResource( 18 )]
+position = Vector2( 111, -294 )
+
+[node name="Block_Box10" parent="." instance=ExtResource( 18 )]
+position = Vector2( 31, -390 )
+
+[node name="Block_Box11" parent="." instance=ExtResource( 18 )]
+position = Vector2( -97, -358 )
+
+[node name="Block_Box12" parent="." instance=ExtResource( 18 )]
+position = Vector2( -113, -470 )
+
+[node name="Block_Box13" parent="." instance=ExtResource( 18 )]
+position = Vector2( -1, -454 )
+
+[node name="Block_Box14" parent="." instance=ExtResource( 18 )]
+position = Vector2( -49, -630 )
+
+[node name="Block_Box15" parent="." instance=ExtResource( 18 )]
+position = Vector2( -113, -550 )
+
+[node name="Block_Box42" parent="." instance=ExtResource( 18 )]
+position = Vector2( -177, -614 )
+
+[node name="Block_Box43" parent="." instance=ExtResource( 18 )]
+position = Vector2( -161, -406 )
+
+[node name="Block_Box44" parent="." instance=ExtResource( 18 )]
+position = Vector2( 63, -646 )
+
+[node name="Block_Box45" parent="." instance=ExtResource( 18 )]
+position = Vector2( 63, -470 )
+
+[node name="Block_Box46" parent="." instance=ExtResource( 18 )]
+position = Vector2( 207, -742 )
+
+[node name="Block_Box47" parent="." instance=ExtResource( 18 )]
+position = Vector2( 79, -998 )
+
+[node name="Block_Box16" parent="." instance=ExtResource( 18 )]
+position = Vector2( 95, -550 )
+
+[node name="Block_Box17" parent="." instance=ExtResource( 18 )]
+position = Vector2( -1, -566 )
+
+[node name="Block_Box18" parent="." instance=ExtResource( 18 )]
+position = Vector2( 95, -646 )
+
+[node name="Block_Box41" parent="." instance=ExtResource( 18 )]
+position = Vector2( 95, -742 )
+
+[node name="Block_Box19" parent="." instance=ExtResource( 18 )]
+position = Vector2( 31, -742 )
+
+[node name="Block_Box20" parent="." instance=ExtResource( 18 )]
+position = Vector2( -113, -758 )
+
+[node name="Block_Box21" parent="." instance=ExtResource( 18 )]
+position = Vector2( 143, -790 )
+
+[node name="Block_Box22" parent="." instance=ExtResource( 18 )]
+position = Vector2( 47, -854 )
+
+[node name="Block_Box23" parent="." instance=ExtResource( 18 )]
+position = Vector2( -65, -918 )
+
+[node name="Block_Box24" parent="." instance=ExtResource( 18 )]
+position = Vector2( -97, -998 )
+
+[node name="Block_Box25" parent="." instance=ExtResource( 18 )]
+position = Vector2( -1, -1046 )
+
+[node name="Block_Box26" parent="." instance=ExtResource( 18 )]
+position = Vector2( -49, -822 )
+
+[node name="Block_Box27" parent="." instance=ExtResource( 18 )]
+position = Vector2( -145, -886 )
+
+[node name="Block_Box28" parent="." instance=ExtResource( 18 )]
+position = Vector2( 191, -966 )
+
+[node name="Block_Box29" parent="." instance=ExtResource( 18 )]
+position = Vector2( 191, -1030 )
+
+[node name="Block_Box30" parent="." instance=ExtResource( 18 )]
+position = Vector2( -161, -1014 )
+
+[node name="Block_Box31" parent="." instance=ExtResource( 18 )]
+position = Vector2( -177, -790 )
+
+[node name="Block_Box32" parent="." instance=ExtResource( 18 )]
+position = Vector2( -177, -694 )
+
+[node name="Block_Box33" parent="." instance=ExtResource( 18 )]
+position = Vector2( -177, -694 )
+
+[node name="Block_Box34" parent="." instance=ExtResource( 18 )]
+position = Vector2( 95, -918 )
+
+[node name="Block_Box35" parent="." instance=ExtResource( 18 )]
+position = Vector2( 15, -982 )
+
+[node name="Block_Box36" parent="." instance=ExtResource( 18 )]
+position = Vector2( 127, -1062 )
+
+[node name="Block_Box37" parent="." instance=ExtResource( 18 )]
+position = Vector2( 191, -398 )
+
+[node name="Block_Box38" parent="." instance=ExtResource( 18 )]
+position = Vector2( 175, -614 )
+
+[node name="Block_Box39" parent="." instance=ExtResource( 18 )]
+position = Vector2( -97, -678 )
+
+[node name="Block_Box40" parent="." instance=ExtResource( 18 )]
+position = Vector2( -97, -678 )
+
+[node name="Coin" parent="Block_Box40" instance=ExtResource( 2 )]
+position = Vector2( 224, -400 )
+z_index = 1
