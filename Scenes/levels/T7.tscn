@@ -151,7 +151,7 @@ margin_top = -86.0
 margin_right = 155.0
 margin_bottom = -69.0
 theme = ExtResource( 8 )
-text = "Order matters & location matters"
+text = "Order matters!"
 
 [node name="Hint2" type="Label" parent="."]
 visible = false

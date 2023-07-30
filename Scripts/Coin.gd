@@ -17,7 +17,7 @@ func _ready():
 
 func _on_body_entered(body):
 	
-	if body.name == "Player" or body.name == "Player-ghost":
+	if body.name == "Player" or body.name == "Player2":
 		print("Player entered!")
 		Global.play_sfx(sfx_coin)
 		visible = false

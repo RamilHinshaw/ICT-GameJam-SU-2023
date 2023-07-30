@@ -19,7 +19,7 @@
 [ext_resource path="res://Scenes/levels/T7.tscn" type="PackedScene" id=17]
 [ext_resource path="res://Scenes/levels/T4.tscn" type="PackedScene" id=18]
 [ext_resource path="res://Scenes/levels/T3.tscn" type="PackedScene" id=19]
-[ext_resource path="res://Scenes/levels/T8.tscn" type="PackedScene" id=20]
+[ext_resource path="res://Scenes/levels/R1.tscn" type="PackedScene" id=20]
 [ext_resource path="res://Scenes/levels/End.tscn" type="PackedScene" id=24]
 [ext_resource path="res://Scenes/Title.tscn" type="PackedScene" id=28]
 
