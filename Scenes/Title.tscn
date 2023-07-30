@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://Audio/Music/The-Bit-Builders.mp3" type="AudioStream" id=1]
 [ext_resource path="res://Scenes/levels/T1.tscn" type="PackedScene" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://Sprites/bar.png" type="Texture" id=9]
 [ext_resource path="res://Scripts/ChangeSceneButton.gd" type="Script" id=10]
 [ext_resource path="res://Sprites/box.png" type="Texture" id=11]
+[ext_resource path="res://Sprites/new_sprites/My project.png" type="Texture" id=12]
 [ext_resource path="res://Sprites/new_sprites/background_back_v0.png" type="Texture" id=14]
 [ext_resource path="res://Menu.theme" type="Theme" id=15]
 
@@ -274,6 +275,7 @@ position = Vector2( 1, 105.5 )
 shape = SubResource( 25 )
 
 [node name="Hint" type="Label" parent="World"]
+visible = false
 margin_left = -59.0004
 margin_top = -85.9997
 margin_right = 46.9996
@@ -332,6 +334,11 @@ playback_speed = 4.0
 anims/Pan_Down = SubResource( 26 )
 anims/Pan_Up = SubResource( 27 )
 anims/RESET = SubResource( 28 )
+
+[node name="MyProject" type="Sprite" parent="."]
+position = Vector2( -1, -52 )
+scale = Vector2( 0.40625, 0.44 )
+texture = ExtResource( 12 )
 
 [connection signal="pressed" from="Btn_Exit" to="Btn_Exit" method="_on_pressed"]
 [connection signal="pressed" from="Btn_Play" to="Btn_Play" method="_on_pressed"]
