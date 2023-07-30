@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://Audio/Music/The-Bit-Builders.mp3" type="AudioStream" id=1]
 [ext_resource path="res://Scenes/levels/T1.tscn" type="PackedScene" id=2]
@@ -12,8 +12,10 @@
 [ext_resource path="res://Scripts/ChangeSceneButton.gd" type="Script" id=10]
 [ext_resource path="res://Sprites/box.png" type="Texture" id=11]
 [ext_resource path="res://Sprites/new_sprites/My project.png" type="Texture" id=12]
+[ext_resource path="res://Sprites/new_sprites/xbox_controller.png" type="Texture" id=13]
 [ext_resource path="res://Sprites/new_sprites/background_back_v0.png" type="Texture" id=14]
 [ext_resource path="res://Menu.theme" type="Theme" id=15]
+[ext_resource path="res://Sprites/new_sprites/new_controller.png" type="Texture" id=16]
 
 [sub_resource type="ConvexPolygonShape2D" id=20]
 points = PoolVector2Array( 16, 16, 0, 16, 0, 0, 16, 0 )
@@ -335,10 +337,86 @@ anims/Pan_Down = SubResource( 26 )
 anims/Pan_Up = SubResource( 27 )
 anims/RESET = SubResource( 28 )
 
-[node name="MyProject" type="Sprite" parent="."]
-position = Vector2( -1, -52 )
+[node name="Tittle and Controllers" type="Sprite" parent="."]
+position = Vector2( -1, -60 )
 scale = Vector2( 0.40625, 0.44 )
 texture = ExtResource( 12 )
+
+[node name="NewController" type="Sprite" parent="Tittle and Controllers"]
+position = Vector2( -295.385, 163.636 )
+scale = Vector2( 2.31769, 1.88636 )
+texture = ExtResource( 16 )
+
+[node name="move" type="Label" parent="Tittle and Controllers/NewController"]
+margin_left = -59.4756
+margin_top = -38.5542
+margin_right = -24.4756
+margin_bottom = -24.5542
+text = "Move"
+
+[node name="l1" type="Label" parent="Tittle and Controllers/NewController"]
+margin_left = -42.4826
+margin_top = -57.8313
+margin_right = 18.5174
+margin_bottom = -43.8313
+text = "L1 - Reset"
+
+[node name="block menu" type="Label" parent="Tittle and Controllers/NewController"]
+margin_left = 16.993
+margin_top = -38.5542
+margin_right = 56.993
+margin_bottom = -24.5542
+text = "Block menu"
+
+[node name="Jump" type="Label" parent="Tittle and Controllers/NewController"]
+margin_left = 1.52588e-05
+margin_top = 28.9156
+margin_right = 72.0
+margin_bottom = 42.9156
+text = "Jump/ Drop"
+
+[node name="XboxController" type="Sprite" parent="Tittle and Controllers"]
+position = Vector2( 315.077, 145.455 )
+scale = Vector2( 2.46154, 2.27273 )
+texture = ExtResource( 13 )
+
+[node name="Move" type="Label" parent="Tittle and Controllers/XboxController"]
+margin_left = -48.0
+margin_top = -48.0
+margin_right = -8.0
+margin_bottom = -34.0
+text = "Move"
+
+[node name="reset" type="Label" parent="Tittle and Controllers/XboxController"]
+margin_left = -104.0
+margin_top = -32.0
+margin_right = -40.0
+margin_bottom = -18.0
+text = "L1 - Reset"
+
+[node name="Block menu" type="Label" parent="Tittle and Controllers/XboxController"]
+margin_left = -24.0
+margin_top = -32.0
+margin_right = 52.0
+margin_bottom = -18.0
+text = "Block menu"
+
+[node name="Jump" type="Label" parent="Tittle and Controllers/XboxController"]
+margin_top = 32.0
+margin_right = 66.0
+margin_bottom = 46.0
+text = "Jump/drop"
+
+[node name="Label" type="Label" parent="Tittle and Controllers"]
+margin_left = -118.154
+margin_top = 290.909
+margin_right = 117.846
+margin_bottom = 345.909
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Arrow keys move
+Space bar to jump/ Drop block
+M to call block menu"
+uppercase = true
 
 [connection signal="pressed" from="Btn_Exit" to="Btn_Exit" method="_on_pressed"]
 [connection signal="pressed" from="Btn_Play" to="Btn_Play" method="_on_pressed"]
