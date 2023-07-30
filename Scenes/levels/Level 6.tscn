@@ -7,7 +7,6 @@
 [ext_resource path="res://Scenes/tileset.tres" type="TileSet" id=5]
 [ext_resource path="res://Prefabs/Vanishing-Red-Block.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Prefabs/Vanishing-Blue-Block.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Prefabs/Block_L2.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Prefabs/Block_LineH.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Scripts/World.gd" type="Script" id=10]
 [ext_resource path="res://Prefabs/Block_Lever.tscn" type="PackedScene" id=11]
@@ -16,6 +15,7 @@
 [ext_resource path="res://Prefabs/Lever.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Scripts/Stack.gd" type="Script" id=15]
 [ext_resource path="res://Scripts/StackController.gd" type="Script" id=16]
+[ext_resource path="res://Prefabs/Block_Box.tscn" type="PackedScene" id=17]
 
 [sub_resource type="Animation" id=28]
 resource_name = "Pan_Down"
@@ -129,6 +129,7 @@ anims/RESET = SubResource( 30 )
 [node name="StackContainer" type="Node2D" parent="StackController"]
 
 [node name="Stack1" type="Node2D" parent="StackController/StackContainer"]
+visible = false
 position = Vector2( -128, 128 )
 script = ExtResource( 15 )
 
@@ -154,13 +155,17 @@ position = Vector2( 128, -336 )
 position = Vector2( 0, -126 )
 script = ExtResource( 15 )
 
-[node name="Block_L2" parent="StackController/StackContainer/Stack2" instance=ExtResource( 8 )]
-position = Vector2( 96, -64 )
-
 [node name="Block_LineV" parent="StackController/StackContainer/Stack2" instance=ExtResource( 13 )]
 position = Vector2( -144, -50 )
 
+[node name="Block_Box" parent="StackController/StackContainer/Stack2" instance=ExtResource( 17 )]
+position = Vector2( -160, -50 )
+
+[node name="Block_Box2" parent="StackController/StackContainer/Stack2" instance=ExtResource( 17 )]
+position = Vector2( -160, -66 )
+
 [node name="Stack3" type="Node2D" parent="StackController/StackContainer"]
+visible = false
 script = ExtResource( 15 )
 
 [node name="Block_LineH" parent="StackController/StackContainer/Stack3" instance=ExtResource( 9 )]

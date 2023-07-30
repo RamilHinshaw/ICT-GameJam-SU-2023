@@ -81,7 +81,11 @@ use_scene_name = true
 level_name = "Level TEST"
 
 [node name="Coin" parent="World" instance=ExtResource( 4 )]
-position = Vector2( 79, -22 )
+position = Vector2( 143, -6 )
+z_index = 1
+
+[node name="Coin3" parent="World" instance=ExtResource( 4 )]
+position = Vector2( -113, 42 )
 z_index = 1
 
 [node name="Coin2" parent="World" instance=ExtResource( 4 )]

@@ -25,6 +25,10 @@ __meta__ = {
 use_scene_name = true
 level_name = "Level TEST"
 
+[node name="Coin" parent="World" instance=ExtResource( 2 )]
+position = Vector2( -0.999954, 10 )
+z_index = 1
+
 [node name="Label" type="Label" parent="World"]
 margin_left = -184.0
 margin_top = -106.0
@@ -204,7 +208,3 @@ position = Vector2( -97, -678 )
 
 [node name="Block_Box40" parent="." instance=ExtResource( 18 )]
 position = Vector2( -97, -678 )
-
-[node name="Coin" parent="Block_Box40" instance=ExtResource( 2 )]
-position = Vector2( 224, -400 )
-z_index = 1
