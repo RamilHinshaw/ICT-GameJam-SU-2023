@@ -13,10 +13,11 @@ onready var lbl_level:Label = $Label
 func _ready():
 #	Global.play_music(music)
 	
-	if use_scene_name:
-		lbl_level.text = get_tree().get_current_scene().get_name()
-	else:
-		lbl_level.text = level_name
+#	if use_scene_name:
+#		lbl_level.text = get_tree().get_current_scene().get_name()
+#	else:
+#		lbl_level.text = level_name
+	lbl_level.text = "Level " + str(Global.current_level+1)	
 
 
 	# SET ALL COINS

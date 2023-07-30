@@ -14,6 +14,7 @@ var _rods_highlighted:int = 0
 #var _coins_collected:int = 0
 
 var is_selected_vanishing_block_red:bool = true
+var reset_counter = 0
 
 var is_multiplayer:bool = false
 
@@ -55,6 +56,7 @@ func _process(delta):
 	
 	if (get_tree().get_current_scene().get_name() == "Title"):
 		is_multiplayer = false
+		reset_counter = 0
 		return
 	
 	if Input.is_action_just_released("ui_reset"):
@@ -100,6 +102,8 @@ func reset_level(has_died):
 		_death_subtext = "Death"
 	else:
 		_death_subtext = ""
+		
+	reset_counter += 1
 	
 	#is_world_paused = true
 	

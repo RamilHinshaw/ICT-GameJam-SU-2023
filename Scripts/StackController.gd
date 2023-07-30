@@ -66,7 +66,7 @@ func set_stacks_visiblity():
 	
 func update_UI():
 	var max_size:int = stackss.size()
-	ui_stack_counter.text = "Stack: " + str(_current_index+1) + "/" + str(max_size)
+	ui_stack_counter.text = "Stack: " + str(_current_index+1) + "/" + str(max_size) + "\nResets: " + str(Global.reset_counter)
 
 func input():
 	if Input.is_action_just_released("stack_mode"):

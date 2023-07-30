@@ -19,6 +19,8 @@ export var input_right:String = "ui_right"
 export var input_left:String = "ui_left"
 export var input_up:String = "ui_up"
 
+var playerID = 1
+
 var _can_change_gravity:bool = true
 
 var motion = Vector2.ZERO
